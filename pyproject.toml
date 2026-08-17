@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seasonbook"
+version = "2.0.0"
+description = "Wright/Malécot season book for the real AOA certificate herd"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+seasonbook = "seasonbook.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["seasonbook*"]
+
+[tool.setuptools.package-data]
+seasonbook = ["static/*"]

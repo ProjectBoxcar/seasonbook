@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Season Book</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg: #100e0b;
+    --panel: #1a1713;
+    --ink: #efe6d4;
+    --muted: #9a8c74;
+    --gold: #c4a35a;
+    --block: #d4543c;
+    --confirm: #d4a03c;
+    --proceed: #3d9a6a;
+    --line: #2a241c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 "Segoe UI", system-ui, sans-serif; }
+  header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 18px 28px 10px; border-bottom: 1px solid var(--line);
+  }
+  header h1 { font: 600 20px/1 Georgia, "Times New Roman", serif; margin: 0; letter-spacing: .02em; }
+  header .meta { color: var(--muted); font-size: 12px; }
+  nav { display: flex; gap: 6px; padding: 10px 28px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  nav button {
+    background: transparent; color: var(--muted); border: 1px solid var(--line);
+    padding: 6px 10px; cursor: pointer; font: 12px/1.2 ui-monospace, Consolas, monospace;
+  }
+  nav button.on { color: var(--bg); background: var(--gold); border-color: var(--gold); }
+  main { padding: 22px 28px 80px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+  .stat { background: var(--panel); padding: 14px 16px; border: 1px solid var(--line); }
+  .stat b { display: block; font: 600 22px/1.1 Georgia, serif; color: var(--gold); }
+  .stat span { color: var(--muted); font-size: 11px; }
+  h2 { font: 600 16px/1.2 Georgia, serif; margin: 28px 0 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th, td { text-align: left; padding: 5px 7px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; letter-spacing: .04em; font-size: 10px; }
+  .BLOCK { color: var(--block); }
+  .CONFIRM { color: var(--confirm); }
+  .PROCEED { color: var(--proceed); }
+  .note { color: var(--muted); max-width: 72ch; }
+  #heatmap { overflow: auto; max-height: 72vh; border: 1px solid var(--line); }
+  #heatmap table { font-size: 10px; }
+  #heatmap th { position: sticky; top: 0; background: var(--bg); z-index: 1; writing-mode: vertical-rl; transform: rotate(180deg); height: 120px; }
+  #heatmap td { width: 28px; text-align: center; cursor: pointer; }
+  input, select {
+    background: var(--panel); color: var(--ink); border: 1px solid var(--line);
+    padding: 6px 8px; min-width: 220px;
+  }
+  .story { background: var(--panel); border-left: 3px solid var(--gold); padding: 12px 16px; max-width: 80ch; }
+  kbd { border: 1px solid var(--line); padding: 0 5px; color: var(--gold); font-size: 11px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Season Book</h1>
+  <div class="meta" id="meta">loading certificates…</div>
+</header>
+<nav id="nav"></nav>
+<main id="main"></main>
+<script>
+const VIEWS = [
+  ["1", "briefing", "Briefing"],
+  ["2", "atlas", "Atlas"],
+  ["3", "heatmap", "Heatmap"],
+  ["4", "plan", "Plan"],
+  ["5", "lab", "Mate lab"],
+  ["6", "audit", "Audit"],
+  ["7", "cover", "Why / cover"],
+  ["8", "horizon", "Three seasons"],
+];
+let DATA = null;
+let view = "briefing";
+
+function $(id){ return document.getElementById(id); }
+function pct(x){ return (typeof x === "number") ? x.toFixed(2) + "%" : x; }
+function esc(s){ return String(s??"").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+async function boot(){
+  const r = await fetch("/api/snapshot");
+  DATA = await r.json();
+  const b = DATA.briefing;
+  $("meta").textContent = `${b.certificates} certificates · ${b.animals} animals · ${b.dams} dams × ${b.sires} sires · ${b.built}`;
+  renderNav();
+  render();
+}
+
+function renderNav(){
+  $("nav").innerHTML = VIEWS.map(([k,id,label]) =>
+    `<button data-v="${id}" class="${id===view?'on':''}"><kbd>${k}</kbd> ${label}</button>`
+  ).join("");
+  $("nav").onclick = e => {
+    const btn = e.target.closest("button");
+    if(btn){ view = btn.dataset.v; renderNav(); render(); }
+  };
+}
+
+document.addEventListener("keydown", e => {
+  if (e.target.matches("input,select,textarea")) return;
+  const hit = VIEWS.find(([k]) => k === e.key);
+  if (hit){ view = hit[1]; renderNav(); render(); }
+});
+
+function render(){
+  const fn = ({
+    briefing: viewBriefing,
+    atlas: viewAtlas,
+    heatmap: viewHeatmap,
+    plan: viewPlan,
+    lab: viewLab,
+    audit: viewAudit,
+    cover: viewCover,
+    horizon: viewHorizon,
+  })[view];
+  $("main").innerHTML = fn();
+  if (view === "lab") bindLab();
+}
+
+function viewBriefing(){
+  const b = DATA.briefing;
+  const topF = DATA.cards.slice(0, 8);
+  const founders = DATA.founders.slice(0, 8);
+  return `
+    <div class="grid">
+      <div class="stat"><b>${pct(b.mean_f_pct)}</b><span>Mean F of the 74 registered</span></div>
+      <div class="stat"><b>${pct(b.max_f_pct)}</b><span>Highest F · ${esc(b.max_f_name)}</span></div>
+      <div class="stat"><b>${b.effective_size}</b><span>Effective size (Ne) of the nucleus</span></div>
+      <div class="stat"><b>${b.founder_genome_equivalents}</b><span>Founder genome equivalents</span></div>
+      <div class="stat"><b>${b.blocks}</b><span>BLOCK pairings · ${b.confirms} CONFIRM</span></div>
+      <div class="stat"><b>${b.plan_n}</b><span>Year-1 bookings · mean F ${pct(b.plan_mean_f_pct)}</span></div>
+    </div>
+    <p class="note">F of a cria is the Malécot coancestry of its parents — the same science as Hereditas.
+    A low F on a thin pedigree is a floor, not an outcross. Color here is AOA phenotype, not genotype.
+    The registered nucleus behaves like ~${b.effective_size} unrelated animals, not ${b.registered}.</p>
+    <h2>Hottest registered animals (own F)</h2>
+    <table><tr><th>Animal</th><th>Sex</th><th>F</th><th>MK</th><th>ECG</th></tr>
+    ${topF.map(c => `<tr><td>${esc(c.name)}</td><td>${c.sex||"—"}</td>
+      <td>${pct(c.f_pct)}</td><td>${pct(c.mk_pct)}</td><td>${c.ecg}</td></tr>`).join("")}
+    </table>
+    <h2>Who owns the genome (expected founder share)</h2>
+    <table><tr><th>Founder</th><th>Share</th><th>In pedigrees</th></tr>
+    ${founders.map(f => `<tr><td>${esc(f.name)}</td><td>${(f.contribution*100).toFixed(2)}%</td>
+      <td>${f.presence}/${b.registered} (${f.presence_pct}%)</td></tr>`).join("")}
+    </table>`;
+}
+
+function viewAtlas(){
+  const rows = DATA.cards;
+  return `
+    <p class="note">${rows.length} registered animals, sorted by own F. MK is mean kinship against the rest of the nucleus.</p>
+    <table><tr><th>Animal</th><th>Sex</th><th>Color</th><th>Sire</th><th>Dam</th><th>F</th><th>MK</th><th>ECG</th></tr>
+    ${rows.map(c => `<tr>
+      <td>${esc(c.name)}</td><td>${c.sex||"—"}</td><td>${esc(c.color||"")}</td>
+      <td>${esc(c.sire_name||"")}</td><td>${esc(c.dam_name||"")}</td>
+      <td>${pct(c.f_pct)}</td><td>${pct(c.mk_pct)}</td><td>${c.ecg}</td>
+    </tr>`).join("")}
+    </table>`;
+}
+
+function viewHeatmap(){
+  const h = DATA.heatmap;
+  const head = `<tr><th></th>${h.sires.map(s => `<th title="${esc(s)}">${esc(s.slice(0,18))}</th>`).join("")}</tr>`;
+  const body = h.dams.map((d,i) => `<tr><th>${esc(d)}</th>${h.cells[i].map(c => {
+    const bg = c.verdict==="BLOCK" ? "rgba(212,84,60,.85)" : c.verdict==="CONFIRM" ? "rgba(212,160,60,.55)" : "rgba(61,154,106,.18)";
+    return `<td style="background:${bg}" title="${esc(d)} × ${""} F=${c.f_pct}% ${c.verdict}${c.top? " via "+c.top:""}">${c.f_pct>=10?c.f_pct.toFixed(0):""}</td>`;
+  }).join("")}</tr>`).join("");
+  return `<p class="note">Red stays visible. Dark red = BLOCK. Gold = CONFIRM. Green wash = PROCEED. Numbers appear at F ≥ 10%.</p>
+    <div id="heatmap"><table>${head}${body}</table></div>`;
+}
+
+function viewPlan(){
+  const p = DATA.plan;
+  return `
+    <p class="note">Year-1 assignment · capacity 4 · bottleneck dams first · lowest F then lowest sire MK.
+    Mean cria F ${pct(p.mean_f_pct)}. ${p.unassigned.length? "Unassigned: "+p.unassigned.join(", "): "Every dam booked."}</p>
+    <table><tr><th>Dam</th><th>Sire</th><th>F</th><th>Verdict</th><th>Why</th></tr>
+    ${p.assignments.map(a => `<tr>
+      <td>${esc(a.dam_name)}</td><td>${esc(a.sire_name)}</td>
+      <td>${pct(a.f_pct)}</td><td class="${a.verdict}">${a.verdict}</td>
+      <td>${esc(a.reason)}</td></tr>`).join("")}
+    </table>
+    <h2>Sires on the bench</h2>
+    <table><tr><th>Sire</th><th>MK</th><th>Legal</th><th>Why they sat out</th></tr>
+    ${p.bench.map(r => `<tr><td>${esc(r.sire_name)}</td><td>${pct(r.mk_pct)}</td>
+      <td>${r.legal}</td><td>${esc(r.why)}</td></tr>`).join("")}
+    </table>`;
+}
+
+function viewLab(){
+  const dams = DATA.cards.filter(c => c.sex==="F").map(c => c.name);
+  const sires = DATA.cards.filter(c => c.sex==="M").map(c => c.name);
+  return `
+    <p class="note">Ask for the Wright story of any pairing. The number is coancestry; the names are the paths.</p>
+    <p>
+      <select id="dam">${dams.map(n=>`<option>${esc(n)}</option>`).join("")}</select>
+      ×
+      <select id="sire">${sires.map(n=>`<option>${esc(n)}</option>`).join("")}</select>
+      <button id="go">Explain</button>
+    </p>
+    <div id="story"></div>`;
+}
+
+function bindLab(){
+  $("go").onclick = async () => {
+    const dam = $("dam").value, sire = $("sire").value;
+    const r = await fetch("/api/explain", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({dam, sire})
+    });
+    const j = await r.json();
+    if (!j.ok){ $("story").innerHTML = `<p class="note">${esc(j.error)}</p>`; return; }
+    $("story").innerHTML = `
+      <div class="story"><strong class="${j.verdict}">${j.verdict}</strong> · F = ${j.f_pct}%
+      <p>${esc(j.story)}</p></div>
+      <table><tr><th>Ancestor</th><th>Of F</th><th>Own F</th><th>Paths</th></tr>
+      ${(j.ancestors||[]).map(a => `<tr><td>${esc(a.name)}</td>
+        <td>${a.share_of_f}%</td><td>${a.ancestor_f_pct}%</td>
+        <td>${(a.paths||[]).map(p=>esc(p)).join("<br>")}</td></tr>`).join("")}
+      </table>
+      <p class="note">Pedigree completeness index ${j.completeness.index}
+      · ${j.completeness.equivalent_complete_generations} equivalent complete generations
+      ${j.completeness.may_underestimate_f ? " · this F may be a floor" : ""}.</p>`;
+  };
+}
+
+function viewAudit(){
+  const a = DATA.audit;
+  return `
+    <p class="note">${a.n_block} BLOCK · ${a.n_confirm} CONFIRM · ${a.n_proceed} PROCEED
+    among ${a.n_block+a.n_confirm+a.n_proceed} registered dam × sire pairs.</p>
+    <h2>BLOCK</h2>
+    <table><tr><th>Dam</th><th>Sire</th><th>F</th><th>Structure</th><th>Pushed by</th></tr>
+    ${a.blocks.map(p => `<tr>
+      <td>${esc(p.dam_name)}</td><td>${esc(p.sire_name)}</td>
+      <td class="BLOCK">${pct(p.f_pct)}</td>
+      <td>${esc((p.structural||"").replaceAll("_"," "))}</td>
+      <td>${esc(p.top_ancestor||"")}</td></tr>`).join("")}
+    </table>
+    <h2>CONFIRM</h2>
+    <table><tr><th>Dam</th><th>Sire</th><th>F</th><th>Pushed by</th></tr>
+    ${a.confirms.map(p => `<tr>
+      <td>${esc(p.dam_name)}</td><td>${esc(p.sire_name)}</td>
+      <td class="CONFIRM">${pct(p.f_pct)}</td>
+      <td>${esc(p.top_ancestor||"")}</td></tr>`).join("")}
+    </table>`;
+}
+
+function viewCover(){
+  return `
+    <h2>Sire coverage</h2>
+    <p class="note">A sire can be legal on every dam and still sit out. That is the assigner protecting mean kinship, not a BLOCK.</p>
+    <table><tr><th>Sire</th><th>MK</th><th>Legal</th><th>BLOCK</th><th>CONFIRM</th><th>Booked</th><th>Why</th></tr>
+    ${DATA.coverage.map(r => `<tr>
+      <td>${esc(r.sire_name)}</td><td>${pct(r.mk_pct)}</td>
+      <td>${r.legal}</td><td>${r.block}</td><td>${r.confirm}</td><td>${r.assigned}</td>
+      <td>${esc(r.why)}</td></tr>`).join("")}
+    </table>
+    <h2>Dams with the fewest legal sires</h2>
+    <table><tr><th>Dam</th><th>Legal</th><th>CONFIRM of those</th><th>BLOCK</th></tr>
+    ${DATA.bottlenecks.map(r => `<tr>
+      <td>${esc(r.dam_name)}</td><td>${r.legal}</td><td>${r.confirm}</td><td>${r.block}</td>
+    </tr>`).join("")}
+    </table>`;
+}
+
+function viewHorizon(){
+  const traj = DATA.trajectory;
+  return `
+    <p class="note">Same dam band for three seasons. Years 2 and 3 prefer stallions that have not yet worked.
+    Projected mean cria F:
+    ${traj.map(t => `Y${t.year} ${(t.mean_f*100).toFixed(2)}%`).join(" · ")}.</p>
+    ${DATA.rotation.map(p => `
+      <h2>Year ${p.year} · ${p.assignments.length} bookings · mean F ${pct(p.mean_f_pct)}</h2>
+      <p class="note">Sires: ${Object.entries(p.used_sires).map(([n,c]) => `${esc(n)} ×${c}`).join(", ")}</p>
+      <table><tr><th>Dam</th><th>Sire</th><th>F</th><th>Why</th></tr>
+      ${p.assignments.map(a => `<tr>
+        <td>${esc(a.dam_name)}</td><td>${esc(a.sire_name)}</td>
+        <td>${pct(a.f_pct)}</td><td>${esc(a.reason)}</td></tr>`).join("")}
+      </table>
+    `).join("")}`;
+}
+
+boot().catch(err => { $("main").innerHTML = `<p class="note">${esc(err)}</p>`; });
+</script>
+</body>
+</html>

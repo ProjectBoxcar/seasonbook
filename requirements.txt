@@ -1,0 +1,2 @@
+# Season Book is stdlib-only. Optional extras:
+# reportlab>=4.0  # only if you want a third-party PDF backend (we ship our own)
