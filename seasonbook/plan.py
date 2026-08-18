@@ -340,15 +340,15 @@ def dam_bottlenecks(pairs: list[Pair], herd: HerdGraph) -> list[dict]:
     return rows
 
 
-def rotate_three_seasons(
+def rotate_from_year1(
+    year1: SeasonPlan,
     pairs: list[Pair],
     herd: HerdGraph,
     engine: WrightEngine,
     capacity: int = 4,
 ) -> list[SeasonPlan]:
-    """Year 1 greedy; years 2–3 prefer sires that have not yet worked."""
-    y1 = assign_season(pairs, herd, engine, capacity, year=1)
-    used = {a.sire_id for a in y1.assignments}
+    """Years 2–3 prefer stallions that did not work in the (possibly rescued) year 1."""
+    used = {a.sire_id for a in year1.assignments}
     y2 = assign_season(
         pairs,
         herd,
@@ -366,7 +366,18 @@ def rotate_three_seasons(
         year=3,
         prefer_unused=set(herd.registered_ids) - used,
     )
-    return [y1, y2, y3]
+    return [year1, y2, y3]
+
+
+def rotate_three_seasons(
+    pairs: list[Pair],
+    herd: HerdGraph,
+    engine: WrightEngine,
+    capacity: int = 4,
+) -> list[SeasonPlan]:
+    """Year 1 greedy; years 2–3 prefer sires that have not yet worked."""
+    y1 = assign_season(pairs, herd, engine, capacity, year=1)
+    return rotate_from_year1(y1, pairs, herd, engine, capacity)
 
 
 def projected_cria_f(plans: list[SeasonPlan]) -> list[dict]:

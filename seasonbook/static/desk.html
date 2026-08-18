@@ -72,6 +72,8 @@ const VIEWS = [
   ["6", "audit", "Audit"],
   ["7", "cover", "Why / cover"],
   ["8", "horizon", "Three seasons"],
+  ["9", "blood", "Last Blood"],
+  ["0", "erode", "Erosion"],
 ];
 let DATA = null;
 let view = "briefing";
@@ -115,6 +117,8 @@ function render(){
     audit: viewAudit,
     cover: viewCover,
     horizon: viewHorizon,
+    blood: viewBlood,
+    erode: viewErode,
   })[view];
   $("main").innerHTML = fn();
   if (view === "lab") bindLab();
@@ -132,6 +136,9 @@ function viewBriefing(){
       <div class="stat"><b>${b.founder_genome_equivalents}</b><span>Founder genome equivalents</span></div>
       <div class="stat"><b>${b.blocks}</b><span>BLOCK pairings · ${b.confirms} CONFIRM</span></div>
       <div class="stat"><b>${b.plan_n}</b><span>Year-1 bookings · mean F ${pct(b.plan_mean_f_pct)}</span></div>
+      <div class="stat"><b>${b.rescued ?? 0}</b><span>Rescue bookings pulled into year 1</span></div>
+      <div class="stat"><b>${b.irreplaceable ?? "—"}</b><span>Irreplaceable · ${b.sitting_out ?? 0} still sitting out</span></div>
+      <div class="stat"><b>${b.rotation_saves ?? "—"}</b><span>Founders only rotation keeps</span></div>
     </div>
     <p class="note">F of a cria is the Malécot coancestry of its parents — the same science as Hereditas.
     A low F on a thin pedigree is a floor, not an outcross. Color here is AOA phenotype, not genotype.
@@ -175,8 +182,10 @@ function viewHeatmap(){
 function viewPlan(){
   const p = DATA.plan;
   return `
-    <p class="note">Year-1 assignment · capacity 4 · bottleneck dams first · lowest F then lowest sire MK.
-    Mean cria F ${pct(p.mean_f_pct)}. ${p.unassigned.length? "Unassigned: "+p.unassigned.join(", "): "Every dam booked."}</p>
+    <p class="note">Year-1 assignment · capacity 4 · then last-carrier rescue swaps.
+    Mean cria F ${pct(p.mean_f_pct)}. ${p.unassigned.length? "Unassigned: "+p.unassigned.join(", "): "Every dam booked."}
+    <a href="/board.pdf" style="color:var(--gold)">Season board</a>
+    · <a href="/cards.pdf" style="color:var(--gold)">barn cards</a></p>
     <table><tr><th>Dam</th><th>Sire</th><th>F</th><th>Verdict</th><th>Why</th></tr>
     ${p.assignments.map(a => `<tr>
       <td>${esc(a.dam_name)}</td><td>${esc(a.sire_name)}</td>
@@ -282,6 +291,76 @@ function viewHorizon(){
         <td>${pct(a.f_pct)}</td><td>${esc(a.reason)}</td></tr>`).join("")}
       </table>
     `).join("")}`;
+}
+
+function viewBlood(){
+  const lb = DATA.last_blood || {cards:[], sitting_out:[], last_founders:[], rare_founders:[]};
+  return `
+    <p class="note">A founder is <em>last</em> when only one registered animal still carries ≥ 3.1% of it.
+    If that animal is not booked, the blood leaves the living nucleus. Uniqueness is the sum of those rare shares.</p>
+    <div class="grid">
+      <div class="stat"><b>${lb.n_irreplaceable}</b><span>Irreplaceable animals</span></div>
+      <div class="stat"><b>${lb.n_last_founders}</b><span>Last founders (one carrier)</span></div>
+      <div class="stat"><b>${lb.n_rare_founders}</b><span>Rare founders (≤2 carriers)</span></div>
+      <div class="stat"><b>${(lb.sitting_out||[]).length}</b><span>Sitting out of year 1</span></div>
+    </div>
+    <h2>Sitting out this season</h2>
+    ${(lb.sitting_out||[]).length ? `
+    <table><tr><th>Animal</th><th>Sex</th><th>Unique</th><th>MK</th><th>Why</th></tr>
+    ${lb.sitting_out.map(c => `<tr>
+      <td>${esc(c.name)}</td><td>${c.sex||"—"}</td>
+      <td class="BLOCK">${pct(c.uniqueness_pct)}</td>
+      <td>${pct(c.mk_pct)}</td><td>${esc(c.why)}</td></tr>`).join("")}
+    </table>` : `<p class="note">Every last carrier is already in the year-1 plan.</p>`}
+    ${(lb.rescue||[]).length ? `
+    <h2>Rescue bookings — one dam, lowest legal F, keeps last blood</h2>
+    <table><tr><th>Sire on the bench</th><th>Book to</th><th>F</th><th>Keeps</th></tr>
+    ${lb.rescue.map(r => `<tr>
+      <td>${esc(r.sire_name)}</td><td>${esc(r.dam_name)}</td>
+      <td>${pct(r.f_pct)}</td><td>${esc(r.why)}</td></tr>`).join("")}
+    </table>` : ""}
+    <h2>Every last carrier</h2>
+    <table><tr><th>Animal</th><th>Sex</th><th>Unique</th><th>Year 1</th><th>Last of</th></tr>
+    ${(lb.cards||[]).filter(c => c.irreplaceable).map(c => `<tr>
+      <td>${esc(c.name)}</td><td>${c.sex||"—"}</td>
+      <td>${pct(c.uniqueness_pct)}</td>
+      <td class="${c.in_year1_plan?'PROCEED':'BLOCK'}">${c.in_year1_plan?"booked":"sits out"}</td>
+      <td>${esc((c.last_of||[]).slice(0,6).join(", "))}</td></tr>`).join("")}
+    </table>
+    <h2>Last founders</h2>
+    <table><tr><th>Founder</th><th>Carrier</th><th>Share in carrier</th></tr>
+    ${(lb.last_founders||[]).map(f => `<tr>
+      <td>${esc(f.founder_name)}</td>
+      <td>${esc((f.carriers[0]||{}).name||"")}</td>
+      <td>${pct((f.carriers[0]||{}).share_pct)}</td></tr>`).join("")}
+    </table>`;
+}
+
+function viewErode(){
+  const e = DATA.erosion || {rotation:[], habit:[], saved_by_rotation:[], lost_to_habit:[], habit_sires:[]};
+  const rows = (e.rotation||[]).map((r,i) => {
+    const h = (e.habit||[])[i] || {};
+    return `<tr>
+      <td>${r.year}</td>
+      <td>${pct(r.mean_f_pct)}</td><td>${pct(h.mean_f_pct)}</td>
+      <td>${r.n_founders}</td><td>${h.n_founders}</td>
+      <td>${esc(r.top_founder||"")}</td><td>${esc(h.top_founder||"")}</td>
+    </tr>`;
+  }).join("");
+  return `
+    <p class="note">${esc(e.summary||"")}</p>
+    <p class="note">Habit sires (hottest legal, capacity 4): ${esc((e.habit_sires||[]).join(", "))}</p>
+    <table><tr><th>Year</th><th>Rot F</th><th>Habit F</th><th>Rot founders</th><th>Habit founders</th><th>Rot top</th><th>Habit top</th></tr>
+    ${rows}</table>
+    <h2>Founders the rotation keeps and habit drops</h2>
+    ${(e.saved_by_rotation||[]).length ? `
+    <table><tr><th>Founder</th><th>Nucleus</th><th>Rotation</th><th>Habit</th></tr>
+    ${e.saved_by_rotation.map(r => `<tr>
+      <td>${esc(r.founder_name)}</td>
+      <td>${pct(r.nucleus_share_pct)}</td>
+      <td class="PROCEED">${pct(r.rotation_share_pct)}</td>
+      <td class="BLOCK">${pct(r.habit_share_pct)}</td></tr>`).join("")}
+    </table>` : `<p class="note">None at the 3.1% threshold. Habit still concentrates the top blood — see mean F.</p>`}`;
 }
 
 boot().catch(err => { $("main").innerHTML = `<p class="note">${esc(err)}</p>`; });

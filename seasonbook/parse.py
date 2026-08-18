@@ -54,6 +54,7 @@ class RawAnimal:
     color: str | None = None
     registered: bool = False
     source: str = ""
+    am_id: int | None = None
 
 
 @dataclass
@@ -392,7 +393,9 @@ def ingest_dir(cert_dir: Path) -> HerdGraph:
             seen.add(key)
 
     # Registered sex: being a parent of another *registered* animal is evidence.
-    # Distant ancestor votes must not flip a leaf subject (Tayt is not a dam).
+    # Looking Glass's certificate lists Irish Meadows Tayt as Dam (♀, AR 36115044);
+    # that vote wins over a stale seed. Distant ancestor votes still must not
+    # flip a leaf that never appears as a parent.
     reg_set = set(herd.registered_ids)
     sire_of_reg = {
         herd.animals[r].sire_key for r in reg_set if herd.animals[r].sire_key

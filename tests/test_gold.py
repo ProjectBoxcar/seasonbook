@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
 
 from seasonbook.explain import explain_pair, find_animal
 from seasonbook.pipeline import DEFAULT_CERT_DIR, build
@@ -78,6 +79,63 @@ class RealHerdGold(unittest.TestCase):
         joined = " | ".join(d + " x " + s for d, s in names)
         self.assertIn("AFTERSHOCK", joined)
         self.assertIn("ALYDAR", joined)
+
+    def test_last_blood_finds_irreplaceable(self):
+        lb = self.snap.last_blood
+        self.assertGreater(lb.n_last_founders, 0)
+        self.assertGreater(lb.n_irreplaceable, 0)
+        self.assertTrue(lb.cards)
+        self.assertTrue(self.snap.erosion.summary)
+
+    def test_habit_is_hotter_than_rotation(self):
+        e = self.snap.erosion
+        rot_y1 = e.rotation[0].mean_f
+        hab_y1 = e.habit[0].mean_f
+        self.assertGreaterEqual(hab_y1, rot_y1 - 1e-9)
+
+    def test_rescue_books_last_carrier_sires(self):
+        used = {a.sire_name.upper() for a in self.snap.plan.assignments}
+        self.assertIn("SNOWMASS MATRIX", used)
+        rescued = [a for a in self.snap.plan.assignments if a.reason.startswith("rescue:")]
+        self.assertGreaterEqual(len(rescued), 4)
+        sitting_sires = [c for c in self.snap.last_blood.sitting_out if c.sex == "M"]
+        self.assertEqual(sitting_sires, [])
+
+    def test_csv_has_three_years_and_rescues(self):
+        import tempfile
+
+        from seasonbook.export import plan_rows, write_plan_csv
+
+        rows = plan_rows(self.snap)
+        years = {int(r["year"]) for r in rows}
+        self.assertEqual(years, {1, 2, 3})
+        y1 = [r for r in rows if int(r["year"]) == 1]
+        self.assertEqual(len(y1), 48)
+        self.assertGreaterEqual(sum(1 for r in y1 if r["rescue"] == "R"), 4)
+        self.assertTrue(any("MATRIX" in r["sire"].upper() for r in y1))
+        path = write_plan_csv(self.snap, Path(tempfile.mkdtemp()))
+        text = path.read_text(encoding="utf-8")
+        self.assertIn("year,dam,sire,f_pct", text)
+
+    def test_board_pdf_is_pdf(self):
+        import tempfile
+
+        from seasonbook.book import write_board_pdf
+
+        path = write_board_pdf(self.snap, Path(tempfile.mkdtemp()))
+        self.assertTrue(path.read_bytes().startswith(b"%PDF"))
+        self.assertGreater(path.stat().st_size, 1000)
+
+    def test_horizon_rescues_last_carrier_sires(self):
+        from seasonbook.salvage import last_blood
+
+        self.assertEqual(len(self.snap.rotation), 3)
+        for plan in self.snap.rotation:
+            blood = last_blood(
+                self.snap.herd, self.snap.engine, plan, pairs=self.snap.pairs
+            )
+            sitting = [c.name for c in blood.sitting_out if c.sex == "M"]
+            self.assertEqual(sitting, [], msg=f"year {plan.year} still sitting: {sitting}")
 
 
 if __name__ == "__main__":

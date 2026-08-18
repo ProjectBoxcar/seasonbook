@@ -8,6 +8,7 @@ from datetime import date
 from pathlib import Path
 
 from .census import Census, build_census
+from .erode import Erosion, erode
 from .parse import HerdGraph, ingest_dir
 from .plan import (
     Audit,
@@ -18,8 +19,9 @@ from .plan import (
     coverage_table,
     dam_bottlenecks,
     projected_cria_f,
-    rotate_three_seasons,
+    rotate_from_year1,
 )
+from .salvage import LastBlood, apply_rescue, last_blood
 from .wright import DEFAULT_PEDIGREE_DEPTH, WrightEngine
 
 DEFAULT_CERT_DIR = (
@@ -43,6 +45,8 @@ class Snapshot:
     coverage: list
     bottlenecks: list
     trajectory: list
+    last_blood: LastBlood
+    erosion: Erosion
 
     def briefing(self) -> dict:
         c = self.census
@@ -68,28 +72,50 @@ class Snapshot:
             "confirms": self.audit.n_confirm,
             "proceed": self.audit.n_proceed,
             "thin_pedigrees": c.thin_pedigrees,
+            "irreplaceable": self.last_blood.n_irreplaceable,
+            "last_founders": self.last_blood.n_last_founders,
+            "rare_founders": self.last_blood.n_rare_founders,
+            "sitting_out": len(self.last_blood.sitting_out),
+            "rescued": sum(1 for a in self.plan.assignments if a.reason.startswith("rescue:")),
+            "habit_lost_founders": len(self.erosion.lost_to_habit),
+            "rotation_saves": len(self.erosion.saved_by_rotation),
         }
 
 
-def build(
-    cert_dir: Path | None = None,
+def build_from_herd(
+    herd: HerdGraph,
     max_gen: int = DEFAULT_PEDIGREE_DEPTH,
     capacity: int = 4,
+    source_label: str = "",
 ) -> Snapshot:
-    cert_dir = Path(cert_dir) if cert_dir else DEFAULT_CERT_DIR
-    herd = ingest_dir(cert_dir)
+    """Same snapshot pipeline, starting from an already-built graph.
+
+    AlpacaManager calls this after mapping SQLite rows. The offline desk
+    calls it after ingesting cert_lineage markdown.
+    """
     engine = WrightEngine(herd.to_pedigree(), max_gen=max_gen)
     census = build_census(herd, engine)
     pairs = all_pairs(herd, engine)
     audit = audit_pairs(pairs)
-    plan = assign_season(pairs, herd, engine, capacity=capacity, year=1)
-    rotation = rotate_three_seasons(pairs, herd, engine, capacity=capacity)
+    raw_plan = assign_season(pairs, herd, engine, capacity=capacity, year=1)
+    draft_blood = last_blood(herd, engine, raw_plan, pairs=pairs)
+    plan = apply_rescue(raw_plan, pairs, herd, engine, draft_blood, capacity=capacity)
+    rotation = rotate_from_year1(plan, pairs, herd, engine, capacity=capacity)
+    rescued_rot = [rotation[0]]
+    for later in rotation[1:]:
+        later_blood = last_blood(herd, engine, later, pairs=pairs)
+        rescued_rot.append(
+            apply_rescue(later, pairs, herd, engine, later_blood, capacity=capacity)
+        )
+    rotation = rescued_rot
     coverage = coverage_table(pairs, herd, engine, plan)
     bottlenecks = dam_bottlenecks(pairs, herd)
     trajectory = projected_cria_f(rotation)
+    blood = last_blood(herd, engine, plan, pairs=pairs)
+    erosion = erode(pairs, herd, engine, capacity=capacity, years=5)
     return Snapshot(
         built=date.today().isoformat(),
-        cert_dir=str(cert_dir),
+        cert_dir=source_label,
         n_certificates=len(herd.sources),
         herd=herd,
         engine=engine,
@@ -101,6 +127,23 @@ def build(
         coverage=coverage,
         bottlenecks=bottlenecks,
         trajectory=trajectory,
+        last_blood=blood,
+        erosion=erosion,
+    )
+
+
+def build(
+    cert_dir: Path | None = None,
+    max_gen: int = DEFAULT_PEDIGREE_DEPTH,
+    capacity: int = 4,
+) -> Snapshot:
+    cert_dir = Path(cert_dir) if cert_dir else DEFAULT_CERT_DIR
+    herd = ingest_dir(cert_dir)
+    return build_from_herd(
+        herd,
+        max_gen=max_gen,
+        capacity=capacity,
+        source_label=str(cert_dir),
     )
 
 
@@ -168,6 +211,8 @@ def snapshot_dict(snap: Snapshot) -> dict:
         },
         "coverage": [asdict(r) for r in snap.coverage],
         "bottlenecks": snap.bottlenecks,
+        "last_blood": snap.last_blood.as_dict(),
+        "erosion": snap.erosion.as_dict(),
         "heatmap": _heatmap(snap),
         "animals": [
             {

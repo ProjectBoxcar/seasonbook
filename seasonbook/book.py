@@ -180,7 +180,16 @@ def write_season_book(snap: Snapshot, out_dir: Path | None = None) -> Path:
         y -= 12
 
     y -= 8
-    pdf.text(36, y, 11, "Year-1 plan  (capacity 4, bottleneck dams first, freshest legal sire)", 0.18, 0.14, 0.10)
+    rescued = sum(1 for a in snap.plan.assignments if a.reason.startswith("rescue:"))
+    pdf.text(
+        36,
+        y,
+        11,
+        f"Year-1 plan  (capacity 4, then {rescued} last-carrier rescue swap(s))",
+        0.18,
+        0.14,
+        0.10,
+    )
     y -= 16
     pdf.text(36, y, 8, "DAM", 0.45, 0.38, 0.22)
     pdf.text(250, y, 8, "SIRE", 0.45, 0.38, 0.22)
@@ -338,10 +347,231 @@ def write_rotation_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
     return path
 
 
+def write_last_blood_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
+    """Barn wall: animals that uniquely carry a founder, and the 5-year habit cost."""
+    out_dir = Path(out_dir) if out_dir else DEFAULT_OUT
+    lb = snap.last_blood
+    e = snap.erosion
+    pdf = _Pdf("Last Blood")
+    pdf.new_page()
+    y = _header(
+        pdf,
+        "Last Blood  ·  conservation genetics of the nucleus",
+        "If these animals sit out, this blood leaves the herd",
+        f"{lb.n_irreplaceable} irreplaceable  ·  {lb.n_last_founders} last founders  ·  "
+        f"{len(lb.sitting_out)} sitting out of year 1  ·  built {snap.built}",
+    )
+    pdf.text(36, y, 9, "A founder is last when only one registered animal still carries ≥ 3.1% of it.", 0.35, 0.30, 0.22)
+    y -= 14
+    pdf.text(36, y, 11, "Sitting out this season", 0.55, 0.16, 0.12)
+    y -= 16
+    if not lb.sitting_out:
+        pdf.text(36, y, 9, "Every last carrier is already in the year-1 plan.")
+        y -= 14
+    for c in lb.sitting_out:
+        if y < 56:
+            pdf.new_page()
+            y = _header(pdf, "Last Blood", "Sitting out (continued)", "")
+        pdf.text(36, y, 9, f"{c.name}  ({c.sex or '?'})", 0.45, 0.12, 0.10)
+        pdf.text(360, y, 8, f"{c.uniqueness_pct:.1f}% unique  MK {c.mk_pct:.2f}%")
+        y -= 11
+        pdf.text(48, y, 8, c.why[:100], 0.30, 0.26, 0.20)
+        y -= 13
+
+    if lb.rescue:
+        y -= 8
+        pdf.text(36, y, 11, "Rescue bookings (one legal dam, lowest F)", 0.18, 0.14, 0.10)
+        y -= 16
+        for r in lb.rescue:
+            if y < 56:
+                pdf.new_page()
+                y = _header(pdf, "Last Blood", "Rescue bookings (continued)", "")
+            pdf.text(36, y, 9, f"{r['sire_name']}  x  {r['dam_name']}  F={r['f_pct']:.2f}%")
+            y -= 11
+            pdf.text(48, y, 8, str(r["why"])[:100], 0.30, 0.26, 0.20)
+            y -= 13
+
+    y -= 6
+    pdf.text(36, y, 11, "Every last carrier", 0.18, 0.14, 0.10)
+    y -= 16
+    for c in lb.cards:
+        if not c.irreplaceable:
+            continue
+        if y < 48:
+            pdf.new_page()
+            y = _header(pdf, "Last Blood", "Irreplaceable (continued)", "")
+        flag = "BOOKED" if c.in_year1_plan else "SITS OUT"
+        pdf.text(36, y, 8, c.name[:34])
+        pdf.text(260, y, 8, c.sex or "?")
+        pdf.text(290, y, 8, f"{c.uniqueness_pct:.1f}%")
+        pdf.text(340, y, 8, flag, 0.55, 0.16, 0.12 if not c.in_year1_plan else 0.22)
+        pdf.text(410, y, 8, ", ".join(c.last_of[:3])[:40], 0.30, 0.26, 0.20)
+        y -= 11
+
+    pdf.new_page()
+    y = _header(
+        pdf,
+        "Five-year counterfactual",
+        "Rotation vs barn habit",
+        e.summary[:120],
+    )
+    pdf.text(36, y, 9, "Habit = hottest legal sire still under capacity. That is Matrix / Alydar / Smokin Waves.", 0.35, 0.30, 0.22)
+    y -= 18
+    pdf.text(36, y, 8, "YEAR")
+    pdf.text(90, y, 8, "ROT F")
+    pdf.text(150, y, 8, "HABIT F")
+    pdf.text(230, y, 8, "ROT FOUNDERS")
+    pdf.text(340, y, 8, "HABIT FOUNDERS")
+    y -= 4
+    pdf.rule(36, y, 540, 0.4)
+    y -= 14
+    for r, h in zip(e.rotation, e.habit):
+        pdf.text(36, y, 10, str(r.year))
+        pdf.text(90, y, 10, f"{r.mean_f_pct:.2f}%")
+        pdf.text(150, y, 10, f"{h.mean_f_pct:.2f}%")
+        pdf.text(230, y, 10, str(r.n_founders))
+        pdf.text(340, y, 10, str(h.n_founders))
+        y -= 14
+
+    y -= 10
+    pdf.text(36, y, 11, "Founders the rotation keeps and habit drops", 0.18, 0.14, 0.10)
+    y -= 16
+    if not e.saved_by_rotation:
+        pdf.text(36, y, 9, "None at the 3.1% threshold — habit still concentrates the top blood.")
+        y -= 14
+    for row in e.saved_by_rotation[:28]:
+        if y < 48:
+            pdf.new_page()
+            y = _header(pdf, "Last Blood", "Founders habit drops (continued)", "")
+        pdf.text(36, y, 8, row.founder_name[:34])
+        pdf.text(280, y, 8, f"nucleus {row.nucleus_share_pct:.2f}%")
+        pdf.text(390, y, 8, f"rot {row.rotation_share_pct:.2f}%")
+        pdf.text(480, y, 8, f"habit {row.habit_share_pct:.2f}%")
+        y -= 11
+
+    path = out_dir / "LastBlood.pdf"
+    pdf.save(path)
+    return path
+
+
+def write_board_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
+    """One-page-per-year barn board. Rescue rows stay visible."""
+    out_dir = Path(out_dir) if out_dir else DEFAULT_OUT
+    pdf = _Pdf("Season board")
+    plans = list(snap.rotation) or [snap.plan]
+    for plan in plans:
+        pdf.new_page()
+        rescued = sum(1 for a in plan.assignments if a.reason.startswith("rescue:"))
+        y = _header(
+            pdf,
+            "Season board  ·  pin this up",
+            f"Year {plan.year}  ·  {len(plan.assignments)} bookings",
+            f"mean F {plan.mean_f * 100:.2f}%  ·  {rescued} last-carrier rescue  ·  "
+            f"{len(plan.used_sires)} sires  ·  {snap.built}",
+        )
+        pdf.text(36, y, 8, "R = rescue (last living carrier). Do not skip the gold rows.", 0.45, 0.32, 0.16)
+        y -= 16
+        pdf.text(36, y, 8, "DAM")
+        pdf.text(250, y, 8, "SIRE")
+        pdf.text(460, y, 8, "F")
+        pdf.text(510, y, 8, "")
+        y -= 4
+        pdf.rule(36, y, 540, 0.4)
+        y -= 12
+        for a in plan.assignments:
+            if y < 40:
+                pdf.new_page()
+                y = _header(pdf, "Season board", f"Year {plan.year} continued", "")
+            rescue = a.reason.startswith("rescue:")
+            if rescue:
+                pdf.box(36, y - 3, 540, 12, 0.93, 0.84, 0.62)
+                pdf.text(36, y, 8, a.dam_name[:34], 0.40, 0.18, 0.06)
+                pdf.text(250, y, 8, a.sire_name[:32], 0.40, 0.18, 0.06)
+                pdf.text(460, y, 8, f"{a.f_pct:.2f}%", 0.40, 0.18, 0.06)
+                pdf.text(510, y, 8, "R", 0.55, 0.16, 0.12)
+            else:
+                pdf.text(36, y, 8, a.dam_name[:34])
+                pdf.text(250, y, 8, a.sire_name[:32])
+                pdf.text(460, y, 8, f"{a.f_pct:.2f}%")
+            y -= 11
+        y -= 10
+        pdf.text(36, y, 8, "Sires: " + ", ".join(
+            f"{n}×{c}" for n, c in sorted(plan.used_sires.items(), key=lambda kv: (-kv[1], kv[0]))
+        )[:110], 0.35, 0.30, 0.22)
+    path = out_dir / "SeasonBoard.pdf"
+    pdf.save(path)
+    return path
+
+
+def write_cards_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
+    """Clipboard cards — one booking per card, 6 to a letter page."""
+    out_dir = Path(out_dir) if out_dir else DEFAULT_OUT
+    pdf = _Pdf("Barn cards")
+    slots = [
+        (36, 540),
+        (318, 540),
+        (36, 300),
+        (318, 300),
+        (36, 60),
+        (318, 60),
+    ]
+    w, h = 258, 228
+    assignments = list(snap.plan.assignments)
+    if not assignments:
+        pdf.new_page()
+        _header(pdf, "Barn cards", "No year-1 bookings", "")
+    for i, a in enumerate(assignments):
+        if i % 6 == 0:
+            pdf.new_page()
+            pdf.text(36, 776, 8, f"Year {a.year}  ·  barn cards  ·  {snap.built}", 0.45, 0.38, 0.22)
+        x, y = slots[i % 6]
+        rescue = a.reason.startswith("rescue:")
+        if rescue:
+            pdf.box(x, y, 6, h, 0.72, 0.42, 0.12)
+        else:
+            pdf.box(x, y, 6, h, 0.18, 0.42, 0.28)
+        pdf.box(x + 6, y, w - 6, h, 0.98, 0.96, 0.90)
+        pdf.text(x + 16, y + h - 22, 8, "DAM", 0.45, 0.38, 0.22)
+        pdf.text(x + 16, y + h - 40, 12, a.dam_name[:28], 0.18, 0.14, 0.10)
+        pdf.text(x + 16, y + h - 58, 8, "SIRE", 0.45, 0.38, 0.22)
+        pdf.text(x + 16, y + h - 76, 12, a.sire_name[:28], 0.18, 0.14, 0.10)
+        tag = "RESCUE" if rescue else a.verdict
+        pdf.text(x + 16, y + h - 100, 14, f"F = {a.f_pct:.2f}%", 0.18, 0.14, 0.10)
+        pdf.text(x + 150, y + h - 100, 10, tag, 0.55, 0.16, 0.12 if rescue else 0.22)
+        pair = next(
+            (
+                p
+                for p in snap.pairs
+                if p.dam_id == a.dam_id and p.sire_id == a.sire_id
+            ),
+            None,
+        )
+        if pair and pair.top_ancestor and pair.F >= 0.01:
+            pdf.text(
+                x + 16,
+                y + 108,
+                8,
+                f"Wright: {pair.top_ancestor[:28]} ({pair.top_contrib_pct:.0f}% of F)",
+                0.35,
+                0.22,
+                0.12,
+            )
+        reason = a.reason or ""
+        for n, start in enumerate(range(0, min(len(reason), 180), 42)):
+            pdf.text(x + 16, y + 88 - n * 12, 8, reason[start : start + 42], 0.30, 0.26, 0.20)
+        pdf.text(x + 16, y + 16, 8, f"card {i + 1} / {len(assignments)}", 0.45, 0.38, 0.22)
+    path = out_dir / "BarnCards.pdf"
+    pdf.save(path)
+    return path
+
+
 def write_all_pdfs(snap: Snapshot, out_dir: Path | None = None) -> list[Path]:
     return [
         write_season_book(snap, out_dir),
         write_wall(snap, out_dir),
         write_census_pdf(snap, out_dir),
         write_rotation_pdf(snap, out_dir),
+        write_last_blood_pdf(snap, out_dir),
+        write_cards_pdf(snap, out_dir),
+        write_board_pdf(snap, out_dir),
     ]

@@ -2,7 +2,7 @@
 
 Wright / Malécot genetics on the **74 real AOA certificates** in AlpacaManager. Standalone package — it does not modify AlpacaManager or Hereditas.
 
-The farm can see *what* to book. This desk shows *why*, *which Wright path pushes the number*, and *what the nucleus looks like if you repeat the plan for three seasons*.
+The farm can see *what* to book. This desk shows *why*, *which Wright path pushes the number*, *which living animal is the last carrier of a founder*, and *what the next generation loses if you keep using the famous stallions*.
 
 ## What it is
 
@@ -34,13 +34,20 @@ python -m seasonbook why "MATRIX"
 python -m seasonbook cover
 python -m seasonbook kinship
 python -m seasonbook horizon
+python -m seasonbook salvage
+python -m seasonbook erode
+python -m seasonbook cards
+python -m seasonbook tonight
+python -m seasonbook csv
+python -m seasonbook board
+python -m seasonbook seed-am
 python -m seasonbook book
 python -m seasonbook serve
 ```
 
-Desk: `http://127.0.0.1:8765/` — keys **1–8**
+Desk: `http://127.0.0.1:8765/` — keys **1–0**
 
-Briefing · Atlas · Heatmap · Plan · Mate lab · Audit · Why / cover · Three seasons
+Briefing · Atlas · Heatmap · Plan · Mate lab · Audit · Why / cover · Three seasons · Last Blood · Erosion
 
 Printables land in `data/output/`:
 
@@ -48,9 +55,18 @@ Printables land in `data/output/`:
 - `DoNotBook.pdf` (barn wall)
 - `FounderCensus.pdf`
 - `Rotation.pdf`
+- `LastBlood.pdf` (last carriers + 5-year habit cost)
+- `BarnCards.pdf` (clipboard: one booking per card)
+- `SeasonBoard.pdf` (one page per year, rescue rows gold)
+- `nucleus.db` (`seed-am` — AM-shaped SQLite of the 74, not the demo herd)
 - `snapshot.json`
 
 Certificates are read from `../AlpacaManager/docs/cert_lineage`. Override with `--certs`.
+
+PacaPilot farm tabs (Audit / Census / Last Blood / Horizon / PDFs) read
+`data/output/nucleus.db` when the live SQLite has fewer than 40 owned animals
+(the Amber demo is 19). Breeding → New still gates against the **live** herd
+ids. Override with `SEASONBOOK_NUCLEUS=/path/to/nucleus.db` or `=0` to force live.
 
 ## Tests
 
@@ -68,7 +84,7 @@ Parent × offspring is 0.25 regardless of id order. Aftershock × Alydar is the 
 | CONFIRM | half-sib / grandparent range, F ≥ 10% |
 | PROCEED | below that |
 
-Year-1 assignment: bottleneck dams first, never BLOCK, prefer PROCEED, minimise F then sire mean kinship, capacity 4. Years 2–3 prefer stallions that have not yet worked.
+Year-1 assignment: bottleneck dams first, never BLOCK, prefer PROCEED, minimise F then sire mean kinship, capacity 4. Then a **rescue pass** steals one dam from a replaceable sire (2+ bookings) onto each last-carrier stallion that the diversity pass left on the bench. Years 2–3 prefer stallions that have not yet worked.
 
 ---
 
@@ -162,8 +178,12 @@ Prefix: `/api/seasonbook`. Same session auth as `/api/hereditas`.
 | `GET` | `/cover` | `?sire=` optional | Sire coverage + “why they sat out” |
 | `GET` | `/horizon` | — | Three-season rotation + projected cria F |
 | `GET` | `/plan` | — | Year-1 assignments (capacity default 4) |
-| `POST` | `/book` | — | Writes the four PDFs; returns their paths or a zip |
+| `GET` | `/salvage` | — | Last Blood: irreplaceable animals, last founders, sitting out |
+| `GET` | `/erode` | — | Five-year rotation vs barn habit |
+| `GET` | `/pair` | `?dam_id=&sire_id=` | BLOCK / CONFIRM / PROCEED for an owned pair |
+| `POST` | `/book` | — | Writes the five PDFs; returns their paths or a zip |
 | `GET` | `/wall.pdf` | — | `DoNotBook.pdf` (barn wall) |
+| `GET` | `/lastblood.pdf` | — | Last Blood printable |
 
 Call `sync` once after login and again after a certificate import. Cache the
 `Snapshot` on the process (it is cheap to rebuild: ~1 s on 74 certificates).
@@ -192,7 +212,9 @@ Do not create `/seasonbook`. Add tabs on the existing Hereditas page
    the alpaca profile. Button: “Download barn wall” → `GET /api/seasonbook/wall.pdf`.
 2. **Census** — Ne, founder-genome equivalents, founder share table, presence
    table. Spell out: *presence ≠ gene share*.
-3. **Horizon** — year 1 / 2 / 3 assignments and the projected mean cria F.
+3. **Last Blood** — last living carriers, who sits out of year 1, five-year
+   habit cost. Button: `GET /api/seasonbook/lastblood.pdf`.
+4. **Horizon** — year 1 / 2 / 3 assignments and the projected mean cria F.
 
 On **Breeding → New** (already talks to Hereditas):
 

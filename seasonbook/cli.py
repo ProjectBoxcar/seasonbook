@@ -1,4 +1,4 @@
-"""python -m seasonbook {analyze|plan|audit|explain|why|cover|kinship|horizon|book|serve}"""
+"""python -m seasonbook {analyze|plan|audit|explain|why|cover|kinship|horizon|salvage|erode|book|serve}"""
 
 from __future__ import annotations
 
@@ -7,7 +7,8 @@ import json
 import sys
 from pathlib import Path
 
-from .book import write_all_pdfs
+from .book import write_all_pdfs, write_board_pdf, write_cards_pdf
+from .export import tonight_lines, write_plan_csv
 from .explain import explain_animal, explain_pair
 from .pipeline import DEFAULT_CERT_DIR, DEFAULT_OUT, build, write_snapshot
 from .serve import serve
@@ -28,6 +29,11 @@ def cmd_analyze(args) -> int:
     print(f"  mean MK          {b['mean_mk_pct']:.2f}%")
     print(f"  Ne               {b['effective_size']:.1f}")
     print(f"  founder genomes  {b['founder_genome_equivalents']:.2f}")
+    print(
+        f"  last blood       {b['irreplaceable']} irreplaceable  ·  "
+        f"{b['last_founders']} last founders  ·  {b['sitting_out']} sitting out  ·  "
+        f"{b.get('rescued', 0)} rescued into year 1"
+    )
     print()
     print("Hottest registered (own F)")
     for card in snap.census.cards[:8]:
@@ -143,10 +149,130 @@ def cmd_horizon(args) -> int:
     return 0
 
 
+def cmd_salvage(args) -> int:
+    snap = _snap(args)
+    lb = snap.last_blood
+    print(
+        f"LAST BLOOD  {lb.n_irreplaceable} irreplaceable  ·  "
+        f"{lb.n_last_founders} last founders  ·  "
+        f"{lb.n_rare_founders} rare (≤2 carriers, share ≥ {lb.threshold*100:.1f}%)"
+    )
+    if lb.sitting_out:
+        print("\nSitting out this season (last carrier, not booked)")
+        for c in lb.sitting_out:
+            print(f"  {c.uniqueness_pct:5.2f}% unique  {c.sex or '?'}  {c.name}")
+            print(f"      {c.why}")
+    if lb.rescue:
+        print("\nRescue bookings (one legal dam, lowest F, keeps last blood)")
+        for r in lb.rescue:
+            print(f"  {r['sire_name']}  ×  {r['dam_name']}  F={r['f_pct']:.2f}%")
+            print(f"      {r['why']}")
+    print("\nIrreplaceable animals")
+    for c in lb.cards:
+        if not c.irreplaceable:
+            continue
+        flag = "BOOKED" if c.in_year1_plan else "SITS OUT"
+        print(f"  {c.uniqueness_pct:5.2f}%  {c.sex or '?'}  {c.name:32s}  {flag}")
+        print(f"      last of: {', '.join(c.last_of[:6])}")
+    print("\nLast founders (one living carrier)")
+    for f in lb.last_founders[:24]:
+        carrier = f.carriers[0]
+        print(
+            f"  {f.founder_name:32s}  →  {carrier.name}  ({carrier.share_pct:.1f}%)"
+        )
+    return 0
+
+
+def cmd_erode(args) -> int:
+    snap = _snap(args)
+    e = snap.erosion
+    print(e.summary)
+    print("\nYEAR   ROT F   HAB F   ROT founders   HAB founders")
+    for r, h in zip(e.rotation, e.habit):
+        print(
+            f"  {r.year}   {r.mean_f_pct:5.2f}%  {h.mean_f_pct:5.2f}%   "
+            f"{r.n_founders:4d}           {h.n_founders:4d}"
+        )
+    print("\nFounders the rotation keeps and habit drops")
+    if not e.saved_by_rotation:
+        print("  (none at the ≥3.1% threshold)")
+    for row in e.saved_by_rotation[:20]:
+        print(
+            f"  {row.founder_name:32s}  nucleus {row.nucleus_share_pct:5.2f}%  "
+            f"rotation {row.rotation_share_pct:5.2f}%  habit {row.habit_share_pct:5.2f}%"
+        )
+    print("\nHabit sires (hottest legal, capacity 4):", ", ".join(e.habit_sires))
+    return 0
+
+
+def cmd_tonight(args) -> int:
+    snap = _snap(args)
+    for line in tonight_lines(snap):
+        print(line)
+    csv_path = write_plan_csv(snap, args.out)
+    board = write_board_pdf(snap, args.out)
+    print(f"  csv    {csv_path}")
+    print(f"  board  {board}")
+    return 0
+
+
+def cmd_csv(args) -> int:
+    snap = _snap(args)
+    path = write_plan_csv(snap, args.out)
+    rows = path.read_text(encoding="utf-8").strip().splitlines()
+    print("wrote", path)
+    print(f"  {len(rows) - 1} bookings across {len(snap.rotation) or 1} year(s)")
+    return 0
+
+
+def cmd_board(args) -> int:
+    snap = _snap(args)
+    path = write_board_pdf(snap, args.out)
+    print("wrote", path)
+    for plan in snap.rotation or [snap.plan]:
+        rescued = [a for a in plan.assignments if a.reason.startswith("rescue:")]
+        print(
+            f"  year {plan.year}  {len(plan.assignments)} bookings  "
+            f"mean F {plan.mean_f*100:.2f}%  rescue {len(rescued)}"
+        )
+        for a in rescued:
+            print(f"    R  {a.dam_name}  ×  {a.sire_name}  F={a.f_pct:.2f}%")
+    return 0
+
+
+def cmd_cards(args) -> int:
+    snap = _snap(args)
+    path = write_cards_pdf(snap, args.out)
+    print("wrote", path)
+    print(f"{len(snap.plan.assignments)} cards  ·  year {snap.plan.year}  ·  mean F {snap.plan.mean_f*100:.2f}%")
+    rescued = [a for a in snap.plan.assignments if a.reason.startswith("rescue:")]
+    for a in rescued:
+        print(f"  RESCUE  {a.dam_name}  ×  {a.sire_name}  F={a.f_pct:.2f}%")
+    return 0
+
+
+def cmd_seed_am(args) -> int:
+    from .parse import ingest_dir
+    from .seed_am import seed_sqlite
+
+    dest = Path(args.dest) if args.dest else args.out / "nucleus.db"
+    if dest.name.lower() in {"alpaca_demo.db", "alpaca_data.db"}:
+        print("refusing to overwrite", dest, file=sys.stderr)
+        return 2
+    herd = ingest_dir(args.certs)
+    path = seed_sqlite(dest, herd=herd)
+    n_owned = sum(1 for a in herd.animals.values() if a.registered)
+    print(f"wrote {path}")
+    print(f"  registered {n_owned}  ·  graph {len(herd.animals)}  ·  certs {len(herd.sources)}")
+    print("Point a Season Book sync at this file. Do not overwrite alpaca_demo.db.")
+    return 0
+
+
 def cmd_book(args) -> int:
     snap = _snap(args)
     write_snapshot(snap, args.out)
     paths = write_all_pdfs(snap, args.out)
+    paths.append(write_plan_csv(snap, args.out))
     for p in paths:
         print("wrote", p)
     return 0
@@ -199,6 +325,33 @@ def main(argv: list[str] | None = None) -> int:
 
     p = sub.add_parser("horizon", help="three-season rotation")
     p.set_defaults(func=cmd_horizon)
+
+    p = sub.add_parser("salvage", help="last living carriers of rare founders")
+    p.set_defaults(func=cmd_salvage)
+
+    p = sub.add_parser("erode", help="five-year rotation vs barn habit")
+    p.set_defaults(func=cmd_erode)
+
+    p = sub.add_parser("tonight", help="year-1 barn briefing + csv + board")
+    p.set_defaults(func=cmd_tonight)
+
+    p = sub.add_parser("csv", help="write SeasonPlan.csv (years 1–3)")
+    p.set_defaults(func=cmd_csv)
+
+    p = sub.add_parser("board", help="one-page-per-year barn board PDF")
+    p.set_defaults(func=cmd_board)
+
+    p = sub.add_parser("cards", help="barn clipboard cards PDF")
+    p.set_defaults(func=cmd_cards)
+
+    p = sub.add_parser("seed-am", help="write a minimal AM-shaped SQLite of the 74")
+    p.add_argument(
+        "--dest",
+        type=Path,
+        default=None,
+        help="sqlite path (default: --out/nucleus.db). Never alpaca_demo.db.",
+    )
+    p.set_defaults(func=cmd_seed_am)
 
     p = sub.add_parser("book", help="write PDFs + snapshot.json")
     p.set_defaults(func=cmd_book)
