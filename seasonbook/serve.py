@@ -70,6 +70,7 @@ def serve(snap: Snapshot, host: str = "127.0.0.1", port: int = 8765) -> None:
                 "/gate.pdf",
                 "/wean.pdf",
                 "/catalog.pdf",
+                "/next.pdf",
             }:
                 from .book import (
                     write_board_pdf,
@@ -77,6 +78,7 @@ def serve(snap: Snapshot, host: str = "127.0.0.1", port: int = 8765) -> None:
                     write_catalog_pdf,
                     write_gate_pdf,
                     write_last_blood_pdf,
+                    write_next_pdf,
                     write_wall,
                     write_wean_pdf,
                 )
@@ -90,6 +92,7 @@ def serve(snap: Snapshot, host: str = "127.0.0.1", port: int = 8765) -> None:
                     "/gate.pdf": write_gate_pdf,
                     "/wean.pdf": write_wean_pdf,
                     "/catalog.pdf": write_catalog_pdf,
+                    "/next.pdf": write_next_pdf,
                 }[path]
                 pdf_path = writer(snap, DEFAULT_OUT)
                 self._send(200, pdf_path.read_bytes(), "application/pdf")
@@ -118,7 +121,7 @@ def serve(snap: Snapshot, host: str = "127.0.0.1", port: int = 8765) -> None:
 
     httpd = ThreadingHTTPServer((host, port), Handler)
     print(f"Season Book desk  http://{host}:{port}/")
-    print("Keys 1–0 G W  Briefing · Atlas · Heatmap · Plan · Lab · Audit · Why · Horizon · Last Blood · Erosion · Gate · Wean")
+    print("Keys 1–0 G W N  Briefing · Atlas · Heatmap · Plan · Lab · Audit · Why · Horizon · Last Blood · Erosion · Gate · Wean · Next")
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:

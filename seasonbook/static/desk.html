@@ -80,6 +80,7 @@ const VIEWS = [
   ["0", "erode", "Erosion"],
   ["g", "gate", "Keep / Let Go"],
   ["w", "wean", "Wean"],
+  ["n", "next", "Next"],
 ];
 let DATA = null;
 let view = "briefing";
@@ -128,6 +129,7 @@ function render(){
     erode: viewErode,
     gate: viewGate,
     wean: viewWean,
+    next: viewNext,
   })[view];
   $("main").innerHTML = fn();
   if (view === "lab") bindLab();
@@ -151,6 +153,7 @@ function viewBriefing(){
       <div class="stat"><b>${b.let_go ?? "—"}</b><span>LET GO this fall · ${b.keep ?? 0} KEEP</span></div>
       <div class="stat"><b>${b.last_founders_after ?? "—"}</b><span>Last founders after the cria crop</span></div>
       <div class="stat"><b>${b.wean_cover ?? "—"}</b><span>Cria that must stay · ${b.wean_sellable ?? 0} sellable</span></div>
+      <div class="stat"><b>${b.next_collisions ?? "—"}</b><span>Horizon collisions · shrink Y2 ${b.next_shrink_year2 ?? "—"}</span></div>
     </div>
     <p class="note">F of a cria is the Malécot coancestry of its parents — the same science as Hereditas.
     A low F on a thin pedigree is a floor, not an outcross. Color here is AOA phenotype, not genotype.
@@ -502,6 +505,47 @@ function viewWean(){
       <td>${pct(s.f_pct)}</td>
       <td>${s.ne_delta>0?"+"+s.ne_delta:s.ne_delta}</td>
       <td>${s.hold_for_cria?"hold for cria":"list"}</td>
+      <td>${esc(s.why)}</td>
+    </tr>`).join("")}
+    </table>`;
+}
+
+function viewNext(){
+  const n = DATA.next || {collisions:[], calendar:[], band:{}, shrink:{}};
+  const band = n.band || {};
+  const shrink = n.shrink || {};
+  const pathBox = (p, label) => `
+    <h2>${label}</h2>
+    <p class="note">${esc(p.summary||"")}</p>
+    <div class="grid">
+      <div class="stat"><b>${p.n??"—"}</b><span>Living after the path</span></div>
+      <div class="stat"><b>${p.n_dams??0} × ${p.n_sires??0}</b><span>Dams × sires (${p.n_cria??0} cria)</span></div>
+      <div class="stat"><b>${typeof p.ne==="number"?p.ne.toFixed(1):p.ne??"—"}</b><span>Ne · last founders ${p.n_last_founders??"—"}</span></div>
+      <div class="stat"><b>${p.n_year2??0}</b><span>Year-2 bookings · F ${pct(p.year2_mean_f_pct)}</span></div>
+    </div>`;
+  return `
+    <p class="note">${esc(n.summary||"")}
+    <a href="/next.pdf" style="color:var(--gold)">Next Nucleus PDF</a></p>
+    ${pathBox(band, "KEEP DAM BAND")}
+    ${pathBox(shrink, "SHRINK NUCLEUS")}
+    <h2>Horizon collisions — LET GO sires still booked in years 2–3</h2>
+    ${(n.collisions||[]).length ? `
+    <table><tr><th>Sire</th><th>Years</th><th>Bookings</th><th>Why</th></tr>
+    ${n.collisions.map(c => `<tr>
+      <td class="KEEP">${esc(c.sire_name)}</td>
+      <td>${esc((c.years||[]).join("/"))}</td>
+      <td>${c.n_bookings}</td>
+      <td>${esc(c.why)}</td>
+    </tr>`).join("")}
+    </table>` : `<p class="note">No LET GO sire is booked in years 2–3.</p>`}
+    <h2>Sale calendar</h2>
+    <table><tr><th>Animal</th><th>Sex</th><th>Window</th><th>Dam band</th><th>Shrink</th><th>Why</th></tr>
+    ${(n.calendar||[]).map(s => `<tr>
+      <td>${esc(s.name)}</td>
+      <td>${s.sex||"—"}</td>
+      <td>${esc(s.window)}</td>
+      <td class="${s.path_band?'LET_GO':'KEEP'}">${s.path_band?"sell":"keep"}</td>
+      <td class="${s.path_shrink?'LET_GO':'KEEP'}">${s.path_shrink?"sell":"keep"}</td>
       <td>${esc(s.why)}</td>
     </tr>`).join("")}
     </table>`;

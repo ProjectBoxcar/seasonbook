@@ -228,6 +228,27 @@ class RealHerdGold(unittest.TestCase):
         self.assertGreater(ledger.stat().st_size, 1000)
         self.assertGreater(catalog.stat().st_size, 1000)
 
+    def test_next_nucleus_two_paths(self):
+        n = self.snap.nxt
+        self.assertEqual(len(n.calendar), 74)
+        self.assertGreater(n.band.n, n.shrink.n)
+        self.assertGreaterEqual(n.band.n_year2, n.shrink.n_year2)
+        wait = {c.name for c in self.snap.gate.cards if c.verdict == "WAIT"}
+        for slot in n.calendar:
+            if slot.name in wait:
+                self.assertFalse(slot.path_band)
+                self.assertFalse(slot.path_shrink)
+        self.assertTrue(n.summary)
+
+    def test_next_pdf(self):
+        import tempfile
+
+        from seasonbook.book import write_next_pdf
+
+        path = write_next_pdf(self.snap, Path(tempfile.mkdtemp()))
+        self.assertTrue(path.read_bytes().startswith(b"%PDF"))
+        self.assertGreater(path.stat().st_size, 1000)
+
 
 if __name__ == "__main__":
     unittest.main()

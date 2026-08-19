@@ -11,6 +11,7 @@ from .census import Census, build_census
 from .erode import Erosion, erode
 from .gate import TheGate, the_gate
 from .parse import HerdGraph, ingest_dir
+from .next import NextNucleus, next_nucleus
 from .wean import WeaningLedger, weaning_ledger
 from .plan import (
     Audit,
@@ -51,6 +52,7 @@ class Snapshot:
     erosion: Erosion
     gate: TheGate
     wean: WeaningLedger
+    nxt: NextNucleus
 
     def briefing(self) -> dict:
         c = self.census
@@ -94,6 +96,11 @@ class Snapshot:
             "wean_sellable": self.wean.n_sellable_cria,
             "wean_release": self.wean.n_release,
             "wean_uncovered": self.wean.n_uncovered,
+            "next_collisions": self.nxt.n_collisions,
+            "next_band_n": self.nxt.band.n,
+            "next_band_year2": self.nxt.band.n_year2,
+            "next_shrink_n": self.nxt.shrink.n,
+            "next_shrink_year2": self.nxt.shrink.n_year2,
         }
 
 
@@ -130,6 +137,9 @@ def build_from_herd(
     erosion = erode(pairs, herd, engine, capacity=capacity, years=5)
     gate = the_gate(herd, engine, plan)
     wean = weaning_ledger(herd, engine, plan, gate)
+    nxt = next_nucleus(
+        herd, engine, plan, rotation, gate, wean, pairs=pairs, capacity=capacity
+    )
     return Snapshot(
         built=date.today().isoformat(),
         cert_dir=source_label,
@@ -148,6 +158,7 @@ def build_from_herd(
         erosion=erosion,
         gate=gate,
         wean=wean,
+        nxt=nxt,
     )
 
 
@@ -234,6 +245,7 @@ def snapshot_dict(snap: Snapshot) -> dict:
         "erosion": snap.erosion.as_dict(),
         "gate": snap.gate.as_dict(),
         "wean": snap.wean.as_dict(),
+        "next": snap.nxt.as_dict(),
         "heatmap": _heatmap(snap),
         "animals": [
             {

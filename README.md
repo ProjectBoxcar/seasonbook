@@ -39,6 +39,7 @@ python -m seasonbook erode
 python -m seasonbook gate
 python -m seasonbook gate "MATRIX"
 python -m seasonbook wean
+python -m seasonbook next
 python -m seasonbook cards
 python -m seasonbook tonight
 python -m seasonbook csv
@@ -48,9 +49,9 @@ python -m seasonbook book
 python -m seasonbook serve
 ```
 
-Desk: `http://127.0.0.1:8765/` — keys **1–0**, **G**, **W**
+Desk: `http://127.0.0.1:8765/` — keys **1–0**, **G**, **W**, **N**
 
-Briefing · Atlas · Heatmap · Plan · Mate lab · Audit · Why / cover · Three seasons · Last Blood · Erosion · Keep / Let Go · Wean
+Briefing · Atlas · Heatmap · Plan · Mate lab · Audit · Why / cover · Three seasons · Last Blood · Erosion · Keep / Let Go · Wean · Next
 
 Printables land in `data/output/`:
 
@@ -66,6 +67,7 @@ Printables land in `data/output/`:
 - `WeaningLedger.pdf` (covering cria that must stay)
 - `WeaningLedger.csv`
 - `SaleCatalog.pdf` (LET GO buyer cards)
+- `NextNucleus.pdf` (KEEP DAM BAND vs SHRINK)
 - `nucleus.db` (`seed-am` — AM-shaped SQLite of the 74, not the demo herd)
 - `snapshot.json`
 
@@ -91,6 +93,19 @@ The Gate is not a sale ticket by itself. If you sell Corky *and* the cria of Swe
 Greedy set-cover picks the smallest set of year-1 cria that still carry every last founder at ≥ 3.1%. Keep those cria. Then every KEEP UNTIL WEANING parent may list. Cria that cover no last founder are sellable weanlings.
 
 `python -m seasonbook wean` prints the covering set, the parent-release list, the disaster rows (parent AND cria both leave), and writes `WeaningLedger.pdf` plus a LET GO `SaleCatalog.pdf`.
+
+## Next Nucleus — two sale paths
+
+The three-season rotation books the same 48 dams. Selling the 45 KEEP UNTIL WEANING animals after weaning retires that dam band. The Gate is a choice:
+
+| Path | What you keep | What you sell |
+|---|---|---|
+| KEEP DAM BAND | The 48 year-1 dams + WAIT + covering cria | LET GO sires years 2–3 do not need |
+| SHRINK NUCLEUS | WAIT + covering cria | LET GO + KEEP UNTIL WEANING after the windows |
+
+Horizon collisions are LET GO sires still booked in years 2–3. KEEP DAM BAND holds them. SHRINK sells after the last year-1 covering and accepts a smaller year-2.
+
+`python -m seasonbook next` prints both projections (head count, Ne, last founders, year-2 bookings) and writes `NextNucleus.pdf`.
 
 Certificates are read from `../AlpacaManager/docs/cert_lineage`. Override with `--certs`.
 

@@ -910,6 +910,76 @@ def write_catalog_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
     return path
 
 
+def write_next_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
+    """Two-path sale board: keep the dam band vs shrink the nucleus."""
+    out_dir = Path(out_dir) if out_dir else DEFAULT_OUT
+    n = snap.nxt
+    pdf = _Pdf("Next Nucleus")
+    pdf.new_page()
+    y = _header(
+        pdf,
+        "Next Nucleus  ·  two paths",
+        "The Gate is a choice, not a command",
+        n.summary[:120],
+    )
+    pdf.text(36, y, 9, "KEEP DAM BAND keeps the 48 year-1 dams. SHRINK executes The Gate.", 0.35, 0.30, 0.22)
+    y -= 20
+    pdf.text(36, y, 11, "KEEP DAM BAND", 0.18, 0.42, 0.28)
+    y -= 14
+    b = n.band
+    pdf.text(36, y, 9, f"{b.n} living  ·  {b.n_dams} dams x {b.n_sires} sires  ·  {b.n_cria} cria")
+    y -= 12
+    pdf.text(36, y, 9, f"Ne {b.ne:.1f}  ·  last founders {b.n_last_founders}  ·  year-2 bookings {b.n_year2}  F={b.year2_mean_f_pct:.2f}%")
+    y -= 18
+    pdf.text(36, y, 11, "SHRINK NUCLEUS", 0.55, 0.16, 0.12)
+    y -= 14
+    s = n.shrink
+    pdf.text(36, y, 9, f"{s.n} living  ·  {s.n_dams} dams x {s.n_sires} sires  ·  {s.n_cria} cria")
+    y -= 12
+    pdf.text(36, y, 9, f"Ne {s.ne:.1f}  ·  last founders {s.n_last_founders}  ·  year-2 bookings {s.n_year2}  F={s.year2_mean_f_pct:.2f}%")
+    y -= 18
+    pdf.text(36, y, 11, f"Horizon collisions  ({n.n_collisions})", 0.55, 0.32, 0.10)
+    y -= 16
+    if not n.collisions:
+        pdf.text(36, y, 9, "No LET GO sire is booked in years 2-3.")
+        y -= 14
+    for c in n.collisions:
+        if y < 48:
+            pdf.new_page()
+            y = _header(pdf, "Next Nucleus", "Collisions (continued)", "")
+        pdf.text(36, y, 9, c.sire_name[:34], 0.55, 0.16, 0.12)
+        pdf.text(280, y, 8, f"Y{'/'.join(str(x) for x in c.years)}  {c.n_bookings}x")
+        y -= 12
+
+    pdf.new_page()
+    y = _header(
+        pdf,
+        "Next Nucleus  ·  sale calendar",
+        "When each animal may leave, on which path",
+        f"{len(n.calendar)} registered  ·  built {snap.built}",
+    )
+    pdf.text(36, y, 8, "ANIMAL")
+    pdf.text(250, y, 8, "WINDOW")
+    pdf.text(360, y, 8, "BAND")
+    pdf.text(430, y, 8, "SHRINK")
+    y -= 4
+    pdf.rule(36, y, 540, 0.4)
+    y -= 14
+    for slot in n.calendar:
+        if y < 48:
+            pdf.new_page()
+            y = _header(pdf, "Next Nucleus", "Calendar (continued)", "")
+        pdf.text(36, y, 8, slot.name[:34])
+        pdf.text(250, y, 8, slot.window)
+        pdf.text(360, y, 8, "sell" if slot.path_band else "keep", 0.18, 0.42, 0.28 if slot.path_band else 0.35)
+        pdf.text(430, y, 8, "sell" if slot.path_shrink else "keep", 0.55, 0.16, 0.12 if slot.path_shrink else 0.35)
+        y -= 11
+
+    path = out_dir / "NextNucleus.pdf"
+    pdf.save(path)
+    return path
+
+
 def write_all_pdfs(snap: Snapshot, out_dir: Path | None = None) -> list[Path]:
     return [
         write_season_book(snap, out_dir),
@@ -922,4 +992,5 @@ def write_all_pdfs(snap: Snapshot, out_dir: Path | None = None) -> list[Path]:
         write_gate_pdf(snap, out_dir),
         write_wean_pdf(snap, out_dir),
         write_catalog_pdf(snap, out_dir),
+        write_next_pdf(snap, out_dir),
     ]

@@ -192,6 +192,12 @@ def tonight_lines(snap: Snapshot) -> list[str]:
         f"  wean  keep {w.n_cover} cria  ·  {w.n_release} parents may list  ·  "
         f"{w.n_sellable_cria} sellable weanlings"
     )
+    nxt = snap.nxt
+    lines.append(
+        f"  next  {nxt.n_collisions} collisions  ·  "
+        f"band {nxt.band.n} living Y2={nxt.band.n_year2}  ·  "
+        f"shrink {nxt.shrink.n} living Y2={nxt.shrink.n_year2}"
+    )
     for c in w.cover[:6]:
         lines.append(f"    stay  {c.name}  ({c.n_covers} last founders)")
     for a in rescued:

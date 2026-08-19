@@ -1,4 +1,4 @@
-"""python -m seasonbook {analyze|plan|audit|explain|why|cover|kinship|horizon|salvage|erode|gate|wean|book|serve}"""
+"""python -m seasonbook {analyze|plan|audit|explain|why|cover|kinship|horizon|salvage|erode|gate|wean|next|book|serve}"""
 
 from __future__ import annotations
 
@@ -13,6 +13,7 @@ from .book import (
     write_cards_pdf,
     write_catalog_pdf,
     write_gate_pdf,
+    write_next_pdf,
     write_wean_pdf,
 )
 from .export import tonight_lines, write_gate_csv, write_plan_csv, write_wean_csv
@@ -58,6 +59,11 @@ def cmd_analyze(args) -> int:
         f"{b.get('wean_release', 0)} parents may list  ·  "
         f"{b.get('wean_sellable', 0)} sellable weanlings  ·  "
         f"{b.get('wean_uncovered', 0)} uncovered"
+    )
+    print(
+        f"  next             {b.get('next_collisions', 0)} collisions  ·  "
+        f"band {b.get('next_band_n', '—')} living / Y2 {b.get('next_band_year2', '—')}  ·  "
+        f"shrink {b.get('next_shrink_n', '—')} living / Y2 {b.get('next_shrink_year2', '—')}"
     )
     print()
     print("Hottest registered (own F)")
@@ -352,6 +358,31 @@ def cmd_wean(args) -> int:
     return 0
 
 
+def cmd_next(args) -> int:
+    snap = _snap(args)
+    n = snap.nxt
+    print(n.summary)
+    print()
+    print("KEEP DAM BAND")
+    print(f"  {n.band.summary}")
+    if n.band.sold:
+        print("  sell: " + ", ".join(n.band.sold[:12]))
+    print("\nSHRINK NUCLEUS")
+    print(f"  {n.shrink.summary}")
+    print(f"\nCOLLISIONS  ({n.n_collisions})  — LET GO sires still booked in years 2–3")
+    for c in n.collisions:
+        print(f"  {c.sire_name:32s}  Y{'/'.join(str(y) for y in c.years)}  {c.n_bookings}×")
+        print(f"      {c.why}")
+    print("\nCALENDAR")
+    for slot in n.calendar:
+        band = "BAND" if slot.path_band else "    "
+        shrink = "SHRINK" if slot.path_shrink else "      "
+        print(f"  {slot.window:16s}  {band:5s} {shrink:6s}  {slot.sex or '?'}  {slot.name}")
+    pdf = write_next_pdf(snap, args.out)
+    print(f"  pdf  {pdf}")
+    return 0
+
+
 def cmd_tonight(args) -> int:
     snap = _snap(args)
     for line in tonight_lines(snap):
@@ -361,11 +392,13 @@ def cmd_tonight(args) -> int:
     gate_csv = write_gate_csv(snap, args.out)
     gate_pdf = write_gate_pdf(snap, args.out)
     wean_pdf = write_wean_pdf(snap, args.out)
+    nxt_pdf = write_next_pdf(snap, args.out)
     print(f"  csv    {csv_path}")
     print(f"  board  {board}")
     print(f"  gate   {gate_csv}")
     print(f"  keep   {gate_pdf}")
     print(f"  wean   {wean_pdf}")
+    print(f"  next   {nxt_pdf}")
     return 0
 
 
@@ -493,6 +526,9 @@ def main(argv: list[str] | None = None) -> int:
 
     p = sub.add_parser("wean", help="which cria must stay if last-carriers leave")
     p.set_defaults(func=cmd_wean)
+
+    p = sub.add_parser("next", help="two sale paths — keep the dam band vs shrink")
+    p.set_defaults(func=cmd_next)
 
     p = sub.add_parser("tonight", help="year-1 barn briefing + csv + board")
     p.set_defaults(func=cmd_tonight)
