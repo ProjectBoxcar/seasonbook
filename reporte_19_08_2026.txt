@@ -1,0 +1,30 @@
+================================================================================
+SESSION REPORT - August 19, 2026
+================================================================================
+Project: ProjectBoxcar - seasonbook (Wright/Malécot season desk on the 74 real AOA certificates)
+Objective: Close the sale question. The Gate and the three-year board cannot both run this fall. FINISH THEN SHRINK is the path that does not throw away the board. Pushed to GitHub.
+================================================================================
+
+WHAT WAS BUILT
+================================================================================
+- The Gate / Weaning Ledger / Next Nucleus as before, plus the missing pieces of the choice.
+- Shrink year-2 plan, printed. If you execute The Gate now, year 2 is five PROCEED bookings: Tayt / Silverbelle / Looking Glass / Inspiration × Melvin, and Enchanted Touch × McDreamy. Melvin takes 4 of 5. Shogun sits out (full sib of Inspiration — BLOCK). Captain Chaos sits out. Mean F of the residual is near zero.
+- Core 9 (pair-locked, all three paths keep them): dams Tayt, Silverbelle, Enchanted Touch, Looking Glass, Inspiration. Sires Captain Chaos, Melvin, McDreamy, Shogun.
+- FINISH THEN SHRINK. Run years 1–3 as printed (48 year-2 bookings, mean F 0.20%). After year 3, sell the SHRINK list. Collision sires (Smokin Waves, Alydar, Neruda, …) work first. Living nucleus after that sale is the same 54 as SHRINK (5 dams × 4 sires, Ne 37.9, last blood on the cria).
+- NextNucleus.pdf now has the three paths, the five residual bookings, the core 9, and the calendar with a FINISH column.
+
+OPS / UX THIS SESSION
+================================================================================
+- 59 unittest green (~4.6 s). Shrink year-2 has no BLOCK. Finish year-2 = 48. Core = 9 WAIT. AlpacaManager not touched.
+
+STATUS
+================================================================================
+- Season Book 2.5.0.
+
+NEXT STEPS
+================================================================================
+1. Pin NextNucleus.pdf. Default path: FINISH THEN SHRINK. Do not list Smokin Waves / Alydar this fall.
+2. If someone insists on shrinking now, the year-2 board is those five Melvin/McDreamy rows, not SeasonBoard.pdf.
+3. AlpacaManager still waits on POST /api/seasonbook/sync.
+
+================================================================================
