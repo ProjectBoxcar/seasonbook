@@ -1,4 +1,4 @@
-"""python -m seasonbook {analyze|plan|audit|explain|why|cover|kinship|horizon|salvage|erode|gate|book|serve}"""
+"""python -m seasonbook {analyze|plan|audit|explain|why|cover|kinship|horizon|salvage|erode|gate|wean|book|serve}"""
 
 from __future__ import annotations
 
@@ -7,8 +7,15 @@ import json
 import sys
 from pathlib import Path
 
-from .book import write_all_pdfs, write_board_pdf, write_cards_pdf, write_gate_pdf
-from .export import tonight_lines, write_gate_csv, write_plan_csv
+from .book import (
+    write_all_pdfs,
+    write_board_pdf,
+    write_cards_pdf,
+    write_catalog_pdf,
+    write_gate_pdf,
+    write_wean_pdf,
+)
+from .export import tonight_lines, write_gate_csv, write_plan_csv, write_wean_csv
 from .gate import KEEP, KEEP_UNTIL_WEANING, LET_GO, WAIT, explain_leave
 from .explain import explain_animal, explain_pair
 from .pipeline import DEFAULT_CERT_DIR, DEFAULT_OUT, build, write_snapshot
@@ -45,6 +52,12 @@ def cmd_analyze(args) -> int:
         f"  after cria       last founders {b['last_founders']} → "
         f"{b.get('last_founders_after', '—')}  ·  "
         f"{b.get('rescued_founders', 0)} duplicated by the crop"
+    )
+    print(
+        f"  wean             keep {b.get('wean_cover', 0)} cria  ·  "
+        f"{b.get('wean_release', 0)} parents may list  ·  "
+        f"{b.get('wean_sellable', 0)} sellable weanlings  ·  "
+        f"{b.get('wean_uncovered', 0)} uncovered"
     )
     print()
     print("Hottest registered (own F)")
@@ -297,6 +310,48 @@ def cmd_gate(args) -> int:
     return 0
 
 
+def cmd_wean(args) -> int:
+    snap = _snap(args)
+    w = snap.wean
+    print(w.summary)
+    print()
+    print(f"MUST STAY  ({w.n_cover} of {w.n_cria})")
+    for c in w.cover:
+        print(f"  {c.n_covers:3d} founders  {c.uniqueness_pct:5.1f}%  {c.name}")
+        print(f"      {', '.join(c.covers[:6])}")
+    print(f"\nSELLABLE WEANLINGS  ({w.n_sellable_cria})")
+    for c in w.stay:
+        if c.sellable:
+            print(f"  F={c.f_pct:5.2f}%  {c.name}")
+    print(f"\nPARENT RELEASE  ({w.n_release} may list after weaning)")
+    for r in w.releases:
+        flag = "MAY LIST" if r.may_sell_after_weaning else "HOLD"
+        keep = ", ".join(r.keep_cria[:2]) or "(cover via another pairing)"
+        print(f"  {flag:8s}  {r.name:32s}  keep {keep}")
+    if w.uncovered:
+        print(f"\nNO CRIA BACKUP  ({w.n_uncovered})")
+        for name in w.uncovered[:16]:
+            print(f"  {name}")
+    print(f"\nDISASTER  ({len(w.disaster)} — parent AND their cria both leave)")
+    for d in w.disaster[:12]:
+        print(f"  {d.parent_name:32s}  {', '.join(d.extinct[:4])}")
+    print(f"\nLET GO THIS FALL  ({w.n_this_fall})")
+    for s in w.sale_catalog:
+        if not s.hold_for_cria:
+            print(f"  MK {s.mk_pct:5.2f}%  Ne {s.ne_delta:+.1f}  {s.name}")
+    print(f"\nLET GO BUT HOLD FOR A COVERING CRIA  ({w.n_hold_for_cria})")
+    for s in w.sale_catalog:
+        if s.hold_for_cria:
+            print(f"  {s.name:32s}  {', '.join(s.cover_cria[:2])}")
+    csv_path = write_wean_csv(snap, args.out)
+    ledger = write_wean_pdf(snap, args.out)
+    catalog = write_catalog_pdf(snap, args.out)
+    print(f"  csv      {csv_path}")
+    print(f"  ledger   {ledger}")
+    print(f"  catalog  {catalog}")
+    return 0
+
+
 def cmd_tonight(args) -> int:
     snap = _snap(args)
     for line in tonight_lines(snap):
@@ -305,10 +360,12 @@ def cmd_tonight(args) -> int:
     board = write_board_pdf(snap, args.out)
     gate_csv = write_gate_csv(snap, args.out)
     gate_pdf = write_gate_pdf(snap, args.out)
+    wean_pdf = write_wean_pdf(snap, args.out)
     print(f"  csv    {csv_path}")
     print(f"  board  {board}")
     print(f"  gate   {gate_csv}")
     print(f"  keep   {gate_pdf}")
+    print(f"  wean   {wean_pdf}")
     return 0
 
 
@@ -370,6 +427,7 @@ def cmd_book(args) -> int:
     paths = write_all_pdfs(snap, args.out)
     paths.append(write_plan_csv(snap, args.out))
     paths.append(write_gate_csv(snap, args.out))
+    paths.append(write_wean_csv(snap, args.out))
     for p in paths:
         print("wrote", p)
     return 0
@@ -432,6 +490,9 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("gate", help="Keep / Let Go — who can leave, who cannot")
     p.add_argument("animal", nargs="?", default="", help="if they leave: one animal")
     p.set_defaults(func=cmd_gate)
+
+    p = sub.add_parser("wean", help="which cria must stay if last-carriers leave")
+    p.set_defaults(func=cmd_wean)
 
     p = sub.add_parser("tonight", help="year-1 barn briefing + csv + board")
     p.set_defaults(func=cmd_tonight)

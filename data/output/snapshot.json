@@ -41,7 +41,11 @@
     "let_go": 20,
     "pair_locks": 56,
     "last_founders_after": 0,
-    "rescued_founders": 183
+    "rescued_founders": 183,
+    "wean_cover": 34,
+    "wean_sellable": 3,
+    "wean_release": 45,
+    "wean_uncovered": 0
   },
   "cards": [
     {
@@ -1881,16 +1885,16 @@
       "still_segregating": true
     },
     {
-      "id": "AR:138738",
-      "name": "PPPERUVIAN LILLY 4605",
+      "id": "AR:154963",
+      "name": "PERUVIAN SNOWMASTER",
       "contribution": 0.0,
       "presence": 35,
       "presence_pct": 47.3,
       "still_segregating": true
     },
     {
-      "id": "AR:154963",
-      "name": "PERUVIAN SNOWMASTER",
+      "id": "AR:138738",
+      "name": "PPPERUVIAN LILLY 4605",
       "contribution": 0.0,
       "presence": 35,
       "presence_pct": 47.3,
@@ -1921,8 +1925,56 @@
       "still_segregating": true
     },
     {
+      "id": "NM:PERUVIAN LACE",
+      "name": "PERUVIAN LACE",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
+      "id": "AR:822604",
+      "name": "SNOWMASS QUECHUA",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
+      "id": "AR:123094",
+      "name": "PPERUVIAN JESUSA R0662",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
+      "id": "NM:GARNETT",
+      "name": "GARNETT",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
+      "id": "AR:139293",
+      "name": "PPPERUVIAN CAHUIDE A6020",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
       "id": "AR:186817",
       "name": "LITTLE MISS JENNIFER DKO1",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
+      "id": "AR:828767",
+      "name": "SNOWMASS LEGACY'S LASS",
       "contribution": 0.0,
       "presence": 32,
       "presence_pct": 43.2,
@@ -1945,80 +1997,8 @@
       "still_segregating": true
     },
     {
-      "id": "NM:GARNETT",
-      "name": "GARNETT",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:828767",
-      "name": "SNOWMASS LEGACY'S LASS",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:123094",
-      "name": "PPERUVIAN JESUSA R0662",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:139293",
-      "name": "PPPERUVIAN CAHUIDE A6020",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "NM:PERUVIAN LACE",
-      "name": "PERUVIAN LACE",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:822604",
-      "name": "SNOWMASS QUECHUA",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:800680",
-      "name": "5PERUVIAN CHACCU 9063",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:811840",
-      "name": "SNOWMASS MACANTOSHA s/s)",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
       "id": "AR:166649",
       "name": "4PERUVIAN ISABELLA 6545",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:822631",
-      "name": "SNOWMASS CHACASHA",
       "contribution": 0.0,
       "presence": 32,
       "presence_pct": 43.2,
@@ -2033,8 +2013,24 @@
       "still_segregating": true
     },
     {
+      "id": "AR:800680",
+      "name": "5PERUVIAN CHACCU 9063",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
       "id": "AR:139099",
       "name": "PPPERUVIAN PRESTIGE 4999",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
+      "id": "AR:811840",
+      "name": "SNOWMASS MACANTOSHA s/s)",
       "contribution": 0.0,
       "presence": 32,
       "presence_pct": 43.2,
@@ -2057,6 +2053,14 @@
       "still_segregating": true
     },
     {
+      "id": "AR:822631",
+      "name": "SNOWMASS CHACASHA",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
       "id": "AR:850345",
       "name": "SNOWMASS MATRIX",
       "contribution": 0.0,
@@ -2073,16 +2077,16 @@
       "still_segregating": true
     },
     {
-      "id": "AR:803097",
-      "name": "SNOWMASS LIBERTY BELL",
+      "id": "AR:139111",
+      "name": "PPPERUVIAN CHASTITY 5014",
       "contribution": 0.0,
       "presence": 30,
       "presence_pct": 40.5,
       "still_segregating": true
     },
     {
-      "id": "AR:139111",
-      "name": "PPPERUVIAN CHASTITY 5014",
+      "id": "AR:803097",
+      "name": "SNOWMASS LIBERTY BELL",
       "contribution": 0.0,
       "presence": 30,
       "presence_pct": 40.5,
@@ -22075,6 +22079,3622 @@
       "extinct": [],
       "why": "Top 5 LET GO by mean kinship. None is last or pair-locked. Ne 41.6 \u2192 47.8."
     }
+  },
+  "wean": {
+    "n_cria": 48,
+    "n_cover": 34,
+    "n_sellable_cria": 3,
+    "n_release": 45,
+    "n_uncovered": 0,
+    "n_hold_for_cria": 2,
+    "n_this_fall": 18,
+    "threshold": 0.03125,
+    "summary": "Keep 34 of 48 year-1 cria and 45 last-carriers may leave after weaning. 3 cria cover no last founder \u2014 sellable weanlings. 18 LET GO can list this fall; 2 LET GO wait because they are parents of a covering cria. 0 last founders have no cria backup.",
+    "cover": [
+      {
+        "cria_id": "CRIA:1:NM:HOWLING HILL SING THE BODY ELECTRIC:NM:SUNNYHILL S ZANG S BALTAZAR",
+        "name": "HOWLING HILL SING THE BODY ELECTRIC \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+        "dam_id": "NM:HOWLING HILL SING THE BODY ELECTRIC",
+        "sire_id": "NM:SUNNYHILL S ZANG S BALTAZAR",
+        "dam_name": "HOWLING HILL SING THE BODY ELECTRIC",
+        "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+        "f_pct": 0.0,
+        "covers": [
+          "5PERUVIAN CHARLIE'S ANGEL 8494",
+          "5PERUVIAN DOM ALAMIR 9043",
+          "ACCOYO AMERICA ASPEN AC020",
+          "BRITTANY'S DESPARADO",
+          "CPERUVIAN VALERIE 1483",
+          "EL SEGUNDO DE ROYAL FAWN",
+          "FIBRE WORKS DIAMONTE",
+          "KELOWNA'S SUNDANCE KID",
+          "LUNAR ECLIPSE",
+          "MULOWE",
+          "PANAM'S SILVER ANGEL IMPD98 TC)",
+          "PCA HEMINGWAY-ACCOYO NAUTILUS",
+          "PPPERUVIAN FINESSE 5093",
+          "SENOIA",
+          "SUNNYVIEW ALEJANDRIA",
+          "SUNNYVIEW ANJELITA",
+          "TELL BLIZZARD",
+          "TELL HOT SHOT",
+          "WOODED HILLS CHILE PEPPER"
+        ],
+        "n_covers": 19,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.65625,
+        "uniqueness_pct": 65.62,
+        "why": "Must stay. Covers 19 last founder(s) the year-1 parents would take with them: 5PERUVIAN CHARLIE'S ANGEL 8494, 5PERUVIAN DOM ALAMIR 9043, ACCOYO AMERICA ASPEN AC020 (+16 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SC S CARRINGTON:NM:PALLATON S KALIBAUT ALYST",
+        "name": "SC'S CARRINGTON \u00d7 PALLATON'S KALIBAUT ALYST",
+        "dam_id": "NM:SC S CARRINGTON",
+        "sire_id": "NM:PALLATON S KALIBAUT ALYST",
+        "dam_name": "SC'S CARRINGTON",
+        "sire_name": "PALLATON'S KALIBAUT ALYST",
+        "f_pct": 0.05,
+        "covers": [
+          "ACCOYO AMERICA APOCALYPSE",
+          "ACCOYO AMERICA MARATHON",
+          "KAPPIE",
+          "KPR CARMELLA",
+          "MFI PERUVIAN CHAMPAGNE",
+          "NWA, LTD SHIRLEY",
+          "PCA PERUVIAN MICROSOFT",
+          "PPERUVIAN LEON G4560",
+          "PPPERUVIAN CORACORA 5055",
+          "PPPERUVIAN SWEETNESS 4854",
+          "PRISTINA'S ACCOYO PRINCESSA",
+          "SARA'S SAHARA",
+          "SONORA'S ACCOYO FERRARI",
+          "TICKITY BOO VICTORIA",
+          "TNT PERUVIAN BLAITHIN",
+          "YAKUTAT VON TR"
+        ],
+        "n_covers": 16,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.5,
+        "uniqueness_pct": 50.0,
+        "why": "Must stay. Covers 16 last founder(s) the year-1 parents would take with them: ACCOYO AMERICA APOCALYPSE, ACCOYO AMERICA MARATHON, KAPPIE (+13 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:4 SIGHT S HOLIDAY:NM:G TRIBE S ROCKY S ASH",
+        "name": "4-SIGHT'S HOLIDAY \u00d7 G-TRIBE'S ROCKY'S ASH",
+        "dam_id": "NM:4 SIGHT S HOLIDAY",
+        "sire_id": "NM:G TRIBE S ROCKY S ASH",
+        "dam_name": "4-SIGHT'S HOLIDAY",
+        "sire_name": "G-TRIBE'S ROCKY'S ASH",
+        "f_pct": 0.02,
+        "covers": [
+          "ALPACARIA'S VOX EXCALIBUR",
+          "AVA DOMITA MARTI 059N",
+          "AVATAR",
+          "AYSEN'S LAUCA IMPQ98",
+          "CPERUVIAN CAMILLA 1258 IMPF98",
+          "EXPRESS' PERUVIAN SPICE",
+          "KPR ANGELL",
+          "MARIAH MAE",
+          "MESSIAH ALYST",
+          "PENNIE",
+          "R&RR ALDER 097L",
+          "SA PERUVIAN CHOCO",
+          "SHAZZY ALYST",
+          "SILVERTONE",
+          "TCB'S CAMEO"
+        ],
+        "n_covers": 15,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.46875,
+        "uniqueness_pct": 46.88,
+        "why": "Must stay. Covers 15 last founder(s) the year-1 parents would take with them: ALPACARIA'S VOX EXCALIBUR, AVA DOMITA MARTI 059N, AVATAR (+12 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:HERITAGE SILVER PROMISE:NM:SUNNYHILL S ZANG S BALTAZAR",
+        "name": "HERITAGE SILVER PROMISE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+        "dam_id": "NM:HERITAGE SILVER PROMISE",
+        "sire_id": "NM:SUNNYHILL S ZANG S BALTAZAR",
+        "dam_name": "HERITAGE SILVER PROMISE",
+        "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+        "f_pct": 0.0,
+        "covers": [
+          "5PERUVIAN SILVERADO 9042",
+          "ACCOYO AMERICA ASPEN AC020",
+          "BD ROSIE'S THOMAS",
+          "FIBRE WORKS DIAMONTE",
+          "KELOWNA'S SUNDANCE KID",
+          "LA CARAMELLA CODI W966",
+          "MFI PERUVIAN GLACIAL STORM",
+          "PANAM'S SILVER ANGEL IMPD98 TC)",
+          "PCA HEMINGWAY-ACCOYO NAUTILUS",
+          "SA PERUVIAN DASH OF CLASS",
+          "SUNNYVIEW ALEJANDRIA",
+          "SUNNYVIEW ANJELITA",
+          "VIAC MISS-C"
+        ],
+        "n_covers": 13,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.4375,
+        "uniqueness_pct": 43.75,
+        "why": "Must stay. Covers 13 last founder(s) the year-1 parents would take with them: 5PERUVIAN SILVERADO 9042, ACCOYO AMERICA ASPEN AC020, BD ROSIE'S THOMAS (+10 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:MARY S SIQUANI BELLE:NM:PALLATON S KALIBAUT ALYST",
+        "name": "MARY'S SIQUANI BELLE \u00d7 PALLATON'S KALIBAUT ALYST",
+        "dam_id": "NM:MARY S SIQUANI BELLE",
+        "sire_id": "NM:PALLATON S KALIBAUT ALYST",
+        "dam_name": "MARY'S SIQUANI BELLE",
+        "sire_name": "PALLATON'S KALIBAUT ALYST",
+        "f_pct": 0.02,
+        "covers": [
+          "5PERUVIAN CHACHANI 8690",
+          "ACCOYO AMERICA APOCALYPSE",
+          "ACCOYO AMERICA MARATHON",
+          "CPERUVIAN CHILAM 1338 IMPF98",
+          "MFI PERUVIAN CHAMPAGNE",
+          "NWA, LTD SHIRLEY",
+          "PPERUVIAN VENGADOR G4568",
+          "PPPERUVIAN COROPUNA 4603",
+          "PRISTINA'S ACCOYO PRINCESSA",
+          "SONORA'S ACCOYO FERRARI",
+          "TICKITY BOO VICTORIA",
+          "TNT PERUVIAN BLAITHIN"
+        ],
+        "n_covers": 12,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.40625,
+        "uniqueness_pct": 40.62,
+        "why": "Must stay. Covers 12 last founder(s) the year-1 parents would take with them: 5PERUVIAN CHACHANI 8690, ACCOYO AMERICA APOCALYPSE, ACCOYO AMERICA MARATHON (+9 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:MISS ALOHA MOONSHINE:NM:SUNNYHILL S ZANG S BALTAZAR",
+        "name": "MISS ALOHA MOONSHINE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+        "dam_id": "NM:MISS ALOHA MOONSHINE",
+        "sire_id": "NM:SUNNYHILL S ZANG S BALTAZAR",
+        "dam_name": "MISS ALOHA MOONSHINE",
+        "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+        "f_pct": 0.0,
+        "covers": [
+          "ACA CRISPINA",
+          "ACCOYO AMERICA ASPEN AC020",
+          "FIBRE WORKS DIAMONTE",
+          "KELOWNA'S SUNDANCE KID",
+          "MAPLE BROOK BARNABUS Huacavya 840936",
+          "MMR MARCOYO",
+          "NORTHMARK'S MESSIAH'S PROPHETESS'",
+          "PANAM'S SILVER ANGEL IMPD98 TC)",
+          "PCA HEMINGWAY-ACCOYO NAUTILUS",
+          "SUNNYVIEW ALEJANDRIA",
+          "SUNNYVIEW ANJELITA",
+          "TH HEIDI'S SASHA"
+        ],
+        "n_covers": 12,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.40625,
+        "uniqueness_pct": 40.62,
+        "why": "Must stay. Covers 12 last founder(s) the year-1 parents would take with them: ACA CRISPINA, ACCOYO AMERICA ASPEN AC020, FIBRE WORKS DIAMONTE (+9 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SNOWMASS IRON MAIDEN:NM:HMAF S AIRGEAD",
+        "name": "SNOWMASS IRON MAIDEN \u00d7 HMAF'S AIRGEAD",
+        "dam_id": "NM:SNOWMASS IRON MAIDEN",
+        "sire_id": "NM:HMAF S AIRGEAD",
+        "dam_name": "SNOWMASS IRON MAIDEN",
+        "sire_name": "HMAF'S AIRGEAD",
+        "f_pct": 0.05,
+        "covers": [
+          "6PERUVIAN FORTUNATA 6494 IMPR98",
+          "BLACK PERUVIAN ROYAL FOREST",
+          "BOLIVIAN VESUVIUS",
+          "DISAPPEARING CREEK RINCON'S KALANI'",
+          "ENQUELGA BIANCA",
+          "MAYA III",
+          "MFI VISION",
+          "ORE HILL COMANCHE",
+          "PERUVIAN MACUSANI G204",
+          "PPPERUVIAN CEBICHE 4890",
+          "PRECIOSE IMPORTAB98",
+          "QUEEN OF SPADES 339"
+        ],
+        "n_covers": 12,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.40625,
+        "uniqueness_pct": 40.62,
+        "why": "Must stay. Covers 12 last founder(s) the year-1 parents would take with them: 6PERUVIAN FORTUNATA 6494 IMPR98, BLACK PERUVIAN ROYAL FOREST, BOLIVIAN VESUVIUS (+9 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:PARAGON S ESMERALDA:NM:PALLATON S KALIBAUT ALYST",
+        "name": "PARAGON'S ESMERALDA \u00d7 PALLATON'S KALIBAUT ALYST",
+        "dam_id": "NM:PARAGON S ESMERALDA",
+        "sire_id": "NM:PALLATON S KALIBAUT ALYST",
+        "dam_name": "PARAGON'S ESMERALDA",
+        "sire_name": "PALLATON'S KALIBAUT ALYST",
+        "f_pct": 0.32,
+        "covers": [
+          "5PERUVIAN DONA APARECIDA 8520",
+          "ACCOYO AMERICA APOCALYPSE",
+          "ACCOYO AMERICA MARATHON",
+          "HOLLYWOOD",
+          "MFI PERUVIAN CHAMPAGNE",
+          "NWA, LTD SHIRLEY",
+          "PPPERUVIAN CHICHA 4975",
+          "PRISTINA'S ACCOYO PRINCESSA",
+          "SONORA'S ACCOYO FERRARI",
+          "TABITHA OF AYS",
+          "TICKITY BOO VICTORIA",
+          "TNT PERUVIAN BLAITHIN"
+        ],
+        "n_covers": 12,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.375,
+        "uniqueness_pct": 37.5,
+        "why": "Must stay. Covers 12 last founder(s) the year-1 parents would take with them: 5PERUVIAN DONA APARECIDA 8520, ACCOYO AMERICA APOCALYPSE, ACCOYO AMERICA MARATHON (+9 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:MISS AUTARY:NM:LIBERTYALPACAS SMOKE SCREEN",
+        "name": "MISS AUTARY \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+        "dam_id": "NM:MISS AUTARY",
+        "sire_id": "NM:LIBERTYALPACAS SMOKE SCREEN",
+        "dam_name": "MISS AUTARY",
+        "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+        "f_pct": 0.0,
+        "covers": [
+          "ARISTO ANTOINETTE",
+          "COYO DESTINI",
+          "CPERUVIAN DANIEL 111 IMPF98",
+          "GHOST RIVER SHY ANNE",
+          "JOLIMONT 2 PERUVIAN RINGO IMPB98",
+          "JOLIMONT PERUVIAN AREQUIPA IMPAQ&",
+          "MMR SIR CONDE",
+          "PERUVIAN FAWNA W914",
+          "PPPERUVIAN TRINKET 4657",
+          "W LA SILVERADO"
+        ],
+        "n_covers": 10,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.46875,
+        "uniqueness_pct": 46.88,
+        "why": "Must stay. Covers 10 last founder(s) the year-1 parents would take with them: ARISTO ANTOINETTE, COYO DESTINI, CPERUVIAN DANIEL 111 IMPF98 (+7 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:PATAGONIA S DUSTY:NM:PALLATON S KALIBAUT ALYST",
+        "name": "PATAGONIA'S DUSTY \u00d7 PALLATON'S KALIBAUT ALYST",
+        "dam_id": "NM:PATAGONIA S DUSTY",
+        "sire_id": "NM:PALLATON S KALIBAUT ALYST",
+        "dam_name": "PATAGONIA'S DUSTY",
+        "sire_name": "PALLATON'S KALIBAUT ALYST",
+        "f_pct": 0.0,
+        "covers": [
+          "ACCOYO AMERICA APOCALYPSE",
+          "ACCOYO AMERICA MARATHON",
+          "HERMANA 184",
+          "MARIGOLD 387",
+          "MFI PERUVIAN CHAMPAGNE",
+          "NWA, LTD SHIRLEY",
+          "PRISTINA'S ACCOYO PRINCESSA",
+          "SONORA'S ACCOYO FERRARI",
+          "TICKITY BOO VICTORIA",
+          "TNT PERUVIAN BLAITHIN"
+        ],
+        "n_covers": 10,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.4375,
+        "uniqueness_pct": 43.75,
+        "why": "Must stay. Covers 10 last founder(s) the year-1 parents would take with them: ACCOYO AMERICA APOCALYPSE, ACCOYO AMERICA MARATHON, HERMANA 184 (+7 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:ESTATES LA PRESTIGE CRIMSON:NM:G TRIBE S ROCKY S ASH",
+        "name": "ESTATES LA PRESTIGE CRIMSON \u00d7 G-TRIBE'S ROCKY'S ASH",
+        "dam_id": "NM:ESTATES LA PRESTIGE CRIMSON",
+        "sire_id": "NM:G TRIBE S ROCKY S ASH",
+        "dam_name": "ESTATES LA PRESTIGE CRIMSON",
+        "sire_name": "G-TRIBE'S ROCKY'S ASH",
+        "f_pct": 0.0,
+        "covers": [
+          "AVA DOMITA MARTI 059N",
+          "BOLIVIAN BLACK THUNDER B969",
+          "CHISTOCHINA 378",
+          "DIAMOND SPARK DE CAQUENA",
+          "EXPRESS' PERUVIAN SPICE",
+          "MELOSA",
+          "MESSIAH ALYST",
+          "R&RR ALDER 097L",
+          "SHAZZY ALYST",
+          "VCA ERIKA"
+        ],
+        "n_covers": 10,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.34375,
+        "uniqueness_pct": 34.38,
+        "why": "Must stay. Covers 10 last founder(s) the year-1 parents would take with them: AVA DOMITA MARTI 059N, BOLIVIAN BLACK THUNDER B969, CHISTOCHINA 378 (+7 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SC S CRICKIT:NM:PHPC ARTILLERY",
+        "name": "SC'S CRICKIT \u00d7 PHPC ARTILLERY",
+        "dam_id": "NM:SC S CRICKIT",
+        "sire_id": "NM:PHPC ARTILLERY",
+        "dam_name": "SC'S CRICKIT",
+        "sire_name": "PHPC ARTILLERY",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN DONA MAISA 6537 IMPR98",
+          "FCA CINDY",
+          "JOLIMONT PERUVIAN TRINITY IMPA98",
+          "LINNEA CODI W1063",
+          "MI AMIGOS PERUVIAN LUPITA",
+          "PPPERUVIAN ASTILLERO 4650",
+          "SCA PERUVIAN DESERT SUN",
+          "SNOWMASS ROYAL FLUSH",
+          "SNOWMASS SWEET DREAMS"
+        ],
+        "n_covers": 9,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.28125,
+        "uniqueness_pct": 28.12,
+        "why": "Must stay. Covers 9 last founder(s) the year-1 parents would take with them: 6PERUVIAN DONA MAISA 6537 IMPR98, FCA CINDY, JOLIMONT PERUVIAN TRINITY IMPA98 (+6 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:HEAVEN S HILL PERUVIAN CELESTIA:NM:SUNNYHILL S ZANG S BALTAZAR",
+        "name": "HEAVEN'S HILL PERUVIAN CELESTIA \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+        "dam_id": "NM:HEAVEN S HILL PERUVIAN CELESTIA",
+        "sire_id": "NM:SUNNYHILL S ZANG S BALTAZAR",
+        "dam_name": "HEAVEN'S HILL PERUVIAN CELESTIA",
+        "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+        "f_pct": 0.0,
+        "covers": [
+          "ACCOYO AMERICA ASPEN AC020",
+          "CPERUVIAN CADEE 1192 IMPF98 TC)",
+          "FIBRE WORKS DIAMONTE",
+          "KELOWNA'S SUNDANCE KID",
+          "PANAM'S SILVER ANGEL IMPD98 TC)",
+          "PCA HEMINGWAY-ACCOYO NAUTILUS",
+          "SUNNYVIEW ALEJANDRIA",
+          "SUNNYVIEW ANJELITA"
+        ],
+        "n_covers": 8,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.3125,
+        "uniqueness_pct": 31.25,
+        "why": "Must stay. Covers 8 last founder(s) the year-1 parents would take with them: ACCOYO AMERICA ASPEN AC020, CPERUVIAN CADEE 1192 IMPF98 TC), FIBRE WORKS DIAMONTE (+5 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:5C S CHANTERELLA:NM:G TRIBE S ROCKY S ASH",
+        "name": "5C'S CHANTERELLA \u00d7 G-TRIBE'S ROCKY'S ASH",
+        "dam_id": "NM:5C S CHANTERELLA",
+        "sire_id": "NM:G TRIBE S ROCKY S ASH",
+        "dam_name": "5C'S CHANTERELLA",
+        "sire_name": "G-TRIBE'S ROCKY'S ASH",
+        "f_pct": 0.0,
+        "covers": [
+          "AVA DOMITA MARTI 059N",
+          "EXPRESS' PERUVIAN SPICE",
+          "MESSIAH ALYST",
+          "MFI PERUVIAN FABEREGE",
+          "MHF PIXIE",
+          "R&RR ALDER 097L",
+          "SHAZZY ALYST",
+          "SOFTWEAR"
+        ],
+        "n_covers": 8,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Must stay. Covers 8 last founder(s) the year-1 parents would take with them: AVA DOMITA MARTI 059N, EXPRESS' PERUVIAN SPICE, MESSIAH ALYST (+5 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RED GRANITES JAFFA:NM:CRESCENT MOON S KEMMAUS",
+        "name": "RED GRANITES JAFFA \u00d7 CRESCENT MOON'S KEMMAUS",
+        "dam_id": "NM:RED GRANITES JAFFA",
+        "sire_id": "NM:CRESCENT MOON S KEMMAUS",
+        "dam_name": "RED GRANITES JAFFA",
+        "sire_name": "CRESCENT MOON'S KEMMAUS",
+        "f_pct": 0.0,
+        "covers": [
+          "ETIENNE OF REDWOOD RIDGE",
+          "GREENER PASTURES LAHELA",
+          "PATAGONIA'S CLEO",
+          "REMINGTON OF REDWOODRIDGE",
+          "SNOWMASS NOVA'S DARK QUEST",
+          "TESS",
+          "WOLF DEN O'BABY",
+          "WVR'S THE OUTLAW JOSEY WALES"
+        ],
+        "n_covers": 8,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Must stay. Covers 8 last founder(s) the year-1 parents would take with them: ETIENNE OF REDWOOD RIDGE, GREENER PASTURES LAHELA, PATAGONIA'S CLEO (+5 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RGR S MISS CONTRARY:NM:CRESCENT MOON S KEMMAUS",
+        "name": "RGR'S MISS CONTRARY \u00d7 CRESCENT MOON'S KEMMAUS",
+        "dam_id": "NM:RGR S MISS CONTRARY",
+        "sire_id": "NM:CRESCENT MOON S KEMMAUS",
+        "dam_name": "RGR'S MISS CONTRARY",
+        "sire_name": "CRESCENT MOON'S KEMMAUS",
+        "f_pct": 0.0,
+        "covers": [
+          "CARTAGENA - CHAPOCO",
+          "ETIENNE OF REDWOOD RIDGE",
+          "GREENER PASTURES LAHELA",
+          "LANARK'S SILVER CHARM",
+          "REMINGTON OF REDWOODRIDGE",
+          "SNOWMASS BLACK N' GOLD",
+          "TESS",
+          "WVR'S THE OUTLAW JOSEY WALES"
+        ],
+        "n_covers": 8,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Must stay. Covers 8 last founder(s) the year-1 parents would take with them: CARTAGENA - CHAPOCO, ETIENNE OF REDWOOD RIDGE, GREENER PASTURES LAHELA (+5 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SNOWMASS MIDNIGHT GAZE:NM:MTAR ORLANDO CLOUD S MCDREAMY",
+        "name": "SNOWMASS MIDNIGHT GAZE \u00d7 MTAR ORLANDO CLOUD'S MCDREAMY",
+        "dam_id": "NM:SNOWMASS MIDNIGHT GAZE",
+        "sire_id": "NM:MTAR ORLANDO CLOUD S MCDREAMY",
+        "dam_name": "SNOWMASS MIDNIGHT GAZE",
+        "sire_name": "MTAR ORLANDO CLOUD'S MCDREAMY",
+        "f_pct": 0.0,
+        "covers": [
+          "ACCOYO AMERICA SHOGUN",
+          "PACIFIC CREST ACCOYO CALIPANI",
+          "SNOWMASS BIT OF HONEY",
+          "SNOWMASS ELITE LEGEND",
+          "SNOWMASS ICED ELEGANCE",
+          "SNOWMASS LITERALLY LOVELY",
+          "SNOWMASS SATIN BELLS"
+        ],
+        "n_covers": 7,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.21875,
+        "uniqueness_pct": 21.88,
+        "why": "Must stay. Covers 7 last founder(s) the year-1 parents would take with them: ACCOYO AMERICA SHOGUN, PACIFIC CREST ACCOYO CALIPANI, SNOWMASS BIT OF HONEY (+4 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:THAT LL DO BLACKBEARD S BOOTY:AR:35586548",
+        "name": "THAT'LL DO BLACKBEARD'S BOOTY \u00d7 CIRCLE CLIFF'S MELVIN",
+        "dam_id": "NM:THAT LL DO BLACKBEARD S BOOTY",
+        "sire_id": "AR:35586548",
+        "dam_name": "THAT'LL DO BLACKBEARD'S BOOTY",
+        "sire_name": "CIRCLE CLIFF'S MELVIN",
+        "f_pct": 0.08,
+        "covers": [
+          "5PERUVIAN MICAY 8452",
+          "5PERUVIAN ROYAL INCA LEGEND 9058",
+          "HVLA ZEPHYR",
+          "MBF EL DORADO",
+          "MILLENNIUM GIRL URAQT",
+          "SEBRING JAX",
+          "WOODED HILLS WINSTON"
+        ],
+        "n_covers": 7,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.21875,
+        "uniqueness_pct": 21.88,
+        "why": "Must stay. Covers 7 last founder(s) the year-1 parents would take with them: 5PERUVIAN MICAY 8452, 5PERUVIAN ROYAL INCA LEGEND 9058, HVLA ZEPHYR (+4 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:VINTAGE CASHMERE S U TAUPE IA:AR:30339231",
+        "name": "VINTAGE CASHMERE'S U-TAUPE-IA \u00d7 SNOWMASS CONOPA XXX",
+        "dam_id": "NM:VINTAGE CASHMERE S U TAUPE IA",
+        "sire_id": "AR:30339231",
+        "dam_name": "VINTAGE CASHMERE'S U-TAUPE-IA",
+        "sire_name": "SNOWMASS CONOPA XXX",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN BIANA 6323 IMPR98",
+          "6PERUVIAN SERENETY 6303 IMPR98",
+          "CHIQUITA IMPORTAD98",
+          "MACINTOSH S086 ALOA",
+          "PPERUVIAN FELIX G4562",
+          "PPPERUVIAN PRESTIGE 4999"
+        ],
+        "n_covers": 6,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.34375,
+        "uniqueness_pct": 34.38,
+        "why": "Must stay. Covers 6 last founder(s) the year-1 parents would take with them: 6PERUVIAN BIANA 6323 IMPR98, 6PERUVIAN SERENETY 6303 IMPR98, CHIQUITA IMPORTAD98 (+3 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:ROYAL DIAMANTE S JEWEL:NM:CRESCENT MOON S KEMMAUS",
+        "name": "ROYAL DIAMANTE'S JEWEL \u00d7 CRESCENT MOON'S KEMMAUS",
+        "dam_id": "NM:ROYAL DIAMANTE S JEWEL",
+        "sire_id": "NM:CRESCENT MOON S KEMMAUS",
+        "dam_name": "ROYAL DIAMANTE'S JEWEL",
+        "sire_name": "CRESCENT MOON'S KEMMAUS",
+        "f_pct": 0.06,
+        "covers": [
+          "CPERUVIAN CALANDRIA 1204 IMPF98 ey",
+          "ETIENNE OF REDWOOD RIDGE",
+          "GREENER PASTURES LAHELA",
+          "REMINGTON OF REDWOODRIDGE",
+          "TESS",
+          "WVR'S THE OUTLAW JOSEY WALES"
+        ],
+        "n_covers": 6,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.21875,
+        "uniqueness_pct": 21.88,
+        "why": "Must stay. Covers 6 last founder(s) the year-1 parents would take with them: CPERUVIAN CALANDRIA 1204 IMPF98 ey, ETIENNE OF REDWOOD RIDGE, GREENER PASTURES LAHELA (+3 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SC S CHARENTE:NM:ARAPAHO DELGADO S ILLYAPA",
+        "name": "SC'S CHARENTE \u00d7 ARAPAHO DELGADO'S ILLYAPA",
+        "dam_id": "NM:SC S CHARENTE",
+        "sire_id": "NM:ARAPAHO DELGADO S ILLYAPA",
+        "dam_name": "SC'S CHARENTE",
+        "sire_name": "ARAPAHO DELGADO'S ILLYAPA",
+        "f_pct": 0.0,
+        "covers": [
+          "AUSSIE GUNS -N- ROSES Huarava 320036107 - LIinited States",
+          "BISTURI",
+          "CRESCENT MOON'S STILLETA",
+          "LV BLACK EYED SUSAN",
+          "SILVER ROSE SENTINEL",
+          "SNOWMASS ZIMA"
+        ],
+        "n_covers": 6,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.1875,
+        "uniqueness_pct": 18.75,
+        "why": "Must stay. Covers 6 last founder(s) the year-1 parents would take with them: AUSSIE GUNS -N- ROSES Huarava 320036107 - LIinited States, BISTURI, CRESCENT MOON'S STILLETA (+3 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:CIRCLE CLIFF S SWEET CAROLINE:NM:TCB CORKY",
+        "name": "CIRCLE CLIFF'S SWEET CAROLINE \u00d7 TCB CORKY",
+        "dam_id": "NM:CIRCLE CLIFF S SWEET CAROLINE",
+        "sire_id": "NM:TCB CORKY",
+        "dam_name": "CIRCLE CLIFF'S SWEET CAROLINE",
+        "sire_name": "TCB CORKY",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN ACCOYO THE LAST DONIMPR98",
+          "CALIGULA'S ACCOYO POSEIDON",
+          "CHELSEA FARMS' TESS'S FLAME",
+          "CRESCENT MOON'S ESMERALDA",
+          "MILE HIGH PERUVIAN GENESEE"
+        ],
+        "n_covers": 5,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.375,
+        "uniqueness_pct": 37.5,
+        "why": "Must stay. Covers 5 last founder(s) the year-1 parents would take with them: 6PERUVIAN ACCOYO THE LAST DONIMPR98, CALIGULA'S ACCOYO POSEIDON, CHELSEA FARMS' TESS'S FLAME (+2 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SNOWMASS ALLURING XX:NM:LIBERTYALPACAS SMOKE SCREEN",
+        "name": "SNOWMASS ALLURING XX \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+        "dam_id": "NM:SNOWMASS ALLURING XX",
+        "sire_id": "NM:LIBERTYALPACAS SMOKE SCREEN",
+        "dam_name": "SNOWMASS ALLURING XX",
+        "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+        "f_pct": 0.0,
+        "covers": [
+          "PERUVIAN FAWNA W914",
+          "PPPERUVIAN TRINKET 4657",
+          "SNOWMASS BLACK OUT",
+          "SNOWMASS GOLDEN GIRL",
+          "W LA SILVERADO"
+        ],
+        "n_covers": 5,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.28125,
+        "uniqueness_pct": 28.12,
+        "why": "Must stay. Covers 5 last founder(s) the year-1 parents would take with them: PERUVIAN FAWNA W914, PPPERUVIAN TRINKET 4657, SNOWMASS BLACK OUT (+2 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SNOWMASS SIMPLY SMOKIN:NM:LIBERTYALPACAS SMOKE SCREEN",
+        "name": "SNOWMASS SIMPLY SMOKIN \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+        "dam_id": "NM:SNOWMASS SIMPLY SMOKIN",
+        "sire_id": "NM:LIBERTYALPACAS SMOKE SCREEN",
+        "dam_name": "SNOWMASS SIMPLY SMOKIN",
+        "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+        "f_pct": 0.0,
+        "covers": [
+          "CASANOVA'S CRESCENDA",
+          "PERUVIAN FAWNA W914",
+          "PPPERUVIAN TRINKET 4657",
+          "SNOWMASS RAINBOW JOY",
+          "W LA SILVERADO"
+        ],
+        "n_covers": 5,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.28125,
+        "uniqueness_pct": 28.12,
+        "why": "Must stay. Covers 5 last founder(s) the year-1 parents would take with them: CASANOVA'S CRESCENDA, PERUVIAN FAWNA W914, PPPERUVIAN TRINKET 4657 (+2 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:CRYSTAL MOCHACCINO:AR:814613",
+        "name": "CRYSTAL MOCHACCINO \u00d7 PATAGONIA'S NERUDA",
+        "dam_id": "NM:CRYSTAL MOCHACCINO",
+        "sire_id": "AR:814613",
+        "dam_name": "CRYSTAL MOCHACCINO",
+        "sire_name": "PATAGONIA'S NERUDA",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN ACCOYOGRANDTRIUMPH IMPR9\u00a7",
+          "ANDEAN MIDNIGHT",
+          "BLACK MARIAH #1264",
+          "NZ MAORI MAGIC",
+          "PALOMA BLANCA"
+        ],
+        "n_covers": 5,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.15625,
+        "uniqueness_pct": 15.62,
+        "why": "Must stay. Covers 5 last founder(s) the year-1 parents would take with them: 6PERUVIAN ACCOYOGRANDTRIUMPH IMPR9\u00a7, ANDEAN MIDNIGHT, BLACK MARIAH #1264 (+2 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RED GRANITES JEZEBELL:NM:MAMGB NATAN SAPA",
+        "name": "RED GRANITES JEZEBELL \u00d7 MAMGB NATAN SAPA",
+        "dam_id": "NM:RED GRANITES JEZEBELL",
+        "sire_id": "NM:MAMGB NATAN SAPA",
+        "dam_name": "RED GRANITES JEZEBELL",
+        "sire_name": "MAMGB NATAN SAPA",
+        "f_pct": 0.0,
+        "covers": [
+          "JOHNSON S$112",
+          "KPR MAGDA",
+          "QUEEN CHARLOTTE 187",
+          "SA GREYSTOKE",
+          "TWIZZLER D118 ALOA"
+        ],
+        "n_covers": 5,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.15625,
+        "uniqueness_pct": 15.62,
+        "why": "Must stay. Covers 5 last founder(s) the year-1 parents would take with them: JOHNSON S$112, KPR MAGDA, QUEEN CHARLOTTE 187 (+2 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:NOBLE AMARETTO:NM:LIBERTYALPACAS SMOKE SCREEN",
+        "name": "NOBLE AMARETTO \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+        "dam_id": "NM:NOBLE AMARETTO",
+        "sire_id": "NM:LIBERTYALPACAS SMOKE SCREEN",
+        "dam_name": "NOBLE AMARETTO",
+        "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+        "f_pct": 0.0,
+        "covers": [
+          "PERUVIAN FAWNA W914",
+          "PPPERUVIAN TRINKET 4657",
+          "SNOWMASS GOLDEN SERENITY",
+          "W LA SILVERADO"
+        ],
+        "n_covers": 4,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Must stay. Covers 4 last founder(s) the year-1 parents would take with them: PERUVIAN FAWNA W914, PPPERUVIAN TRINKET 4657, SNOWMASS GOLDEN SERENITY (+1 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RED GRANITES AFTERSHOCK:NM:TCB CORKY",
+        "name": "RED GRANITES AFTERSHOCK \u00d7 TCB CORKY",
+        "dam_id": "NM:RED GRANITES AFTERSHOCK",
+        "sire_id": "NM:TCB CORKY",
+        "dam_name": "RED GRANITES AFTERSHOCK",
+        "sire_name": "TCB CORKY",
+        "f_pct": 0.0,
+        "covers": [
+          "5PERUVIAN BLACK ICE 9069",
+          "6PERUVIAN ACCOYO THE LAST DONIMPR98",
+          "PPERUVIAN ELOISA B4263"
+        ],
+        "n_covers": 3,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.3125,
+        "uniqueness_pct": 31.25,
+        "why": "Must stay. Covers 3 last founder(s) the year-1 parents would take with them: 5PERUVIAN BLACK ICE 9069, 6PERUVIAN ACCOYO THE LAST DONIMPR98, PPERUVIAN ELOISA B4263."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RED GRANITES PRIM AND PROPER:NM:RED GRANITES BRAVEHEART",
+        "name": "RED GRANITES PRIM & PROPER \u00d7 RED GRANITES BRAVEHEART",
+        "dam_id": "NM:RED GRANITES PRIM AND PROPER",
+        "sire_id": "NM:RED GRANITES BRAVEHEART",
+        "dam_name": "RED GRANITES PRIM & PROPER",
+        "sire_name": "RED GRANITES BRAVEHEART",
+        "f_pct": 0.08,
+        "covers": [
+          "CALLA LILLE",
+          "CRESCENT MOON'S KRYPTONITE",
+          "SENORITA ACCOYO CHIQUITA"
+        ],
+        "n_covers": 3,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.09375,
+        "uniqueness_pct": 9.38,
+        "why": "Must stay. Covers 3 last founder(s) the year-1 parents would take with them: CALLA LILLE, CRESCENT MOON'S KRYPTONITE, SENORITA ACCOYO CHIQUITA."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SC S CLARKIA:AR:35586548",
+        "name": "SC'S CLARKIA \u00d7 CIRCLE CLIFF'S MELVIN",
+        "dam_id": "NM:SC S CLARKIA",
+        "sire_id": "AR:35586548",
+        "dam_name": "SC'S CLARKIA",
+        "sire_name": "CIRCLE CLIFF'S MELVIN",
+        "f_pct": 0.08,
+        "covers": [
+          "SNOWMASS MIDNIGHT SONG",
+          "SNOWMASS QUECHUA'S RISING SON",
+          "SNOWMASS ROYAL LACE"
+        ],
+        "n_covers": 3,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.09375,
+        "uniqueness_pct": 9.38,
+        "why": "Must stay. Covers 3 last founder(s) the year-1 parents would take with them: SNOWMASS MIDNIGHT SONG, SNOWMASS QUECHUA'S RISING SON, SNOWMASS ROYAL LACE."
+      },
+      {
+        "cria_id": "CRIA:1:NM:APP WILD PHLOX:AR:814613",
+        "name": "APP WILD PHLOX \u00d7 PATAGONIA'S NERUDA",
+        "dam_id": "NM:APP WILD PHLOX",
+        "sire_id": "AR:814613",
+        "dam_name": "APP WILD PHLOX",
+        "sire_name": "PATAGONIA'S NERUDA",
+        "f_pct": 0.0,
+        "covers": [
+          "CLASSY TRUFFLES",
+          "MFI PERUVIAN PURISIMA"
+        ],
+        "n_covers": 2,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.0625,
+        "uniqueness_pct": 6.25,
+        "why": "Must stay. Covers 2 last founder(s) the year-1 parents would take with them: CLASSY TRUFFLES, MFI PERUVIAN PURISIMA."
+      },
+      {
+        "cria_id": "CRIA:1:AR:36115044:NM:CRYSTAL ROYAL GOLD S MACKINAW",
+        "name": "IRISH MEADOWS TAYT \u00d7 CRYSTAL ROYAL GOLD'S MACKINAW",
+        "dam_id": "AR:36115044",
+        "sire_id": "NM:CRYSTAL ROYAL GOLD S MACKINAW",
+        "dam_name": "IRISH MEADOWS TAYT",
+        "sire_name": "CRYSTAL ROYAL GOLD'S MACKINAW",
+        "f_pct": 0.0,
+        "covers": [
+          "SNOWMASS MIDNIGHT FOX",
+          "SNOWMASS QUECHUA'S SHAHTOOSH"
+        ],
+        "n_covers": 2,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.0625,
+        "uniqueness_pct": 6.25,
+        "why": "Must stay. Covers 2 last founder(s) the year-1 parents would take with them: SNOWMASS MIDNIGHT FOX, SNOWMASS QUECHUA'S SHAHTOOSH."
+      },
+      {
+        "cria_id": "CRIA:1:NM:APP OSA PHRENCH BRAID:AR:814613",
+        "name": "APP OSA PHRENCH BRAID \u00d7 PATAGONIA'S NERUDA",
+        "dam_id": "NM:APP OSA PHRENCH BRAID",
+        "sire_id": "AR:814613",
+        "dam_name": "APP OSA PHRENCH BRAID",
+        "sire_name": "PATAGONIA'S NERUDA",
+        "f_pct": 0.0,
+        "covers": [
+          "CORTINA 121"
+        ],
+        "n_covers": 1,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.03125,
+        "uniqueness_pct": 3.12,
+        "why": "Must stay. Covers 1 last founder(s) the year-1 parents would take with them: CORTINA 121."
+      },
+      {
+        "cria_id": "CRIA:1:AR:30863767:AR:850345",
+        "name": "SCA PERUVIAN SILVERBELLE \u00d7 SNOWMASS MATRIX",
+        "dam_id": "AR:30863767",
+        "sire_id": "AR:850345",
+        "dam_name": "SCA PERUVIAN SILVERBELLE",
+        "sire_name": "SNOWMASS MATRIX",
+        "f_pct": 0.0,
+        "covers": [
+          "GARNETT"
+        ],
+        "n_covers": 1,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.03125,
+        "uniqueness_pct": 3.12,
+        "why": "Must stay. Covers 1 last founder(s) the year-1 parents would take with them: GARNETT."
+      }
+    ],
+    "stay": [
+      {
+        "cria_id": "CRIA:1:NM:HOWLING HILL SING THE BODY ELECTRIC:NM:SUNNYHILL S ZANG S BALTAZAR",
+        "name": "HOWLING HILL SING THE BODY ELECTRIC \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+        "dam_id": "NM:HOWLING HILL SING THE BODY ELECTRIC",
+        "sire_id": "NM:SUNNYHILL S ZANG S BALTAZAR",
+        "dam_name": "HOWLING HILL SING THE BODY ELECTRIC",
+        "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+        "f_pct": 0.0,
+        "covers": [
+          "5PERUVIAN CHARLIE'S ANGEL 8494",
+          "5PERUVIAN DOM ALAMIR 9043",
+          "ACCOYO AMERICA ASPEN AC020",
+          "BRITTANY'S DESPARADO",
+          "CPERUVIAN VALERIE 1483",
+          "EL SEGUNDO DE ROYAL FAWN",
+          "FIBRE WORKS DIAMONTE",
+          "KELOWNA'S SUNDANCE KID",
+          "LUNAR ECLIPSE",
+          "MULOWE",
+          "PANAM'S SILVER ANGEL IMPD98 TC)",
+          "PCA HEMINGWAY-ACCOYO NAUTILUS",
+          "PPPERUVIAN FINESSE 5093",
+          "SENOIA",
+          "SUNNYVIEW ALEJANDRIA",
+          "SUNNYVIEW ANJELITA",
+          "TELL BLIZZARD",
+          "TELL HOT SHOT",
+          "WOODED HILLS CHILE PEPPER"
+        ],
+        "n_covers": 19,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.65625,
+        "uniqueness_pct": 65.62,
+        "why": "Must stay. Covers 19 last founder(s) the year-1 parents would take with them: 5PERUVIAN CHARLIE'S ANGEL 8494, 5PERUVIAN DOM ALAMIR 9043, ACCOYO AMERICA ASPEN AC020 (+16 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SC S CARRINGTON:NM:PALLATON S KALIBAUT ALYST",
+        "name": "SC'S CARRINGTON \u00d7 PALLATON'S KALIBAUT ALYST",
+        "dam_id": "NM:SC S CARRINGTON",
+        "sire_id": "NM:PALLATON S KALIBAUT ALYST",
+        "dam_name": "SC'S CARRINGTON",
+        "sire_name": "PALLATON'S KALIBAUT ALYST",
+        "f_pct": 0.05,
+        "covers": [
+          "ACCOYO AMERICA APOCALYPSE",
+          "ACCOYO AMERICA MARATHON",
+          "KAPPIE",
+          "KPR CARMELLA",
+          "MFI PERUVIAN CHAMPAGNE",
+          "NWA, LTD SHIRLEY",
+          "PCA PERUVIAN MICROSOFT",
+          "PPERUVIAN LEON G4560",
+          "PPPERUVIAN CORACORA 5055",
+          "PPPERUVIAN SWEETNESS 4854",
+          "PRISTINA'S ACCOYO PRINCESSA",
+          "SARA'S SAHARA",
+          "SONORA'S ACCOYO FERRARI",
+          "TICKITY BOO VICTORIA",
+          "TNT PERUVIAN BLAITHIN",
+          "YAKUTAT VON TR"
+        ],
+        "n_covers": 16,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.5,
+        "uniqueness_pct": 50.0,
+        "why": "Must stay. Covers 16 last founder(s) the year-1 parents would take with them: ACCOYO AMERICA APOCALYPSE, ACCOYO AMERICA MARATHON, KAPPIE (+13 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:4 SIGHT S HOLIDAY:NM:G TRIBE S ROCKY S ASH",
+        "name": "4-SIGHT'S HOLIDAY \u00d7 G-TRIBE'S ROCKY'S ASH",
+        "dam_id": "NM:4 SIGHT S HOLIDAY",
+        "sire_id": "NM:G TRIBE S ROCKY S ASH",
+        "dam_name": "4-SIGHT'S HOLIDAY",
+        "sire_name": "G-TRIBE'S ROCKY'S ASH",
+        "f_pct": 0.02,
+        "covers": [
+          "ALPACARIA'S VOX EXCALIBUR",
+          "AVA DOMITA MARTI 059N",
+          "AVATAR",
+          "AYSEN'S LAUCA IMPQ98",
+          "CPERUVIAN CAMILLA 1258 IMPF98",
+          "EXPRESS' PERUVIAN SPICE",
+          "KPR ANGELL",
+          "MARIAH MAE",
+          "MESSIAH ALYST",
+          "PENNIE",
+          "R&RR ALDER 097L",
+          "SA PERUVIAN CHOCO",
+          "SHAZZY ALYST",
+          "SILVERTONE",
+          "TCB'S CAMEO"
+        ],
+        "n_covers": 15,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.46875,
+        "uniqueness_pct": 46.88,
+        "why": "Must stay. Covers 15 last founder(s) the year-1 parents would take with them: ALPACARIA'S VOX EXCALIBUR, AVA DOMITA MARTI 059N, AVATAR (+12 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:HERITAGE SILVER PROMISE:NM:SUNNYHILL S ZANG S BALTAZAR",
+        "name": "HERITAGE SILVER PROMISE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+        "dam_id": "NM:HERITAGE SILVER PROMISE",
+        "sire_id": "NM:SUNNYHILL S ZANG S BALTAZAR",
+        "dam_name": "HERITAGE SILVER PROMISE",
+        "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+        "f_pct": 0.0,
+        "covers": [
+          "5PERUVIAN SILVERADO 9042",
+          "ACCOYO AMERICA ASPEN AC020",
+          "BD ROSIE'S THOMAS",
+          "FIBRE WORKS DIAMONTE",
+          "KELOWNA'S SUNDANCE KID",
+          "LA CARAMELLA CODI W966",
+          "MFI PERUVIAN GLACIAL STORM",
+          "PANAM'S SILVER ANGEL IMPD98 TC)",
+          "PCA HEMINGWAY-ACCOYO NAUTILUS",
+          "SA PERUVIAN DASH OF CLASS",
+          "SUNNYVIEW ALEJANDRIA",
+          "SUNNYVIEW ANJELITA",
+          "VIAC MISS-C"
+        ],
+        "n_covers": 13,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.4375,
+        "uniqueness_pct": 43.75,
+        "why": "Must stay. Covers 13 last founder(s) the year-1 parents would take with them: 5PERUVIAN SILVERADO 9042, ACCOYO AMERICA ASPEN AC020, BD ROSIE'S THOMAS (+10 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:MARY S SIQUANI BELLE:NM:PALLATON S KALIBAUT ALYST",
+        "name": "MARY'S SIQUANI BELLE \u00d7 PALLATON'S KALIBAUT ALYST",
+        "dam_id": "NM:MARY S SIQUANI BELLE",
+        "sire_id": "NM:PALLATON S KALIBAUT ALYST",
+        "dam_name": "MARY'S SIQUANI BELLE",
+        "sire_name": "PALLATON'S KALIBAUT ALYST",
+        "f_pct": 0.02,
+        "covers": [
+          "5PERUVIAN CHACHANI 8690",
+          "ACCOYO AMERICA APOCALYPSE",
+          "ACCOYO AMERICA MARATHON",
+          "CPERUVIAN CHILAM 1338 IMPF98",
+          "MFI PERUVIAN CHAMPAGNE",
+          "NWA, LTD SHIRLEY",
+          "PPERUVIAN VENGADOR G4568",
+          "PPPERUVIAN COROPUNA 4603",
+          "PRISTINA'S ACCOYO PRINCESSA",
+          "SONORA'S ACCOYO FERRARI",
+          "TICKITY BOO VICTORIA",
+          "TNT PERUVIAN BLAITHIN"
+        ],
+        "n_covers": 12,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.40625,
+        "uniqueness_pct": 40.62,
+        "why": "Must stay. Covers 12 last founder(s) the year-1 parents would take with them: 5PERUVIAN CHACHANI 8690, ACCOYO AMERICA APOCALYPSE, ACCOYO AMERICA MARATHON (+9 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:MISS ALOHA MOONSHINE:NM:SUNNYHILL S ZANG S BALTAZAR",
+        "name": "MISS ALOHA MOONSHINE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+        "dam_id": "NM:MISS ALOHA MOONSHINE",
+        "sire_id": "NM:SUNNYHILL S ZANG S BALTAZAR",
+        "dam_name": "MISS ALOHA MOONSHINE",
+        "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+        "f_pct": 0.0,
+        "covers": [
+          "ACA CRISPINA",
+          "ACCOYO AMERICA ASPEN AC020",
+          "FIBRE WORKS DIAMONTE",
+          "KELOWNA'S SUNDANCE KID",
+          "MAPLE BROOK BARNABUS Huacavya 840936",
+          "MMR MARCOYO",
+          "NORTHMARK'S MESSIAH'S PROPHETESS'",
+          "PANAM'S SILVER ANGEL IMPD98 TC)",
+          "PCA HEMINGWAY-ACCOYO NAUTILUS",
+          "SUNNYVIEW ALEJANDRIA",
+          "SUNNYVIEW ANJELITA",
+          "TH HEIDI'S SASHA"
+        ],
+        "n_covers": 12,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.40625,
+        "uniqueness_pct": 40.62,
+        "why": "Must stay. Covers 12 last founder(s) the year-1 parents would take with them: ACA CRISPINA, ACCOYO AMERICA ASPEN AC020, FIBRE WORKS DIAMONTE (+9 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SNOWMASS IRON MAIDEN:NM:HMAF S AIRGEAD",
+        "name": "SNOWMASS IRON MAIDEN \u00d7 HMAF'S AIRGEAD",
+        "dam_id": "NM:SNOWMASS IRON MAIDEN",
+        "sire_id": "NM:HMAF S AIRGEAD",
+        "dam_name": "SNOWMASS IRON MAIDEN",
+        "sire_name": "HMAF'S AIRGEAD",
+        "f_pct": 0.05,
+        "covers": [
+          "6PERUVIAN FORTUNATA 6494 IMPR98",
+          "BLACK PERUVIAN ROYAL FOREST",
+          "BOLIVIAN VESUVIUS",
+          "DISAPPEARING CREEK RINCON'S KALANI'",
+          "ENQUELGA BIANCA",
+          "MAYA III",
+          "MFI VISION",
+          "ORE HILL COMANCHE",
+          "PERUVIAN MACUSANI G204",
+          "PPPERUVIAN CEBICHE 4890",
+          "PRECIOSE IMPORTAB98",
+          "QUEEN OF SPADES 339"
+        ],
+        "n_covers": 12,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.40625,
+        "uniqueness_pct": 40.62,
+        "why": "Must stay. Covers 12 last founder(s) the year-1 parents would take with them: 6PERUVIAN FORTUNATA 6494 IMPR98, BLACK PERUVIAN ROYAL FOREST, BOLIVIAN VESUVIUS (+9 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:PARAGON S ESMERALDA:NM:PALLATON S KALIBAUT ALYST",
+        "name": "PARAGON'S ESMERALDA \u00d7 PALLATON'S KALIBAUT ALYST",
+        "dam_id": "NM:PARAGON S ESMERALDA",
+        "sire_id": "NM:PALLATON S KALIBAUT ALYST",
+        "dam_name": "PARAGON'S ESMERALDA",
+        "sire_name": "PALLATON'S KALIBAUT ALYST",
+        "f_pct": 0.32,
+        "covers": [
+          "5PERUVIAN DONA APARECIDA 8520",
+          "ACCOYO AMERICA APOCALYPSE",
+          "ACCOYO AMERICA MARATHON",
+          "HOLLYWOOD",
+          "MFI PERUVIAN CHAMPAGNE",
+          "NWA, LTD SHIRLEY",
+          "PPPERUVIAN CHICHA 4975",
+          "PRISTINA'S ACCOYO PRINCESSA",
+          "SONORA'S ACCOYO FERRARI",
+          "TABITHA OF AYS",
+          "TICKITY BOO VICTORIA",
+          "TNT PERUVIAN BLAITHIN"
+        ],
+        "n_covers": 12,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.375,
+        "uniqueness_pct": 37.5,
+        "why": "Must stay. Covers 12 last founder(s) the year-1 parents would take with them: 5PERUVIAN DONA APARECIDA 8520, ACCOYO AMERICA APOCALYPSE, ACCOYO AMERICA MARATHON (+9 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:MISS AUTARY:NM:LIBERTYALPACAS SMOKE SCREEN",
+        "name": "MISS AUTARY \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+        "dam_id": "NM:MISS AUTARY",
+        "sire_id": "NM:LIBERTYALPACAS SMOKE SCREEN",
+        "dam_name": "MISS AUTARY",
+        "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+        "f_pct": 0.0,
+        "covers": [
+          "ARISTO ANTOINETTE",
+          "COYO DESTINI",
+          "CPERUVIAN DANIEL 111 IMPF98",
+          "GHOST RIVER SHY ANNE",
+          "JOLIMONT 2 PERUVIAN RINGO IMPB98",
+          "JOLIMONT PERUVIAN AREQUIPA IMPAQ&",
+          "MMR SIR CONDE",
+          "PERUVIAN FAWNA W914",
+          "PPPERUVIAN TRINKET 4657",
+          "W LA SILVERADO"
+        ],
+        "n_covers": 10,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.46875,
+        "uniqueness_pct": 46.88,
+        "why": "Must stay. Covers 10 last founder(s) the year-1 parents would take with them: ARISTO ANTOINETTE, COYO DESTINI, CPERUVIAN DANIEL 111 IMPF98 (+7 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:PATAGONIA S DUSTY:NM:PALLATON S KALIBAUT ALYST",
+        "name": "PATAGONIA'S DUSTY \u00d7 PALLATON'S KALIBAUT ALYST",
+        "dam_id": "NM:PATAGONIA S DUSTY",
+        "sire_id": "NM:PALLATON S KALIBAUT ALYST",
+        "dam_name": "PATAGONIA'S DUSTY",
+        "sire_name": "PALLATON'S KALIBAUT ALYST",
+        "f_pct": 0.0,
+        "covers": [
+          "ACCOYO AMERICA APOCALYPSE",
+          "ACCOYO AMERICA MARATHON",
+          "HERMANA 184",
+          "MARIGOLD 387",
+          "MFI PERUVIAN CHAMPAGNE",
+          "NWA, LTD SHIRLEY",
+          "PRISTINA'S ACCOYO PRINCESSA",
+          "SONORA'S ACCOYO FERRARI",
+          "TICKITY BOO VICTORIA",
+          "TNT PERUVIAN BLAITHIN"
+        ],
+        "n_covers": 10,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.4375,
+        "uniqueness_pct": 43.75,
+        "why": "Must stay. Covers 10 last founder(s) the year-1 parents would take with them: ACCOYO AMERICA APOCALYPSE, ACCOYO AMERICA MARATHON, HERMANA 184 (+7 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:ESTATES LA PRESTIGE CRIMSON:NM:G TRIBE S ROCKY S ASH",
+        "name": "ESTATES LA PRESTIGE CRIMSON \u00d7 G-TRIBE'S ROCKY'S ASH",
+        "dam_id": "NM:ESTATES LA PRESTIGE CRIMSON",
+        "sire_id": "NM:G TRIBE S ROCKY S ASH",
+        "dam_name": "ESTATES LA PRESTIGE CRIMSON",
+        "sire_name": "G-TRIBE'S ROCKY'S ASH",
+        "f_pct": 0.0,
+        "covers": [
+          "AVA DOMITA MARTI 059N",
+          "BOLIVIAN BLACK THUNDER B969",
+          "CHISTOCHINA 378",
+          "DIAMOND SPARK DE CAQUENA",
+          "EXPRESS' PERUVIAN SPICE",
+          "MELOSA",
+          "MESSIAH ALYST",
+          "R&RR ALDER 097L",
+          "SHAZZY ALYST",
+          "VCA ERIKA"
+        ],
+        "n_covers": 10,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.34375,
+        "uniqueness_pct": 34.38,
+        "why": "Must stay. Covers 10 last founder(s) the year-1 parents would take with them: AVA DOMITA MARTI 059N, BOLIVIAN BLACK THUNDER B969, CHISTOCHINA 378 (+7 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SC S CRICKIT:NM:PHPC ARTILLERY",
+        "name": "SC'S CRICKIT \u00d7 PHPC ARTILLERY",
+        "dam_id": "NM:SC S CRICKIT",
+        "sire_id": "NM:PHPC ARTILLERY",
+        "dam_name": "SC'S CRICKIT",
+        "sire_name": "PHPC ARTILLERY",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN DONA MAISA 6537 IMPR98",
+          "FCA CINDY",
+          "JOLIMONT PERUVIAN TRINITY IMPA98",
+          "LINNEA CODI W1063",
+          "MI AMIGOS PERUVIAN LUPITA",
+          "PPPERUVIAN ASTILLERO 4650",
+          "SCA PERUVIAN DESERT SUN",
+          "SNOWMASS ROYAL FLUSH",
+          "SNOWMASS SWEET DREAMS"
+        ],
+        "n_covers": 9,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.28125,
+        "uniqueness_pct": 28.12,
+        "why": "Must stay. Covers 9 last founder(s) the year-1 parents would take with them: 6PERUVIAN DONA MAISA 6537 IMPR98, FCA CINDY, JOLIMONT PERUVIAN TRINITY IMPA98 (+6 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:HEAVEN S HILL PERUVIAN CELESTIA:NM:SUNNYHILL S ZANG S BALTAZAR",
+        "name": "HEAVEN'S HILL PERUVIAN CELESTIA \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+        "dam_id": "NM:HEAVEN S HILL PERUVIAN CELESTIA",
+        "sire_id": "NM:SUNNYHILL S ZANG S BALTAZAR",
+        "dam_name": "HEAVEN'S HILL PERUVIAN CELESTIA",
+        "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+        "f_pct": 0.0,
+        "covers": [
+          "ACCOYO AMERICA ASPEN AC020",
+          "CPERUVIAN CADEE 1192 IMPF98 TC)",
+          "FIBRE WORKS DIAMONTE",
+          "KELOWNA'S SUNDANCE KID",
+          "PANAM'S SILVER ANGEL IMPD98 TC)",
+          "PCA HEMINGWAY-ACCOYO NAUTILUS",
+          "SUNNYVIEW ALEJANDRIA",
+          "SUNNYVIEW ANJELITA"
+        ],
+        "n_covers": 8,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.3125,
+        "uniqueness_pct": 31.25,
+        "why": "Must stay. Covers 8 last founder(s) the year-1 parents would take with them: ACCOYO AMERICA ASPEN AC020, CPERUVIAN CADEE 1192 IMPF98 TC), FIBRE WORKS DIAMONTE (+5 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:5C S CHANTERELLA:NM:G TRIBE S ROCKY S ASH",
+        "name": "5C'S CHANTERELLA \u00d7 G-TRIBE'S ROCKY'S ASH",
+        "dam_id": "NM:5C S CHANTERELLA",
+        "sire_id": "NM:G TRIBE S ROCKY S ASH",
+        "dam_name": "5C'S CHANTERELLA",
+        "sire_name": "G-TRIBE'S ROCKY'S ASH",
+        "f_pct": 0.0,
+        "covers": [
+          "AVA DOMITA MARTI 059N",
+          "EXPRESS' PERUVIAN SPICE",
+          "MESSIAH ALYST",
+          "MFI PERUVIAN FABEREGE",
+          "MHF PIXIE",
+          "R&RR ALDER 097L",
+          "SHAZZY ALYST",
+          "SOFTWEAR"
+        ],
+        "n_covers": 8,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Must stay. Covers 8 last founder(s) the year-1 parents would take with them: AVA DOMITA MARTI 059N, EXPRESS' PERUVIAN SPICE, MESSIAH ALYST (+5 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RED GRANITES JAFFA:NM:CRESCENT MOON S KEMMAUS",
+        "name": "RED GRANITES JAFFA \u00d7 CRESCENT MOON'S KEMMAUS",
+        "dam_id": "NM:RED GRANITES JAFFA",
+        "sire_id": "NM:CRESCENT MOON S KEMMAUS",
+        "dam_name": "RED GRANITES JAFFA",
+        "sire_name": "CRESCENT MOON'S KEMMAUS",
+        "f_pct": 0.0,
+        "covers": [
+          "ETIENNE OF REDWOOD RIDGE",
+          "GREENER PASTURES LAHELA",
+          "PATAGONIA'S CLEO",
+          "REMINGTON OF REDWOODRIDGE",
+          "SNOWMASS NOVA'S DARK QUEST",
+          "TESS",
+          "WOLF DEN O'BABY",
+          "WVR'S THE OUTLAW JOSEY WALES"
+        ],
+        "n_covers": 8,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Must stay. Covers 8 last founder(s) the year-1 parents would take with them: ETIENNE OF REDWOOD RIDGE, GREENER PASTURES LAHELA, PATAGONIA'S CLEO (+5 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RGR S MISS CONTRARY:NM:CRESCENT MOON S KEMMAUS",
+        "name": "RGR'S MISS CONTRARY \u00d7 CRESCENT MOON'S KEMMAUS",
+        "dam_id": "NM:RGR S MISS CONTRARY",
+        "sire_id": "NM:CRESCENT MOON S KEMMAUS",
+        "dam_name": "RGR'S MISS CONTRARY",
+        "sire_name": "CRESCENT MOON'S KEMMAUS",
+        "f_pct": 0.0,
+        "covers": [
+          "CARTAGENA - CHAPOCO",
+          "ETIENNE OF REDWOOD RIDGE",
+          "GREENER PASTURES LAHELA",
+          "LANARK'S SILVER CHARM",
+          "REMINGTON OF REDWOODRIDGE",
+          "SNOWMASS BLACK N' GOLD",
+          "TESS",
+          "WVR'S THE OUTLAW JOSEY WALES"
+        ],
+        "n_covers": 8,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Must stay. Covers 8 last founder(s) the year-1 parents would take with them: CARTAGENA - CHAPOCO, ETIENNE OF REDWOOD RIDGE, GREENER PASTURES LAHELA (+5 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SNOWMASS MIDNIGHT GAZE:NM:MTAR ORLANDO CLOUD S MCDREAMY",
+        "name": "SNOWMASS MIDNIGHT GAZE \u00d7 MTAR ORLANDO CLOUD'S MCDREAMY",
+        "dam_id": "NM:SNOWMASS MIDNIGHT GAZE",
+        "sire_id": "NM:MTAR ORLANDO CLOUD S MCDREAMY",
+        "dam_name": "SNOWMASS MIDNIGHT GAZE",
+        "sire_name": "MTAR ORLANDO CLOUD'S MCDREAMY",
+        "f_pct": 0.0,
+        "covers": [
+          "ACCOYO AMERICA SHOGUN",
+          "PACIFIC CREST ACCOYO CALIPANI",
+          "SNOWMASS BIT OF HONEY",
+          "SNOWMASS ELITE LEGEND",
+          "SNOWMASS ICED ELEGANCE",
+          "SNOWMASS LITERALLY LOVELY",
+          "SNOWMASS SATIN BELLS"
+        ],
+        "n_covers": 7,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.21875,
+        "uniqueness_pct": 21.88,
+        "why": "Must stay. Covers 7 last founder(s) the year-1 parents would take with them: ACCOYO AMERICA SHOGUN, PACIFIC CREST ACCOYO CALIPANI, SNOWMASS BIT OF HONEY (+4 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:THAT LL DO BLACKBEARD S BOOTY:AR:35586548",
+        "name": "THAT'LL DO BLACKBEARD'S BOOTY \u00d7 CIRCLE CLIFF'S MELVIN",
+        "dam_id": "NM:THAT LL DO BLACKBEARD S BOOTY",
+        "sire_id": "AR:35586548",
+        "dam_name": "THAT'LL DO BLACKBEARD'S BOOTY",
+        "sire_name": "CIRCLE CLIFF'S MELVIN",
+        "f_pct": 0.08,
+        "covers": [
+          "5PERUVIAN MICAY 8452",
+          "5PERUVIAN ROYAL INCA LEGEND 9058",
+          "HVLA ZEPHYR",
+          "MBF EL DORADO",
+          "MILLENNIUM GIRL URAQT",
+          "SEBRING JAX",
+          "WOODED HILLS WINSTON"
+        ],
+        "n_covers": 7,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.21875,
+        "uniqueness_pct": 21.88,
+        "why": "Must stay. Covers 7 last founder(s) the year-1 parents would take with them: 5PERUVIAN MICAY 8452, 5PERUVIAN ROYAL INCA LEGEND 9058, HVLA ZEPHYR (+4 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:VINTAGE CASHMERE S U TAUPE IA:AR:30339231",
+        "name": "VINTAGE CASHMERE'S U-TAUPE-IA \u00d7 SNOWMASS CONOPA XXX",
+        "dam_id": "NM:VINTAGE CASHMERE S U TAUPE IA",
+        "sire_id": "AR:30339231",
+        "dam_name": "VINTAGE CASHMERE'S U-TAUPE-IA",
+        "sire_name": "SNOWMASS CONOPA XXX",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN BIANA 6323 IMPR98",
+          "6PERUVIAN SERENETY 6303 IMPR98",
+          "CHIQUITA IMPORTAD98",
+          "MACINTOSH S086 ALOA",
+          "PPERUVIAN FELIX G4562",
+          "PPPERUVIAN PRESTIGE 4999"
+        ],
+        "n_covers": 6,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.34375,
+        "uniqueness_pct": 34.38,
+        "why": "Must stay. Covers 6 last founder(s) the year-1 parents would take with them: 6PERUVIAN BIANA 6323 IMPR98, 6PERUVIAN SERENETY 6303 IMPR98, CHIQUITA IMPORTAD98 (+3 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:ROYAL DIAMANTE S JEWEL:NM:CRESCENT MOON S KEMMAUS",
+        "name": "ROYAL DIAMANTE'S JEWEL \u00d7 CRESCENT MOON'S KEMMAUS",
+        "dam_id": "NM:ROYAL DIAMANTE S JEWEL",
+        "sire_id": "NM:CRESCENT MOON S KEMMAUS",
+        "dam_name": "ROYAL DIAMANTE'S JEWEL",
+        "sire_name": "CRESCENT MOON'S KEMMAUS",
+        "f_pct": 0.06,
+        "covers": [
+          "CPERUVIAN CALANDRIA 1204 IMPF98 ey",
+          "ETIENNE OF REDWOOD RIDGE",
+          "GREENER PASTURES LAHELA",
+          "REMINGTON OF REDWOODRIDGE",
+          "TESS",
+          "WVR'S THE OUTLAW JOSEY WALES"
+        ],
+        "n_covers": 6,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.21875,
+        "uniqueness_pct": 21.88,
+        "why": "Must stay. Covers 6 last founder(s) the year-1 parents would take with them: CPERUVIAN CALANDRIA 1204 IMPF98 ey, ETIENNE OF REDWOOD RIDGE, GREENER PASTURES LAHELA (+3 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SC S CHARENTE:NM:ARAPAHO DELGADO S ILLYAPA",
+        "name": "SC'S CHARENTE \u00d7 ARAPAHO DELGADO'S ILLYAPA",
+        "dam_id": "NM:SC S CHARENTE",
+        "sire_id": "NM:ARAPAHO DELGADO S ILLYAPA",
+        "dam_name": "SC'S CHARENTE",
+        "sire_name": "ARAPAHO DELGADO'S ILLYAPA",
+        "f_pct": 0.0,
+        "covers": [
+          "AUSSIE GUNS -N- ROSES Huarava 320036107 - LIinited States",
+          "BISTURI",
+          "CRESCENT MOON'S STILLETA",
+          "LV BLACK EYED SUSAN",
+          "SILVER ROSE SENTINEL",
+          "SNOWMASS ZIMA"
+        ],
+        "n_covers": 6,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.1875,
+        "uniqueness_pct": 18.75,
+        "why": "Must stay. Covers 6 last founder(s) the year-1 parents would take with them: AUSSIE GUNS -N- ROSES Huarava 320036107 - LIinited States, BISTURI, CRESCENT MOON'S STILLETA (+3 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:CIRCLE CLIFF S SWEET CAROLINE:NM:TCB CORKY",
+        "name": "CIRCLE CLIFF'S SWEET CAROLINE \u00d7 TCB CORKY",
+        "dam_id": "NM:CIRCLE CLIFF S SWEET CAROLINE",
+        "sire_id": "NM:TCB CORKY",
+        "dam_name": "CIRCLE CLIFF'S SWEET CAROLINE",
+        "sire_name": "TCB CORKY",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN ACCOYO THE LAST DONIMPR98",
+          "CALIGULA'S ACCOYO POSEIDON",
+          "CHELSEA FARMS' TESS'S FLAME",
+          "CRESCENT MOON'S ESMERALDA",
+          "MILE HIGH PERUVIAN GENESEE"
+        ],
+        "n_covers": 5,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.375,
+        "uniqueness_pct": 37.5,
+        "why": "Must stay. Covers 5 last founder(s) the year-1 parents would take with them: 6PERUVIAN ACCOYO THE LAST DONIMPR98, CALIGULA'S ACCOYO POSEIDON, CHELSEA FARMS' TESS'S FLAME (+2 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SNOWMASS ALLURING XX:NM:LIBERTYALPACAS SMOKE SCREEN",
+        "name": "SNOWMASS ALLURING XX \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+        "dam_id": "NM:SNOWMASS ALLURING XX",
+        "sire_id": "NM:LIBERTYALPACAS SMOKE SCREEN",
+        "dam_name": "SNOWMASS ALLURING XX",
+        "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+        "f_pct": 0.0,
+        "covers": [
+          "PERUVIAN FAWNA W914",
+          "PPPERUVIAN TRINKET 4657",
+          "SNOWMASS BLACK OUT",
+          "SNOWMASS GOLDEN GIRL",
+          "W LA SILVERADO"
+        ],
+        "n_covers": 5,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.28125,
+        "uniqueness_pct": 28.12,
+        "why": "Must stay. Covers 5 last founder(s) the year-1 parents would take with them: PERUVIAN FAWNA W914, PPPERUVIAN TRINKET 4657, SNOWMASS BLACK OUT (+2 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SNOWMASS SIMPLY SMOKIN:NM:LIBERTYALPACAS SMOKE SCREEN",
+        "name": "SNOWMASS SIMPLY SMOKIN \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+        "dam_id": "NM:SNOWMASS SIMPLY SMOKIN",
+        "sire_id": "NM:LIBERTYALPACAS SMOKE SCREEN",
+        "dam_name": "SNOWMASS SIMPLY SMOKIN",
+        "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+        "f_pct": 0.0,
+        "covers": [
+          "CASANOVA'S CRESCENDA",
+          "PERUVIAN FAWNA W914",
+          "PPPERUVIAN TRINKET 4657",
+          "SNOWMASS RAINBOW JOY",
+          "W LA SILVERADO"
+        ],
+        "n_covers": 5,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.28125,
+        "uniqueness_pct": 28.12,
+        "why": "Must stay. Covers 5 last founder(s) the year-1 parents would take with them: CASANOVA'S CRESCENDA, PERUVIAN FAWNA W914, PPPERUVIAN TRINKET 4657 (+2 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:CRYSTAL MOCHACCINO:AR:814613",
+        "name": "CRYSTAL MOCHACCINO \u00d7 PATAGONIA'S NERUDA",
+        "dam_id": "NM:CRYSTAL MOCHACCINO",
+        "sire_id": "AR:814613",
+        "dam_name": "CRYSTAL MOCHACCINO",
+        "sire_name": "PATAGONIA'S NERUDA",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN ACCOYOGRANDTRIUMPH IMPR9\u00a7",
+          "ANDEAN MIDNIGHT",
+          "BLACK MARIAH #1264",
+          "NZ MAORI MAGIC",
+          "PALOMA BLANCA"
+        ],
+        "n_covers": 5,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.15625,
+        "uniqueness_pct": 15.62,
+        "why": "Must stay. Covers 5 last founder(s) the year-1 parents would take with them: 6PERUVIAN ACCOYOGRANDTRIUMPH IMPR9\u00a7, ANDEAN MIDNIGHT, BLACK MARIAH #1264 (+2 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RED GRANITES JEZEBELL:NM:MAMGB NATAN SAPA",
+        "name": "RED GRANITES JEZEBELL \u00d7 MAMGB NATAN SAPA",
+        "dam_id": "NM:RED GRANITES JEZEBELL",
+        "sire_id": "NM:MAMGB NATAN SAPA",
+        "dam_name": "RED GRANITES JEZEBELL",
+        "sire_name": "MAMGB NATAN SAPA",
+        "f_pct": 0.0,
+        "covers": [
+          "JOHNSON S$112",
+          "KPR MAGDA",
+          "QUEEN CHARLOTTE 187",
+          "SA GREYSTOKE",
+          "TWIZZLER D118 ALOA"
+        ],
+        "n_covers": 5,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.15625,
+        "uniqueness_pct": 15.62,
+        "why": "Must stay. Covers 5 last founder(s) the year-1 parents would take with them: JOHNSON S$112, KPR MAGDA, QUEEN CHARLOTTE 187 (+2 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:NOBLE AMARETTO:NM:LIBERTYALPACAS SMOKE SCREEN",
+        "name": "NOBLE AMARETTO \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+        "dam_id": "NM:NOBLE AMARETTO",
+        "sire_id": "NM:LIBERTYALPACAS SMOKE SCREEN",
+        "dam_name": "NOBLE AMARETTO",
+        "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+        "f_pct": 0.0,
+        "covers": [
+          "PERUVIAN FAWNA W914",
+          "PPPERUVIAN TRINKET 4657",
+          "SNOWMASS GOLDEN SERENITY",
+          "W LA SILVERADO"
+        ],
+        "n_covers": 4,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Must stay. Covers 4 last founder(s) the year-1 parents would take with them: PERUVIAN FAWNA W914, PPPERUVIAN TRINKET 4657, SNOWMASS GOLDEN SERENITY (+1 more)."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RED GRANITES AFTERSHOCK:NM:TCB CORKY",
+        "name": "RED GRANITES AFTERSHOCK \u00d7 TCB CORKY",
+        "dam_id": "NM:RED GRANITES AFTERSHOCK",
+        "sire_id": "NM:TCB CORKY",
+        "dam_name": "RED GRANITES AFTERSHOCK",
+        "sire_name": "TCB CORKY",
+        "f_pct": 0.0,
+        "covers": [
+          "5PERUVIAN BLACK ICE 9069",
+          "6PERUVIAN ACCOYO THE LAST DONIMPR98",
+          "PPERUVIAN ELOISA B4263"
+        ],
+        "n_covers": 3,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.3125,
+        "uniqueness_pct": 31.25,
+        "why": "Must stay. Covers 3 last founder(s) the year-1 parents would take with them: 5PERUVIAN BLACK ICE 9069, 6PERUVIAN ACCOYO THE LAST DONIMPR98, PPERUVIAN ELOISA B4263."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RED GRANITES PRIM AND PROPER:NM:RED GRANITES BRAVEHEART",
+        "name": "RED GRANITES PRIM & PROPER \u00d7 RED GRANITES BRAVEHEART",
+        "dam_id": "NM:RED GRANITES PRIM AND PROPER",
+        "sire_id": "NM:RED GRANITES BRAVEHEART",
+        "dam_name": "RED GRANITES PRIM & PROPER",
+        "sire_name": "RED GRANITES BRAVEHEART",
+        "f_pct": 0.08,
+        "covers": [
+          "CALLA LILLE",
+          "CRESCENT MOON'S KRYPTONITE",
+          "SENORITA ACCOYO CHIQUITA"
+        ],
+        "n_covers": 3,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.09375,
+        "uniqueness_pct": 9.38,
+        "why": "Must stay. Covers 3 last founder(s) the year-1 parents would take with them: CALLA LILLE, CRESCENT MOON'S KRYPTONITE, SENORITA ACCOYO CHIQUITA."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SC S CLARKIA:AR:35586548",
+        "name": "SC'S CLARKIA \u00d7 CIRCLE CLIFF'S MELVIN",
+        "dam_id": "NM:SC S CLARKIA",
+        "sire_id": "AR:35586548",
+        "dam_name": "SC'S CLARKIA",
+        "sire_name": "CIRCLE CLIFF'S MELVIN",
+        "f_pct": 0.08,
+        "covers": [
+          "SNOWMASS MIDNIGHT SONG",
+          "SNOWMASS QUECHUA'S RISING SON",
+          "SNOWMASS ROYAL LACE"
+        ],
+        "n_covers": 3,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.09375,
+        "uniqueness_pct": 9.38,
+        "why": "Must stay. Covers 3 last founder(s) the year-1 parents would take with them: SNOWMASS MIDNIGHT SONG, SNOWMASS QUECHUA'S RISING SON, SNOWMASS ROYAL LACE."
+      },
+      {
+        "cria_id": "CRIA:1:NM:APP WILD PHLOX:AR:814613",
+        "name": "APP WILD PHLOX \u00d7 PATAGONIA'S NERUDA",
+        "dam_id": "NM:APP WILD PHLOX",
+        "sire_id": "AR:814613",
+        "dam_name": "APP WILD PHLOX",
+        "sire_name": "PATAGONIA'S NERUDA",
+        "f_pct": 0.0,
+        "covers": [
+          "CLASSY TRUFFLES",
+          "MFI PERUVIAN PURISIMA"
+        ],
+        "n_covers": 2,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.0625,
+        "uniqueness_pct": 6.25,
+        "why": "Must stay. Covers 2 last founder(s) the year-1 parents would take with them: CLASSY TRUFFLES, MFI PERUVIAN PURISIMA."
+      },
+      {
+        "cria_id": "CRIA:1:AR:36115044:NM:CRYSTAL ROYAL GOLD S MACKINAW",
+        "name": "IRISH MEADOWS TAYT \u00d7 CRYSTAL ROYAL GOLD'S MACKINAW",
+        "dam_id": "AR:36115044",
+        "sire_id": "NM:CRYSTAL ROYAL GOLD S MACKINAW",
+        "dam_name": "IRISH MEADOWS TAYT",
+        "sire_name": "CRYSTAL ROYAL GOLD'S MACKINAW",
+        "f_pct": 0.0,
+        "covers": [
+          "SNOWMASS MIDNIGHT FOX",
+          "SNOWMASS QUECHUA'S SHAHTOOSH"
+        ],
+        "n_covers": 2,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.0625,
+        "uniqueness_pct": 6.25,
+        "why": "Must stay. Covers 2 last founder(s) the year-1 parents would take with them: SNOWMASS MIDNIGHT FOX, SNOWMASS QUECHUA'S SHAHTOOSH."
+      },
+      {
+        "cria_id": "CRIA:1:NM:APP OSA PHRENCH BRAID:AR:814613",
+        "name": "APP OSA PHRENCH BRAID \u00d7 PATAGONIA'S NERUDA",
+        "dam_id": "NM:APP OSA PHRENCH BRAID",
+        "sire_id": "AR:814613",
+        "dam_name": "APP OSA PHRENCH BRAID",
+        "sire_name": "PATAGONIA'S NERUDA",
+        "f_pct": 0.0,
+        "covers": [
+          "CORTINA 121"
+        ],
+        "n_covers": 1,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.03125,
+        "uniqueness_pct": 3.12,
+        "why": "Must stay. Covers 1 last founder(s) the year-1 parents would take with them: CORTINA 121."
+      },
+      {
+        "cria_id": "CRIA:1:AR:30863767:AR:850345",
+        "name": "SCA PERUVIAN SILVERBELLE \u00d7 SNOWMASS MATRIX",
+        "dam_id": "AR:30863767",
+        "sire_id": "AR:850345",
+        "dam_name": "SCA PERUVIAN SILVERBELLE",
+        "sire_name": "SNOWMASS MATRIX",
+        "f_pct": 0.0,
+        "covers": [
+          "GARNETT"
+        ],
+        "n_covers": 1,
+        "must_stay": true,
+        "sellable": false,
+        "uniqueness": 0.03125,
+        "uniqueness_pct": 3.12,
+        "why": "Must stay. Covers 1 last founder(s) the year-1 parents would take with them: GARNETT."
+      },
+      {
+        "cria_id": "CRIA:1:NM:THOR FARMS LOOKING GLASS:NM:HMAF S AIRGEAD",
+        "name": "THOR FARMS LOOKING GLASS \u00d7 HMAF'S AIRGEAD",
+        "dam_id": "NM:THOR FARMS LOOKING GLASS",
+        "sire_id": "NM:HMAF S AIRGEAD",
+        "dam_name": "THOR FARMS LOOKING GLASS",
+        "sire_name": "HMAF'S AIRGEAD",
+        "f_pct": 0.07,
+        "covers": [
+          "6PERUVIAN FORTUNATA 6494 IMPR98",
+          "BLACK PERUVIAN ROYAL FOREST",
+          "BOLIVIAN VESUVIUS",
+          "MAYA III",
+          "MFI VISION",
+          "PPPERUVIAN CEBICHE 4890",
+          "QUEEN OF SPADES 339"
+        ],
+        "n_covers": 7,
+        "must_stay": false,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Also carries 6PERUVIAN FORTUNATA 6494 IMPR98, BLACK PERUVIAN ROYAL FOREST, BOLIVIAN VESUVIUS but a leaner cria already covers that blood. Sellable if the cover stays."
+      },
+      {
+        "cria_id": "CRIA:1:NM:WILLOWWIND ECHO DELTA:NM:HMAF S AIRGEAD",
+        "name": "WILLOWWIND ECHO DELTA \u00d7 HMAF'S AIRGEAD",
+        "dam_id": "NM:WILLOWWIND ECHO DELTA",
+        "sire_id": "NM:HMAF S AIRGEAD",
+        "dam_name": "WILLOWWIND ECHO DELTA",
+        "sire_name": "HMAF'S AIRGEAD",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN FORTUNATA 6494 IMPR98",
+          "BLACK PERUVIAN ROYAL FOREST",
+          "BOLIVIAN VESUVIUS",
+          "MAYA III",
+          "MFI VISION",
+          "PPPERUVIAN CEBICHE 4890",
+          "QUEEN OF SPADES 339"
+        ],
+        "n_covers": 7,
+        "must_stay": false,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Also carries 6PERUVIAN FORTUNATA 6494 IMPR98, BLACK PERUVIAN ROYAL FOREST, BOLIVIAN VESUVIUS but a leaner cria already covers that blood. Sellable if the cover stays."
+      },
+      {
+        "cria_id": "CRIA:1:NM:WILLOWWIND INSPIRATION:NM:HMAF S AIRGEAD",
+        "name": "WILLOWWIND INSPIRATION \u00d7 HMAF'S AIRGEAD",
+        "dam_id": "NM:WILLOWWIND INSPIRATION",
+        "sire_id": "NM:HMAF S AIRGEAD",
+        "dam_name": "WILLOWWIND INSPIRATION",
+        "sire_name": "HMAF'S AIRGEAD",
+        "f_pct": 0.1,
+        "covers": [
+          "6PERUVIAN FORTUNATA 6494 IMPR98",
+          "BLACK PERUVIAN ROYAL FOREST",
+          "BOLIVIAN VESUVIUS",
+          "MAYA III",
+          "MFI VISION",
+          "PPPERUVIAN CEBICHE 4890",
+          "QUEEN OF SPADES 339"
+        ],
+        "n_covers": 7,
+        "must_stay": false,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Also carries 6PERUVIAN FORTUNATA 6494 IMPR98, BLACK PERUVIAN ROYAL FOREST, BOLIVIAN VESUVIUS but a leaner cria already covers that blood. Sellable if the cover stays."
+      },
+      {
+        "cria_id": "CRIA:1:AR:35185413:NM:G TRIBE S ROCKY S ASH",
+        "name": "BOMBER'S DIAMOND LIL \u00d7 G-TRIBE'S ROCKY'S ASH",
+        "dam_id": "AR:35185413",
+        "sire_id": "NM:G TRIBE S ROCKY S ASH",
+        "dam_name": "BOMBER'S DIAMOND LIL",
+        "sire_name": "G-TRIBE'S ROCKY'S ASH",
+        "f_pct": 0.0,
+        "covers": [
+          "AVA DOMITA MARTI 059N",
+          "EXPRESS' PERUVIAN SPICE",
+          "MESSIAH ALYST",
+          "R&RR ALDER 097L",
+          "SHAZZY ALYST"
+        ],
+        "n_covers": 5,
+        "must_stay": false,
+        "sellable": false,
+        "uniqueness": 0.15625,
+        "uniqueness_pct": 15.62,
+        "why": "Also carries AVA DOMITA MARTI 059N, EXPRESS' PERUVIAN SPICE, MESSIAH ALYST but a leaner cria already covers that blood. Sellable if the cover stays."
+      },
+      {
+        "cria_id": "CRIA:1:AR:35485872:NM:CRESCENT MOON S KEMMAUS",
+        "name": "RED GRANITES JENGA \u00d7 CRESCENT MOON'S KEMMAUS",
+        "dam_id": "AR:35485872",
+        "sire_id": "NM:CRESCENT MOON S KEMMAUS",
+        "dam_name": "RED GRANITES JENGA",
+        "sire_name": "CRESCENT MOON'S KEMMAUS",
+        "f_pct": 0.0,
+        "covers": [
+          "ETIENNE OF REDWOOD RIDGE",
+          "GREENER PASTURES LAHELA",
+          "REMINGTON OF REDWOODRIDGE",
+          "TESS",
+          "WVR'S THE OUTLAW JOSEY WALES"
+        ],
+        "n_covers": 5,
+        "must_stay": false,
+        "sellable": false,
+        "uniqueness": 0.15625,
+        "uniqueness_pct": 15.62,
+        "why": "Also carries ETIENNE OF REDWOOD RIDGE, GREENER PASTURES LAHELA, REMINGTON OF REDWOODRIDGE but a leaner cria already covers that blood. Sellable if the cover stays."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RGR JIGSAW:NM:MAMGB NATAN SAPA",
+        "name": "RGR JIGSAW \u00d7 MAMGB NATAN SAPA",
+        "dam_id": "NM:RGR JIGSAW",
+        "sire_id": "NM:MAMGB NATAN SAPA",
+        "dam_name": "RGR JIGSAW",
+        "sire_name": "MAMGB NATAN SAPA",
+        "f_pct": 0.0,
+        "covers": [
+          "JOHNSON S$112",
+          "KPR MAGDA",
+          "QUEEN CHARLOTTE 187",
+          "SA GREYSTOKE",
+          "TWIZZLER D118 ALOA"
+        ],
+        "n_covers": 5,
+        "must_stay": false,
+        "sellable": false,
+        "uniqueness": 0.15625,
+        "uniqueness_pct": 15.62,
+        "why": "Also carries JOHNSON S$112, KPR MAGDA, QUEEN CHARLOTTE 187 but a leaner cria already covers that blood. Sellable if the cover stays."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RGR JUSTIFICATION:NM:MAMGB NATAN SAPA",
+        "name": "RGR JUSTIFICATION \u00d7 MAMGB NATAN SAPA",
+        "dam_id": "NM:RGR JUSTIFICATION",
+        "sire_id": "NM:MAMGB NATAN SAPA",
+        "dam_name": "RGR JUSTIFICATION",
+        "sire_name": "MAMGB NATAN SAPA",
+        "f_pct": 0.0,
+        "covers": [
+          "JOHNSON S$112",
+          "KPR MAGDA",
+          "QUEEN CHARLOTTE 187",
+          "SA GREYSTOKE",
+          "TWIZZLER D118 ALOA"
+        ],
+        "n_covers": 5,
+        "must_stay": false,
+        "sellable": false,
+        "uniqueness": 0.15625,
+        "uniqueness_pct": 15.62,
+        "why": "Also carries JOHNSON S$112, KPR MAGDA, QUEEN CHARLOTTE 187 but a leaner cria already covers that blood. Sellable if the cover stays."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SMOKIN HAUTE:NM:MAMGB NATAN SAPA",
+        "name": "SMOKIN HAUTE \u00d7 MAMGB NATAN SAPA",
+        "dam_id": "NM:SMOKIN HAUTE",
+        "sire_id": "NM:MAMGB NATAN SAPA",
+        "dam_name": "SMOKIN HAUTE",
+        "sire_name": "MAMGB NATAN SAPA",
+        "f_pct": 0.0,
+        "covers": [
+          "JOHNSON S$112",
+          "KPR MAGDA",
+          "QUEEN CHARLOTTE 187",
+          "SA GREYSTOKE",
+          "TWIZZLER D118 ALOA"
+        ],
+        "n_covers": 5,
+        "must_stay": false,
+        "sellable": false,
+        "uniqueness": 0.15625,
+        "uniqueness_pct": 15.62,
+        "why": "Also carries JOHNSON S$112, KPR MAGDA, QUEEN CHARLOTTE 187 but a leaner cria already covers that blood. Sellable if the cover stays."
+      },
+      {
+        "cria_id": "CRIA:1:AR:35117575:NM:PHPC ARTILLERY",
+        "name": "RR SARAH VAUGHN \u00d7 PHPC ARTILLERY",
+        "dam_id": "AR:35117575",
+        "sire_id": "NM:PHPC ARTILLERY",
+        "dam_name": "RR SARAH VAUGHN",
+        "sire_name": "PHPC ARTILLERY",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN DONA MAISA 6537 IMPR98",
+          "MI AMIGOS PERUVIAN LUPITA",
+          "SCA PERUVIAN DESERT SUN"
+        ],
+        "n_covers": 3,
+        "must_stay": false,
+        "sellable": false,
+        "uniqueness": 0.09375,
+        "uniqueness_pct": 9.38,
+        "why": "Also carries 6PERUVIAN DONA MAISA 6537 IMPR98, MI AMIGOS PERUVIAN LUPITA, SCA PERUVIAN DESERT SUN but a leaner cria already covers that blood. Sellable if the cover stays."
+      },
+      {
+        "cria_id": "CRIA:1:NM:MTAR PHASMA:NM:TCB CORKY",
+        "name": "MTAR PHASMA \u00d7 TCB CORKY",
+        "dam_id": "NM:MTAR PHASMA",
+        "sire_id": "NM:TCB CORKY",
+        "dam_name": "MTAR PHASMA",
+        "sire_name": "TCB CORKY",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN ACCOYO THE LAST DONIMPR98"
+        ],
+        "n_covers": 1,
+        "must_stay": false,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Also carries 6PERUVIAN ACCOYO THE LAST DONIMPR98 but a leaner cria already covers that blood. Sellable if the cover stays."
+      },
+      {
+        "cria_id": "CRIA:1:AR:36094530:NM:TCB CORKY",
+        "name": "WILLOWWIND SL HALO \u00d7 TCB CORKY",
+        "dam_id": "AR:36094530",
+        "sire_id": "NM:TCB CORKY",
+        "dam_name": "WILLOWWIND SL HALO",
+        "sire_name": "TCB CORKY",
+        "f_pct": 0.0,
+        "covers": [
+          "6PERUVIAN ACCOYO THE LAST DONIMPR98"
+        ],
+        "n_covers": 1,
+        "must_stay": false,
+        "sellable": false,
+        "uniqueness": 0.25,
+        "uniqueness_pct": 25.0,
+        "why": "Also carries 6PERUVIAN ACCOYO THE LAST DONIMPR98 but a leaner cria already covers that blood. Sellable if the cover stays."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RR PALOMA PICASSO:AR:35055006",
+        "name": "RR PALOMA PICASSO \u00d7 5C'S CAPTAIN CHAOS",
+        "dam_id": "NM:RR PALOMA PICASSO",
+        "sire_id": "AR:35055006",
+        "dam_name": "RR PALOMA PICASSO",
+        "sire_name": "5C'S CAPTAIN CHAOS",
+        "f_pct": 0.0,
+        "covers": [],
+        "n_covers": 0,
+        "must_stay": false,
+        "sellable": true,
+        "uniqueness": 0.0,
+        "uniqueness_pct": 0.0,
+        "why": "Carries no last founder at \u2265 3.1%. Sellable weanling."
+      },
+      {
+        "cria_id": "CRIA:1:NM:RR WONDER WOMAN:AR:35055006",
+        "name": "RR WONDER WOMAN \u00d7 5C'S CAPTAIN CHAOS",
+        "dam_id": "NM:RR WONDER WOMAN",
+        "sire_id": "AR:35055006",
+        "dam_name": "RR WONDER WOMAN",
+        "sire_name": "5C'S CAPTAIN CHAOS",
+        "f_pct": 0.0,
+        "covers": [],
+        "n_covers": 0,
+        "must_stay": false,
+        "sellable": true,
+        "uniqueness": 0.0,
+        "uniqueness_pct": 0.0,
+        "why": "Carries no last founder at \u2265 3.1%. Sellable weanling."
+      },
+      {
+        "cria_id": "CRIA:1:NM:SNOWMASS ENCHANTED TOUCH:NM:MTAR ORLANDO CLOUD S MCDREAMY",
+        "name": "SNOWMASS ENCHANTED TOUCH \u00d7 MTAR ORLANDO CLOUD'S MCDREAMY",
+        "dam_id": "NM:SNOWMASS ENCHANTED TOUCH",
+        "sire_id": "NM:MTAR ORLANDO CLOUD S MCDREAMY",
+        "dam_name": "SNOWMASS ENCHANTED TOUCH",
+        "sire_name": "MTAR ORLANDO CLOUD'S MCDREAMY",
+        "f_pct": 0.0,
+        "covers": [],
+        "n_covers": 0,
+        "must_stay": false,
+        "sellable": true,
+        "uniqueness": 0.0,
+        "uniqueness_pct": 0.0,
+        "why": "Carries no last founder at \u2265 3.1%. Sellable weanling."
+      }
+    ],
+    "releases": [
+      {
+        "animal_id": "NM:HOWLING HILL SING THE BODY ELECTRIC",
+        "name": "HOWLING HILL SING THE BODY ELECTRIC",
+        "sex": "F",
+        "last_of": [
+          "CPERUVIAN VALERIE 1483",
+          "EL SEGUNDO DE ROYAL FAWN",
+          "MULOWE",
+          "5PERUVIAN CHARLIE'S ANGEL 8494",
+          "5PERUVIAN DOM ALAMIR 9043",
+          "PPPERUVIAN FINESSE 5093",
+          "BRITTANY'S DESPARADO",
+          "SENOIA",
+          "TELL HOT SHOT",
+          "TELL BLIZZARD",
+          "LUNAR ECLIPSE",
+          "WOODED HILLS CHILE PEPPER"
+        ],
+        "cria_names": [
+          "HOWLING HILL SING THE BODY ELECTRIC \u00d7 SUNNYHILL'S ZANG'S BALTAZAR"
+        ],
+        "keep_cria": [
+          "HOWLING HILL SING THE BODY ELECTRIC \u00d7 SUNNYHILL'S ZANG'S BALTAZAR"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, HOWLING HILL SING THE BODY ELECTRIC may leave if the barn keeps HOWLING HILL SING THE BODY ELECTRIC \u00d7 SUNNYHILL'S ZANG'S BALTAZAR."
+      },
+      {
+        "animal_id": "NM:4 SIGHT S HOLIDAY",
+        "name": "4-SIGHT'S HOLIDAY",
+        "sex": "F",
+        "last_of": [
+          "AYSEN'S LAUCA IMPQ98",
+          "ALPACARIA'S VOX EXCALIBUR",
+          "KPR ANGELL",
+          "AVATAR",
+          "PENNIE",
+          "CPERUVIAN CAMILLA 1258 IMPF98",
+          "SA PERUVIAN CHOCO",
+          "TCB'S CAMEO",
+          "SILVERTONE",
+          "MARIAH MAE"
+        ],
+        "cria_names": [
+          "4-SIGHT'S HOLIDAY \u00d7 G-TRIBE'S ROCKY'S ASH"
+        ],
+        "keep_cria": [
+          "4-SIGHT'S HOLIDAY \u00d7 G-TRIBE'S ROCKY'S ASH"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, 4-SIGHT'S HOLIDAY may leave if the barn keeps 4-SIGHT'S HOLIDAY \u00d7 G-TRIBE'S ROCKY'S ASH."
+      },
+      {
+        "animal_id": "NM:PALLATON S KALIBAUT ALYST",
+        "name": "PALLATON'S KALIBAUT ALYST",
+        "sex": "M",
+        "last_of": [
+          "ACCOYO AMERICA APOCALYPSE",
+          "NWA, LTD SHIRLEY",
+          "SONORA'S ACCOYO FERRARI",
+          "PRISTINA'S ACCOYO PRINCESSA",
+          "ACCOYO AMERICA MARATHON",
+          "TNT PERUVIAN BLAITHIN",
+          "MFI PERUVIAN CHAMPAGNE",
+          "TICKITY BOO VICTORIA"
+        ],
+        "cria_names": [
+          "SC'S CARRINGTON \u00d7 PALLATON'S KALIBAUT ALYST",
+          "MARY'S SIQUANI BELLE \u00d7 PALLATON'S KALIBAUT ALYST",
+          "PARAGON'S ESMERALDA \u00d7 PALLATON'S KALIBAUT ALYST",
+          "PATAGONIA'S DUSTY \u00d7 PALLATON'S KALIBAUT ALYST"
+        ],
+        "keep_cria": [
+          "SC'S CARRINGTON \u00d7 PALLATON'S KALIBAUT ALYST",
+          "MARY'S SIQUANI BELLE \u00d7 PALLATON'S KALIBAUT ALYST",
+          "PARAGON'S ESMERALDA \u00d7 PALLATON'S KALIBAUT ALYST",
+          "PATAGONIA'S DUSTY \u00d7 PALLATON'S KALIBAUT ALYST"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, PALLATON'S KALIBAUT ALYST may leave if the barn keeps SC'S CARRINGTON \u00d7 PALLATON'S KALIBAUT ALYST, MARY'S SIQUANI BELLE \u00d7 PALLATON'S KALIBAUT ALYST, PARAGON'S ESMERALDA \u00d7 PALLATON'S KALIBAUT ALYST (+1 more)."
+      },
+      {
+        "animal_id": "NM:SC S CARRINGTON",
+        "name": "SC'S CARRINGTON",
+        "sex": "F",
+        "last_of": [
+          "SARA'S SAHARA",
+          "PPPERUVIAN SWEETNESS 4854",
+          "KAPPIE",
+          "PCA PERUVIAN MICROSOFT",
+          "PPPERUVIAN CORACORA 5055",
+          "PPERUVIAN LEON G4560",
+          "YAKUTAT VON TR",
+          "KPR CARMELLA"
+        ],
+        "cria_names": [
+          "SC'S CARRINGTON \u00d7 PALLATON'S KALIBAUT ALYST"
+        ],
+        "keep_cria": [
+          "SC'S CARRINGTON \u00d7 PALLATON'S KALIBAUT ALYST"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, SC'S CARRINGTON may leave if the barn keeps SC'S CARRINGTON \u00d7 PALLATON'S KALIBAUT ALYST."
+      },
+      {
+        "animal_id": "NM:HMAF S AIRGEAD",
+        "name": "HMAF'S AIRGEAD",
+        "sex": "M",
+        "last_of": [
+          "MAYA III",
+          "PPPERUVIAN CEBICHE 4890",
+          "BLACK PERUVIAN ROYAL FOREST",
+          "MFI VISION",
+          "BOLIVIAN VESUVIUS",
+          "6PERUVIAN FORTUNATA 6494 IMPR98",
+          "QUEEN OF SPADES 339"
+        ],
+        "cria_names": [
+          "SNOWMASS IRON MAIDEN \u00d7 HMAF'S AIRGEAD",
+          "THOR FARMS LOOKING GLASS \u00d7 HMAF'S AIRGEAD",
+          "WILLOWWIND ECHO DELTA \u00d7 HMAF'S AIRGEAD",
+          "WILLOWWIND INSPIRATION \u00d7 HMAF'S AIRGEAD"
+        ],
+        "keep_cria": [
+          "SNOWMASS IRON MAIDEN \u00d7 HMAF'S AIRGEAD"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, HMAF'S AIRGEAD may leave if the barn keeps SNOWMASS IRON MAIDEN \u00d7 HMAF'S AIRGEAD."
+      },
+      {
+        "animal_id": "NM:MISS AUTARY",
+        "name": "MISS AUTARY",
+        "sex": "F",
+        "last_of": [
+          "JOLIMONT 2 PERUVIAN RINGO IMPB98",
+          "COYO DESTINI",
+          "JOLIMONT PERUVIAN AREQUIPA IMPAQ&",
+          "CPERUVIAN DANIEL 111 IMPF98",
+          "GHOST RIVER SHY ANNE",
+          "MMR SIR CONDE",
+          "ARISTO ANTOINETTE"
+        ],
+        "cria_names": [
+          "MISS AUTARY \u00d7 LIBERTYALPACAS SMOKE SCREEN"
+        ],
+        "keep_cria": [
+          "MISS AUTARY \u00d7 LIBERTYALPACAS SMOKE SCREEN"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, MISS AUTARY may leave if the barn keeps MISS AUTARY \u00d7 LIBERTYALPACAS SMOKE SCREEN."
+      },
+      {
+        "animal_id": "NM:SNOWMASS MIDNIGHT GAZE",
+        "name": "SNOWMASS MIDNIGHT GAZE",
+        "sex": "F",
+        "last_of": [
+          "SNOWMASS ICED ELEGANCE",
+          "SNOWMASS ELITE LEGEND",
+          "SNOWMASS SATIN BELLS",
+          "ACCOYO AMERICA SHOGUN",
+          "PACIFIC CREST ACCOYO CALIPANI",
+          "SNOWMASS LITERALLY LOVELY",
+          "SNOWMASS BIT OF HONEY"
+        ],
+        "cria_names": [
+          "SNOWMASS MIDNIGHT GAZE \u00d7 MTAR ORLANDO CLOUD'S MCDREAMY"
+        ],
+        "keep_cria": [
+          "SNOWMASS MIDNIGHT GAZE \u00d7 MTAR ORLANDO CLOUD'S MCDREAMY"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, SNOWMASS MIDNIGHT GAZE may leave if the barn keeps SNOWMASS MIDNIGHT GAZE \u00d7 MTAR ORLANDO CLOUD'S MCDREAMY."
+      },
+      {
+        "animal_id": "NM:SUNNYHILL S ZANG S BALTAZAR",
+        "name": "SUNNYHILL'S ZANG'S BALTAZAR",
+        "sex": "M",
+        "last_of": [
+          "PCA HEMINGWAY-ACCOYO NAUTILUS",
+          "ACCOYO AMERICA ASPEN AC020",
+          "FIBRE WORKS DIAMONTE",
+          "SUNNYVIEW ALEJANDRIA",
+          "KELOWNA'S SUNDANCE KID",
+          "SUNNYVIEW ANJELITA",
+          "PANAM'S SILVER ANGEL IMPD98 TC)"
+        ],
+        "cria_names": [
+          "HOWLING HILL SING THE BODY ELECTRIC \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+          "HERITAGE SILVER PROMISE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+          "MISS ALOHA MOONSHINE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+          "HEAVEN'S HILL PERUVIAN CELESTIA \u00d7 SUNNYHILL'S ZANG'S BALTAZAR"
+        ],
+        "keep_cria": [
+          "HOWLING HILL SING THE BODY ELECTRIC \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+          "HERITAGE SILVER PROMISE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+          "MISS ALOHA MOONSHINE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR",
+          "HEAVEN'S HILL PERUVIAN CELESTIA \u00d7 SUNNYHILL'S ZANG'S BALTAZAR"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, SUNNYHILL'S ZANG'S BALTAZAR may leave if the barn keeps HOWLING HILL SING THE BODY ELECTRIC \u00d7 SUNNYHILL'S ZANG'S BALTAZAR, HERITAGE SILVER PROMISE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR, MISS ALOHA MOONSHINE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR (+1 more)."
+      },
+      {
+        "animal_id": "NM:THAT LL DO BLACKBEARD S BOOTY",
+        "name": "THAT'LL DO BLACKBEARD'S BOOTY",
+        "sex": "F",
+        "last_of": [
+          "5PERUVIAN ROYAL INCA LEGEND 9058",
+          "5PERUVIAN MICAY 8452",
+          "WOODED HILLS WINSTON",
+          "SEBRING JAX",
+          "MILLENNIUM GIRL URAQT",
+          "MBF EL DORADO",
+          "HVLA ZEPHYR"
+        ],
+        "cria_names": [
+          "THAT'LL DO BLACKBEARD'S BOOTY \u00d7 CIRCLE CLIFF'S MELVIN"
+        ],
+        "keep_cria": [
+          "THAT'LL DO BLACKBEARD'S BOOTY \u00d7 CIRCLE CLIFF'S MELVIN"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, THAT'LL DO BLACKBEARD'S BOOTY may leave if the barn keeps THAT'LL DO BLACKBEARD'S BOOTY \u00d7 CIRCLE CLIFF'S MELVIN."
+      },
+      {
+        "animal_id": "NM:HERITAGE SILVER PROMISE",
+        "name": "HERITAGE SILVER PROMISE",
+        "sex": "F",
+        "last_of": [
+          "BD ROSIE'S THOMAS",
+          "LA CARAMELLA CODI W966",
+          "5PERUVIAN SILVERADO 9042",
+          "SA PERUVIAN DASH OF CLASS",
+          "MFI PERUVIAN GLACIAL STORM",
+          "VIAC MISS-C"
+        ],
+        "cria_names": [
+          "HERITAGE SILVER PROMISE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR"
+        ],
+        "keep_cria": [
+          "HERITAGE SILVER PROMISE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, HERITAGE SILVER PROMISE may leave if the barn keeps HERITAGE SILVER PROMISE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR."
+      },
+      {
+        "animal_id": "NM:SC S CRICKIT",
+        "name": "SC'S CRICKIT",
+        "sex": "F",
+        "last_of": [
+          "LINNEA CODI W1063",
+          "SNOWMASS ROYAL FLUSH",
+          "SNOWMASS SWEET DREAMS",
+          "FCA CINDY",
+          "PPPERUVIAN ASTILLERO 4650",
+          "JOLIMONT PERUVIAN TRINITY IMPA98"
+        ],
+        "cria_names": [
+          "SC'S CRICKIT \u00d7 PHPC ARTILLERY"
+        ],
+        "keep_cria": [
+          "SC'S CRICKIT \u00d7 PHPC ARTILLERY"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, SC'S CRICKIT may leave if the barn keeps SC'S CRICKIT \u00d7 PHPC ARTILLERY."
+      },
+      {
+        "animal_id": "NM:ARAPAHO DELGADO S ILLYAPA",
+        "name": "ARAPAHO DELGADO'S ILLYAPA",
+        "sex": "M",
+        "last_of": [
+          "BISTURI",
+          "LV BLACK EYED SUSAN",
+          "SILVER ROSE SENTINEL",
+          "SNOWMASS ZIMA",
+          "AUSSIE GUNS -N- ROSES Huarava 320036107 - LIinited States"
+        ],
+        "cria_names": [
+          "SC'S CHARENTE \u00d7 ARAPAHO DELGADO'S ILLYAPA"
+        ],
+        "keep_cria": [
+          "SC'S CHARENTE \u00d7 ARAPAHO DELGADO'S ILLYAPA"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, ARAPAHO DELGADO'S ILLYAPA may leave if the barn keeps SC'S CHARENTE \u00d7 ARAPAHO DELGADO'S ILLYAPA."
+      },
+      {
+        "animal_id": "NM:CRESCENT MOON S KEMMAUS",
+        "name": "CRESCENT MOON'S KEMMAUS",
+        "sex": "M",
+        "last_of": [
+          "GREENER PASTURES LAHELA",
+          "WVR'S THE OUTLAW JOSEY WALES",
+          "TESS",
+          "REMINGTON OF REDWOODRIDGE",
+          "ETIENNE OF REDWOOD RIDGE"
+        ],
+        "cria_names": [
+          "RED GRANITES JAFFA \u00d7 CRESCENT MOON'S KEMMAUS",
+          "RGR'S MISS CONTRARY \u00d7 CRESCENT MOON'S KEMMAUS",
+          "ROYAL DIAMANTE'S JEWEL \u00d7 CRESCENT MOON'S KEMMAUS",
+          "RED GRANITES JENGA \u00d7 CRESCENT MOON'S KEMMAUS"
+        ],
+        "keep_cria": [
+          "RED GRANITES JAFFA \u00d7 CRESCENT MOON'S KEMMAUS",
+          "RGR'S MISS CONTRARY \u00d7 CRESCENT MOON'S KEMMAUS",
+          "ROYAL DIAMANTE'S JEWEL \u00d7 CRESCENT MOON'S KEMMAUS"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, CRESCENT MOON'S KEMMAUS may leave if the barn keeps RED GRANITES JAFFA \u00d7 CRESCENT MOON'S KEMMAUS, RGR'S MISS CONTRARY \u00d7 CRESCENT MOON'S KEMMAUS, ROYAL DIAMANTE'S JEWEL \u00d7 CRESCENT MOON'S KEMMAUS."
+      },
+      {
+        "animal_id": "NM:CRYSTAL MOCHACCINO",
+        "name": "CRYSTAL MOCHACCINO",
+        "sex": "F",
+        "last_of": [
+          "ANDEAN MIDNIGHT",
+          "6PERUVIAN ACCOYOGRANDTRIUMPH IMPR9\u00a7",
+          "PALOMA BLANCA",
+          "NZ MAORI MAGIC",
+          "BLACK MARIAH #1264"
+        ],
+        "cria_names": [
+          "CRYSTAL MOCHACCINO \u00d7 PATAGONIA'S NERUDA"
+        ],
+        "keep_cria": [
+          "CRYSTAL MOCHACCINO \u00d7 PATAGONIA'S NERUDA"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, CRYSTAL MOCHACCINO may leave if the barn keeps CRYSTAL MOCHACCINO \u00d7 PATAGONIA'S NERUDA."
+      },
+      {
+        "animal_id": "NM:ESTATES LA PRESTIGE CRIMSON",
+        "name": "ESTATES LA PRESTIGE CRIMSON",
+        "sex": "F",
+        "last_of": [
+          "BOLIVIAN BLACK THUNDER B969",
+          "VCA ERIKA",
+          "DIAMOND SPARK DE CAQUENA",
+          "MELOSA",
+          "CHISTOCHINA 378"
+        ],
+        "cria_names": [
+          "ESTATES LA PRESTIGE CRIMSON \u00d7 G-TRIBE'S ROCKY'S ASH"
+        ],
+        "keep_cria": [
+          "ESTATES LA PRESTIGE CRIMSON \u00d7 G-TRIBE'S ROCKY'S ASH"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, ESTATES LA PRESTIGE CRIMSON may leave if the barn keeps ESTATES LA PRESTIGE CRIMSON \u00d7 G-TRIBE'S ROCKY'S ASH."
+      },
+      {
+        "animal_id": "NM:G TRIBE S ROCKY S ASH",
+        "name": "G-TRIBE'S ROCKY'S ASH",
+        "sex": "M",
+        "last_of": [
+          "SHAZZY ALYST",
+          "MESSIAH ALYST",
+          "EXPRESS' PERUVIAN SPICE",
+          "R&RR ALDER 097L",
+          "AVA DOMITA MARTI 059N"
+        ],
+        "cria_names": [
+          "4-SIGHT'S HOLIDAY \u00d7 G-TRIBE'S ROCKY'S ASH",
+          "ESTATES LA PRESTIGE CRIMSON \u00d7 G-TRIBE'S ROCKY'S ASH",
+          "5C'S CHANTERELLA \u00d7 G-TRIBE'S ROCKY'S ASH",
+          "BOMBER'S DIAMOND LIL \u00d7 G-TRIBE'S ROCKY'S ASH"
+        ],
+        "keep_cria": [
+          "4-SIGHT'S HOLIDAY \u00d7 G-TRIBE'S ROCKY'S ASH",
+          "ESTATES LA PRESTIGE CRIMSON \u00d7 G-TRIBE'S ROCKY'S ASH",
+          "5C'S CHANTERELLA \u00d7 G-TRIBE'S ROCKY'S ASH"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, G-TRIBE'S ROCKY'S ASH may leave if the barn keeps 4-SIGHT'S HOLIDAY \u00d7 G-TRIBE'S ROCKY'S ASH, ESTATES LA PRESTIGE CRIMSON \u00d7 G-TRIBE'S ROCKY'S ASH, 5C'S CHANTERELLA \u00d7 G-TRIBE'S ROCKY'S ASH."
+      },
+      {
+        "animal_id": "NM:MAMGB NATAN SAPA",
+        "name": "MAMGB NATAN SAPA",
+        "sex": "M",
+        "last_of": [
+          "QUEEN CHARLOTTE 187",
+          "SA GREYSTOKE",
+          "KPR MAGDA",
+          "JOHNSON S$112",
+          "TWIZZLER D118 ALOA"
+        ],
+        "cria_names": [
+          "RED GRANITES JEZEBELL \u00d7 MAMGB NATAN SAPA",
+          "RGR JIGSAW \u00d7 MAMGB NATAN SAPA",
+          "RGR JUSTIFICATION \u00d7 MAMGB NATAN SAPA",
+          "SMOKIN HAUTE \u00d7 MAMGB NATAN SAPA"
+        ],
+        "keep_cria": [
+          "RED GRANITES JEZEBELL \u00d7 MAMGB NATAN SAPA"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, MAMGB NATAN SAPA may leave if the barn keeps RED GRANITES JEZEBELL \u00d7 MAMGB NATAN SAPA."
+      },
+      {
+        "animal_id": "NM:MISS ALOHA MOONSHINE",
+        "name": "MISS ALOHA MOONSHINE",
+        "sex": "F",
+        "last_of": [
+          "MAPLE BROOK BARNABUS Huacavya 840936",
+          "TH HEIDI'S SASHA",
+          "NORTHMARK'S MESSIAH'S PROPHETESS'",
+          "MMR MARCOYO",
+          "ACA CRISPINA"
+        ],
+        "cria_names": [
+          "MISS ALOHA MOONSHINE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR"
+        ],
+        "keep_cria": [
+          "MISS ALOHA MOONSHINE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, MISS ALOHA MOONSHINE may leave if the barn keeps MISS ALOHA MOONSHINE \u00d7 SUNNYHILL'S ZANG'S BALTAZAR."
+      },
+      {
+        "animal_id": "NM:SNOWMASS IRON MAIDEN",
+        "name": "SNOWMASS IRON MAIDEN",
+        "sex": "F",
+        "last_of": [
+          "DISAPPEARING CREEK RINCON'S KALANI'",
+          "PERUVIAN MACUSANI G204",
+          "ENQUELGA BIANCA",
+          "ORE HILL COMANCHE",
+          "PRECIOSE IMPORTAB98"
+        ],
+        "cria_names": [
+          "SNOWMASS IRON MAIDEN \u00d7 HMAF'S AIRGEAD"
+        ],
+        "keep_cria": [
+          "SNOWMASS IRON MAIDEN \u00d7 HMAF'S AIRGEAD"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, SNOWMASS IRON MAIDEN may leave if the barn keeps SNOWMASS IRON MAIDEN \u00d7 HMAF'S AIRGEAD."
+      },
+      {
+        "animal_id": "NM:CIRCLE CLIFF S SWEET CAROLINE",
+        "name": "CIRCLE CLIFF'S SWEET CAROLINE",
+        "sex": "F",
+        "last_of": [
+          "CALIGULA'S ACCOYO POSEIDON",
+          "MILE HIGH PERUVIAN GENESEE",
+          "CHELSEA FARMS' TESS'S FLAME",
+          "CRESCENT MOON'S ESMERALDA"
+        ],
+        "cria_names": [
+          "CIRCLE CLIFF'S SWEET CAROLINE \u00d7 TCB CORKY"
+        ],
+        "keep_cria": [
+          "CIRCLE CLIFF'S SWEET CAROLINE \u00d7 TCB CORKY"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, CIRCLE CLIFF'S SWEET CAROLINE may leave if the barn keeps CIRCLE CLIFF'S SWEET CAROLINE \u00d7 TCB CORKY."
+      },
+      {
+        "animal_id": "NM:MARY S SIQUANI BELLE",
+        "name": "MARY'S SIQUANI BELLE",
+        "sex": "F",
+        "last_of": [
+          "5PERUVIAN CHACHANI 8690",
+          "CPERUVIAN CHILAM 1338 IMPF98",
+          "PPERUVIAN VENGADOR G4568",
+          "PPPERUVIAN COROPUNA 4603"
+        ],
+        "cria_names": [
+          "MARY'S SIQUANI BELLE \u00d7 PALLATON'S KALIBAUT ALYST"
+        ],
+        "keep_cria": [
+          "MARY'S SIQUANI BELLE \u00d7 PALLATON'S KALIBAUT ALYST"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, MARY'S SIQUANI BELLE may leave if the barn keeps MARY'S SIQUANI BELLE \u00d7 PALLATON'S KALIBAUT ALYST."
+      },
+      {
+        "animal_id": "NM:PARAGON S ESMERALDA",
+        "name": "PARAGON'S ESMERALDA",
+        "sex": "F",
+        "last_of": [
+          "HOLLYWOOD",
+          "TABITHA OF AYS",
+          "PPPERUVIAN CHICHA 4975",
+          "5PERUVIAN DONA APARECIDA 8520"
+        ],
+        "cria_names": [
+          "PARAGON'S ESMERALDA \u00d7 PALLATON'S KALIBAUT ALYST"
+        ],
+        "keep_cria": [
+          "PARAGON'S ESMERALDA \u00d7 PALLATON'S KALIBAUT ALYST"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, PARAGON'S ESMERALDA may leave if the barn keeps PARAGON'S ESMERALDA \u00d7 PALLATON'S KALIBAUT ALYST."
+      },
+      {
+        "animal_id": "NM:VINTAGE CASHMERE S U TAUPE IA",
+        "name": "VINTAGE CASHMERE'S U-TAUPE-IA",
+        "sex": "F",
+        "last_of": [
+          "PPERUVIAN FELIX G4562",
+          "6PERUVIAN SERENETY 6303 IMPR98",
+          "6PERUVIAN BIANA 6323 IMPR98",
+          "CHIQUITA IMPORTAD98"
+        ],
+        "cria_names": [
+          "VINTAGE CASHMERE'S U-TAUPE-IA \u00d7 SNOWMASS CONOPA XXX"
+        ],
+        "keep_cria": [
+          "VINTAGE CASHMERE'S U-TAUPE-IA \u00d7 SNOWMASS CONOPA XXX"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, VINTAGE CASHMERE'S U-TAUPE-IA may leave if the barn keeps VINTAGE CASHMERE'S U-TAUPE-IA \u00d7 SNOWMASS CONOPA XXX."
+      },
+      {
+        "animal_id": "NM:5C S CHANTERELLA",
+        "name": "5C'S CHANTERELLA",
+        "sex": "F",
+        "last_of": [
+          "MFI PERUVIAN FABEREGE",
+          "SOFTWEAR",
+          "MHF PIXIE"
+        ],
+        "cria_names": [
+          "5C'S CHANTERELLA \u00d7 G-TRIBE'S ROCKY'S ASH"
+        ],
+        "keep_cria": [
+          "5C'S CHANTERELLA \u00d7 G-TRIBE'S ROCKY'S ASH"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, 5C'S CHANTERELLA may leave if the barn keeps 5C'S CHANTERELLA \u00d7 G-TRIBE'S ROCKY'S ASH."
+      },
+      {
+        "animal_id": "NM:LIBERTYALPACAS SMOKE SCREEN",
+        "name": "LIBERTYALPACAS SMOKE SCREEN",
+        "sex": "M",
+        "last_of": [
+          "PERUVIAN FAWNA W914",
+          "PPPERUVIAN TRINKET 4657",
+          "W LA SILVERADO"
+        ],
+        "cria_names": [
+          "MISS AUTARY \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+          "SNOWMASS ALLURING XX \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+          "SNOWMASS SIMPLY SMOKIN \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+          "NOBLE AMARETTO \u00d7 LIBERTYALPACAS SMOKE SCREEN"
+        ],
+        "keep_cria": [
+          "MISS AUTARY \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+          "SNOWMASS ALLURING XX \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+          "SNOWMASS SIMPLY SMOKIN \u00d7 LIBERTYALPACAS SMOKE SCREEN",
+          "NOBLE AMARETTO \u00d7 LIBERTYALPACAS SMOKE SCREEN"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, LIBERTYALPACAS SMOKE SCREEN may leave if the barn keeps MISS AUTARY \u00d7 LIBERTYALPACAS SMOKE SCREEN, SNOWMASS ALLURING XX \u00d7 LIBERTYALPACAS SMOKE SCREEN, SNOWMASS SIMPLY SMOKIN \u00d7 LIBERTYALPACAS SMOKE SCREEN (+1 more)."
+      },
+      {
+        "animal_id": "NM:PHPC ARTILLERY",
+        "name": "PHPC ARTILLERY",
+        "sex": "M",
+        "last_of": [
+          "6PERUVIAN DONA MAISA 6537 IMPR98",
+          "SCA PERUVIAN DESERT SUN",
+          "MI AMIGOS PERUVIAN LUPITA"
+        ],
+        "cria_names": [
+          "SC'S CRICKIT \u00d7 PHPC ARTILLERY",
+          "RR SARAH VAUGHN \u00d7 PHPC ARTILLERY"
+        ],
+        "keep_cria": [
+          "SC'S CRICKIT \u00d7 PHPC ARTILLERY"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, PHPC ARTILLERY may leave if the barn keeps SC'S CRICKIT \u00d7 PHPC ARTILLERY."
+      },
+      {
+        "animal_id": "NM:RED GRANITES JAFFA",
+        "name": "RED GRANITES JAFFA",
+        "sex": "F",
+        "last_of": [
+          "SNOWMASS NOVA'S DARK QUEST",
+          "WOLF DEN O'BABY",
+          "PATAGONIA'S CLEO"
+        ],
+        "cria_names": [
+          "RED GRANITES JAFFA \u00d7 CRESCENT MOON'S KEMMAUS"
+        ],
+        "keep_cria": [
+          "RED GRANITES JAFFA \u00d7 CRESCENT MOON'S KEMMAUS"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, RED GRANITES JAFFA may leave if the barn keeps RED GRANITES JAFFA \u00d7 CRESCENT MOON'S KEMMAUS."
+      },
+      {
+        "animal_id": "NM:RGR S MISS CONTRARY",
+        "name": "RGR'S MISS CONTRARY",
+        "sex": "F",
+        "last_of": [
+          "SNOWMASS BLACK N' GOLD",
+          "LANARK'S SILVER CHARM",
+          "CARTAGENA - CHAPOCO"
+        ],
+        "cria_names": [
+          "RGR'S MISS CONTRARY \u00d7 CRESCENT MOON'S KEMMAUS"
+        ],
+        "keep_cria": [
+          "RGR'S MISS CONTRARY \u00d7 CRESCENT MOON'S KEMMAUS"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, RGR'S MISS CONTRARY may leave if the barn keeps RGR'S MISS CONTRARY \u00d7 CRESCENT MOON'S KEMMAUS."
+      },
+      {
+        "animal_id": "NM:SC S CLARKIA",
+        "name": "SC'S CLARKIA",
+        "sex": "F",
+        "last_of": [
+          "SNOWMASS MIDNIGHT SONG",
+          "SNOWMASS QUECHUA'S RISING SON",
+          "SNOWMASS ROYAL LACE"
+        ],
+        "cria_names": [
+          "SC'S CLARKIA \u00d7 CIRCLE CLIFF'S MELVIN"
+        ],
+        "keep_cria": [
+          "SC'S CLARKIA \u00d7 CIRCLE CLIFF'S MELVIN"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, SC'S CLARKIA may leave if the barn keeps SC'S CLARKIA \u00d7 CIRCLE CLIFF'S MELVIN."
+      },
+      {
+        "animal_id": "NM:APP WILD PHLOX",
+        "name": "APP WILD PHLOX",
+        "sex": "F",
+        "last_of": [
+          "CLASSY TRUFFLES",
+          "MFI PERUVIAN PURISIMA"
+        ],
+        "cria_names": [
+          "APP WILD PHLOX \u00d7 PATAGONIA'S NERUDA"
+        ],
+        "keep_cria": [
+          "APP WILD PHLOX \u00d7 PATAGONIA'S NERUDA"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, APP WILD PHLOX may leave if the barn keeps APP WILD PHLOX \u00d7 PATAGONIA'S NERUDA."
+      },
+      {
+        "animal_id": "NM:CRYSTAL ROYAL GOLD S MACKINAW",
+        "name": "CRYSTAL ROYAL GOLD'S MACKINAW",
+        "sex": "M",
+        "last_of": [
+          "SNOWMASS QUECHUA'S SHAHTOOSH",
+          "SNOWMASS MIDNIGHT FOX"
+        ],
+        "cria_names": [
+          "IRISH MEADOWS TAYT \u00d7 CRYSTAL ROYAL GOLD'S MACKINAW"
+        ],
+        "keep_cria": [
+          "IRISH MEADOWS TAYT \u00d7 CRYSTAL ROYAL GOLD'S MACKINAW"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, CRYSTAL ROYAL GOLD'S MACKINAW may leave if the barn keeps IRISH MEADOWS TAYT \u00d7 CRYSTAL ROYAL GOLD'S MACKINAW."
+      },
+      {
+        "animal_id": "NM:PATAGONIA S DUSTY",
+        "name": "PATAGONIA'S DUSTY",
+        "sex": "F",
+        "last_of": [
+          "MARIGOLD 387",
+          "HERMANA 184"
+        ],
+        "cria_names": [
+          "PATAGONIA'S DUSTY \u00d7 PALLATON'S KALIBAUT ALYST"
+        ],
+        "keep_cria": [
+          "PATAGONIA'S DUSTY \u00d7 PALLATON'S KALIBAUT ALYST"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, PATAGONIA'S DUSTY may leave if the barn keeps PATAGONIA'S DUSTY \u00d7 PALLATON'S KALIBAUT ALYST."
+      },
+      {
+        "animal_id": "NM:RED GRANITES AFTERSHOCK",
+        "name": "RED GRANITES AFTERSHOCK",
+        "sex": "F",
+        "last_of": [
+          "5PERUVIAN BLACK ICE 9069",
+          "PPERUVIAN ELOISA B4263"
+        ],
+        "cria_names": [
+          "RED GRANITES AFTERSHOCK \u00d7 TCB CORKY"
+        ],
+        "keep_cria": [
+          "RED GRANITES AFTERSHOCK \u00d7 TCB CORKY"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, RED GRANITES AFTERSHOCK may leave if the barn keeps RED GRANITES AFTERSHOCK \u00d7 TCB CORKY."
+      },
+      {
+        "animal_id": "NM:RED GRANITES PRIM AND PROPER",
+        "name": "RED GRANITES PRIM & PROPER",
+        "sex": "F",
+        "last_of": [
+          "SENORITA ACCOYO CHIQUITA",
+          "CALLA LILLE"
+        ],
+        "cria_names": [
+          "RED GRANITES PRIM & PROPER \u00d7 RED GRANITES BRAVEHEART"
+        ],
+        "keep_cria": [
+          "RED GRANITES PRIM & PROPER \u00d7 RED GRANITES BRAVEHEART"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, RED GRANITES PRIM & PROPER may leave if the barn keeps RED GRANITES PRIM & PROPER \u00d7 RED GRANITES BRAVEHEART."
+      },
+      {
+        "animal_id": "NM:SNOWMASS ALLURING XX",
+        "name": "SNOWMASS ALLURING XX",
+        "sex": "F",
+        "last_of": [
+          "SNOWMASS BLACK OUT",
+          "SNOWMASS GOLDEN GIRL"
+        ],
+        "cria_names": [
+          "SNOWMASS ALLURING XX \u00d7 LIBERTYALPACAS SMOKE SCREEN"
+        ],
+        "keep_cria": [
+          "SNOWMASS ALLURING XX \u00d7 LIBERTYALPACAS SMOKE SCREEN"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, SNOWMASS ALLURING XX may leave if the barn keeps SNOWMASS ALLURING XX \u00d7 LIBERTYALPACAS SMOKE SCREEN."
+      },
+      {
+        "animal_id": "AR:30339231",
+        "name": "SNOWMASS CONOPA XXX",
+        "sex": "M",
+        "last_of": [
+          "MACINTOSH S086 ALOA",
+          "PPPERUVIAN PRESTIGE 4999"
+        ],
+        "cria_names": [
+          "VINTAGE CASHMERE'S U-TAUPE-IA \u00d7 SNOWMASS CONOPA XXX"
+        ],
+        "keep_cria": [
+          "VINTAGE CASHMERE'S U-TAUPE-IA \u00d7 SNOWMASS CONOPA XXX"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, SNOWMASS CONOPA XXX may leave if the barn keeps VINTAGE CASHMERE'S U-TAUPE-IA \u00d7 SNOWMASS CONOPA XXX."
+      },
+      {
+        "animal_id": "NM:SNOWMASS SIMPLY SMOKIN",
+        "name": "SNOWMASS SIMPLY SMOKIN",
+        "sex": "F",
+        "last_of": [
+          "CASANOVA'S CRESCENDA",
+          "SNOWMASS RAINBOW JOY"
+        ],
+        "cria_names": [
+          "SNOWMASS SIMPLY SMOKIN \u00d7 LIBERTYALPACAS SMOKE SCREEN"
+        ],
+        "keep_cria": [
+          "SNOWMASS SIMPLY SMOKIN \u00d7 LIBERTYALPACAS SMOKE SCREEN"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, SNOWMASS SIMPLY SMOKIN may leave if the barn keeps SNOWMASS SIMPLY SMOKIN \u00d7 LIBERTYALPACAS SMOKE SCREEN."
+      },
+      {
+        "animal_id": "NM:APP OSA PHRENCH BRAID",
+        "name": "APP OSA PHRENCH BRAID",
+        "sex": "F",
+        "last_of": [
+          "CORTINA 121"
+        ],
+        "cria_names": [
+          "APP OSA PHRENCH BRAID \u00d7 PATAGONIA'S NERUDA"
+        ],
+        "keep_cria": [
+          "APP OSA PHRENCH BRAID \u00d7 PATAGONIA'S NERUDA"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, APP OSA PHRENCH BRAID may leave if the barn keeps APP OSA PHRENCH BRAID \u00d7 PATAGONIA'S NERUDA."
+      },
+      {
+        "animal_id": "NM:HEAVEN S HILL PERUVIAN CELESTIA",
+        "name": "HEAVEN'S HILL PERUVIAN CELESTIA",
+        "sex": "F",
+        "last_of": [
+          "CPERUVIAN CADEE 1192 IMPF98 TC)"
+        ],
+        "cria_names": [
+          "HEAVEN'S HILL PERUVIAN CELESTIA \u00d7 SUNNYHILL'S ZANG'S BALTAZAR"
+        ],
+        "keep_cria": [
+          "HEAVEN'S HILL PERUVIAN CELESTIA \u00d7 SUNNYHILL'S ZANG'S BALTAZAR"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, HEAVEN'S HILL PERUVIAN CELESTIA may leave if the barn keeps HEAVEN'S HILL PERUVIAN CELESTIA \u00d7 SUNNYHILL'S ZANG'S BALTAZAR."
+      },
+      {
+        "animal_id": "NM:NOBLE AMARETTO",
+        "name": "NOBLE AMARETTO",
+        "sex": "F",
+        "last_of": [
+          "SNOWMASS GOLDEN SERENITY"
+        ],
+        "cria_names": [
+          "NOBLE AMARETTO \u00d7 LIBERTYALPACAS SMOKE SCREEN"
+        ],
+        "keep_cria": [
+          "NOBLE AMARETTO \u00d7 LIBERTYALPACAS SMOKE SCREEN"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, NOBLE AMARETTO may leave if the barn keeps NOBLE AMARETTO \u00d7 LIBERTYALPACAS SMOKE SCREEN."
+      },
+      {
+        "animal_id": "NM:RED GRANITES BRAVEHEART",
+        "name": "RED GRANITES BRAVEHEART",
+        "sex": "M",
+        "last_of": [
+          "CRESCENT MOON'S KRYPTONITE"
+        ],
+        "cria_names": [
+          "RED GRANITES PRIM & PROPER \u00d7 RED GRANITES BRAVEHEART"
+        ],
+        "keep_cria": [
+          "RED GRANITES PRIM & PROPER \u00d7 RED GRANITES BRAVEHEART"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, RED GRANITES BRAVEHEART may leave if the barn keeps RED GRANITES PRIM & PROPER \u00d7 RED GRANITES BRAVEHEART."
+      },
+      {
+        "animal_id": "NM:ROYAL DIAMANTE S JEWEL",
+        "name": "ROYAL DIAMANTE'S JEWEL",
+        "sex": "F",
+        "last_of": [
+          "CPERUVIAN CALANDRIA 1204 IMPF98 ey"
+        ],
+        "cria_names": [
+          "ROYAL DIAMANTE'S JEWEL \u00d7 CRESCENT MOON'S KEMMAUS"
+        ],
+        "keep_cria": [
+          "ROYAL DIAMANTE'S JEWEL \u00d7 CRESCENT MOON'S KEMMAUS"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, ROYAL DIAMANTE'S JEWEL may leave if the barn keeps ROYAL DIAMANTE'S JEWEL \u00d7 CRESCENT MOON'S KEMMAUS."
+      },
+      {
+        "animal_id": "NM:SC S CHARENTE",
+        "name": "SC'S CHARENTE",
+        "sex": "F",
+        "last_of": [
+          "CRESCENT MOON'S STILLETA"
+        ],
+        "cria_names": [
+          "SC'S CHARENTE \u00d7 ARAPAHO DELGADO'S ILLYAPA"
+        ],
+        "keep_cria": [
+          "SC'S CHARENTE \u00d7 ARAPAHO DELGADO'S ILLYAPA"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, SC'S CHARENTE may leave if the barn keeps SC'S CHARENTE \u00d7 ARAPAHO DELGADO'S ILLYAPA."
+      },
+      {
+        "animal_id": "AR:850345",
+        "name": "SNOWMASS MATRIX",
+        "sex": "M",
+        "last_of": [
+          "GARNETT"
+        ],
+        "cria_names": [
+          "SCA PERUVIAN SILVERBELLE \u00d7 SNOWMASS MATRIX"
+        ],
+        "keep_cria": [
+          "SCA PERUVIAN SILVERBELLE \u00d7 SNOWMASS MATRIX"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, SNOWMASS MATRIX may leave if the barn keeps SCA PERUVIAN SILVERBELLE \u00d7 SNOWMASS MATRIX."
+      },
+      {
+        "animal_id": "NM:TCB CORKY",
+        "name": "TCB CORKY",
+        "sex": "M",
+        "last_of": [
+          "6PERUVIAN ACCOYO THE LAST DONIMPR98"
+        ],
+        "cria_names": [
+          "CIRCLE CLIFF'S SWEET CAROLINE \u00d7 TCB CORKY",
+          "RED GRANITES AFTERSHOCK \u00d7 TCB CORKY",
+          "MTAR PHASMA \u00d7 TCB CORKY",
+          "WILLOWWIND SL HALO \u00d7 TCB CORKY"
+        ],
+        "keep_cria": [
+          "CIRCLE CLIFF'S SWEET CAROLINE \u00d7 TCB CORKY",
+          "RED GRANITES AFTERSHOCK \u00d7 TCB CORKY"
+        ],
+        "may_sell_after_weaning": true,
+        "why": "After weaning, TCB CORKY may leave if the barn keeps CIRCLE CLIFF'S SWEET CAROLINE \u00d7 TCB CORKY, RED GRANITES AFTERSHOCK \u00d7 TCB CORKY."
+      }
+    ],
+    "uncovered": [],
+    "disaster": [
+      {
+        "parent_name": "HOWLING HILL SING THE BODY ELECTRIC",
+        "extinct": [
+          "CPERUVIAN VALERIE 1483",
+          "EL SEGUNDO DE ROYAL FAWN",
+          "MULOWE",
+          "5PERUVIAN CHARLIE'S ANGEL 8494",
+          "5PERUVIAN DOM ALAMIR 9043",
+          "PPPERUVIAN FINESSE 5093",
+          "BRITTANY'S DESPARADO",
+          "SENOIA",
+          "TELL HOT SHOT",
+          "TELL BLIZZARD",
+          "LUNAR ECLIPSE",
+          "WOODED HILLS CHILE PEPPER"
+        ],
+        "why": "Selling HOWLING HILL SING THE BODY ELECTRIC and every cria of that pairing takes CPERUVIAN VALERIE 1483, EL SEGUNDO DE ROYAL FAWN, MULOWE (+9 more) out of the nucleus."
+      },
+      {
+        "parent_name": "4-SIGHT'S HOLIDAY",
+        "extinct": [
+          "AYSEN'S LAUCA IMPQ98",
+          "ALPACARIA'S VOX EXCALIBUR",
+          "KPR ANGELL",
+          "AVATAR",
+          "PENNIE",
+          "CPERUVIAN CAMILLA 1258 IMPF98",
+          "SA PERUVIAN CHOCO",
+          "TCB'S CAMEO",
+          "SILVERTONE",
+          "MARIAH MAE"
+        ],
+        "why": "Selling 4-SIGHT'S HOLIDAY and every cria of that pairing takes AYSEN'S LAUCA IMPQ98, ALPACARIA'S VOX EXCALIBUR, KPR ANGELL (+7 more) out of the nucleus."
+      },
+      {
+        "parent_name": "PALLATON'S KALIBAUT ALYST",
+        "extinct": [
+          "ACCOYO AMERICA APOCALYPSE",
+          "NWA, LTD SHIRLEY",
+          "SONORA'S ACCOYO FERRARI",
+          "PRISTINA'S ACCOYO PRINCESSA",
+          "ACCOYO AMERICA MARATHON",
+          "TNT PERUVIAN BLAITHIN",
+          "MFI PERUVIAN CHAMPAGNE",
+          "TICKITY BOO VICTORIA"
+        ],
+        "why": "Selling PALLATON'S KALIBAUT ALYST and every cria of that pairing takes ACCOYO AMERICA APOCALYPSE, NWA, LTD SHIRLEY, SONORA'S ACCOYO FERRARI (+5 more) out of the nucleus."
+      },
+      {
+        "parent_name": "SC'S CARRINGTON",
+        "extinct": [
+          "SARA'S SAHARA",
+          "PPPERUVIAN SWEETNESS 4854",
+          "KAPPIE",
+          "PCA PERUVIAN MICROSOFT",
+          "PPPERUVIAN CORACORA 5055",
+          "PPERUVIAN LEON G4560",
+          "YAKUTAT VON TR",
+          "KPR CARMELLA"
+        ],
+        "why": "Selling SC'S CARRINGTON and every cria of that pairing takes SARA'S SAHARA, PPPERUVIAN SWEETNESS 4854, KAPPIE (+5 more) out of the nucleus."
+      },
+      {
+        "parent_name": "HMAF'S AIRGEAD",
+        "extinct": [
+          "MAYA III",
+          "PPPERUVIAN CEBICHE 4890",
+          "BLACK PERUVIAN ROYAL FOREST",
+          "MFI VISION",
+          "BOLIVIAN VESUVIUS",
+          "6PERUVIAN FORTUNATA 6494 IMPR98",
+          "QUEEN OF SPADES 339"
+        ],
+        "why": "Selling HMAF'S AIRGEAD and every cria of that pairing takes MAYA III, PPPERUVIAN CEBICHE 4890, BLACK PERUVIAN ROYAL FOREST (+4 more) out of the nucleus."
+      },
+      {
+        "parent_name": "MISS AUTARY",
+        "extinct": [
+          "JOLIMONT 2 PERUVIAN RINGO IMPB98",
+          "COYO DESTINI",
+          "JOLIMONT PERUVIAN AREQUIPA IMPAQ&",
+          "CPERUVIAN DANIEL 111 IMPF98",
+          "GHOST RIVER SHY ANNE",
+          "MMR SIR CONDE",
+          "ARISTO ANTOINETTE"
+        ],
+        "why": "Selling MISS AUTARY and every cria of that pairing takes JOLIMONT 2 PERUVIAN RINGO IMPB98, COYO DESTINI, JOLIMONT PERUVIAN AREQUIPA IMPAQ& (+4 more) out of the nucleus."
+      },
+      {
+        "parent_name": "SNOWMASS MIDNIGHT GAZE",
+        "extinct": [
+          "SNOWMASS ICED ELEGANCE",
+          "SNOWMASS ELITE LEGEND",
+          "SNOWMASS SATIN BELLS",
+          "ACCOYO AMERICA SHOGUN",
+          "PACIFIC CREST ACCOYO CALIPANI",
+          "SNOWMASS LITERALLY LOVELY",
+          "SNOWMASS BIT OF HONEY"
+        ],
+        "why": "Selling SNOWMASS MIDNIGHT GAZE and every cria of that pairing takes SNOWMASS ICED ELEGANCE, SNOWMASS ELITE LEGEND, SNOWMASS SATIN BELLS (+4 more) out of the nucleus."
+      },
+      {
+        "parent_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+        "extinct": [
+          "PCA HEMINGWAY-ACCOYO NAUTILUS",
+          "ACCOYO AMERICA ASPEN AC020",
+          "FIBRE WORKS DIAMONTE",
+          "SUNNYVIEW ALEJANDRIA",
+          "KELOWNA'S SUNDANCE KID",
+          "SUNNYVIEW ANJELITA",
+          "PANAM'S SILVER ANGEL IMPD98 TC)"
+        ],
+        "why": "Selling SUNNYHILL'S ZANG'S BALTAZAR and every cria of that pairing takes PCA HEMINGWAY-ACCOYO NAUTILUS, ACCOYO AMERICA ASPEN AC020, FIBRE WORKS DIAMONTE (+4 more) out of the nucleus."
+      },
+      {
+        "parent_name": "THAT'LL DO BLACKBEARD'S BOOTY",
+        "extinct": [
+          "5PERUVIAN ROYAL INCA LEGEND 9058",
+          "5PERUVIAN MICAY 8452",
+          "WOODED HILLS WINSTON",
+          "SEBRING JAX",
+          "MILLENNIUM GIRL URAQT",
+          "MBF EL DORADO",
+          "HVLA ZEPHYR"
+        ],
+        "why": "Selling THAT'LL DO BLACKBEARD'S BOOTY and every cria of that pairing takes 5PERUVIAN ROYAL INCA LEGEND 9058, 5PERUVIAN MICAY 8452, WOODED HILLS WINSTON (+4 more) out of the nucleus."
+      },
+      {
+        "parent_name": "HERITAGE SILVER PROMISE",
+        "extinct": [
+          "BD ROSIE'S THOMAS",
+          "LA CARAMELLA CODI W966",
+          "5PERUVIAN SILVERADO 9042",
+          "SA PERUVIAN DASH OF CLASS",
+          "MFI PERUVIAN GLACIAL STORM",
+          "VIAC MISS-C"
+        ],
+        "why": "Selling HERITAGE SILVER PROMISE and every cria of that pairing takes BD ROSIE'S THOMAS, LA CARAMELLA CODI W966, 5PERUVIAN SILVERADO 9042 (+3 more) out of the nucleus."
+      },
+      {
+        "parent_name": "SC'S CRICKIT",
+        "extinct": [
+          "LINNEA CODI W1063",
+          "SNOWMASS ROYAL FLUSH",
+          "SNOWMASS SWEET DREAMS",
+          "FCA CINDY",
+          "PPPERUVIAN ASTILLERO 4650",
+          "JOLIMONT PERUVIAN TRINITY IMPA98"
+        ],
+        "why": "Selling SC'S CRICKIT and every cria of that pairing takes LINNEA CODI W1063, SNOWMASS ROYAL FLUSH, SNOWMASS SWEET DREAMS (+3 more) out of the nucleus."
+      },
+      {
+        "parent_name": "ARAPAHO DELGADO'S ILLYAPA",
+        "extinct": [
+          "BISTURI",
+          "LV BLACK EYED SUSAN",
+          "SILVER ROSE SENTINEL",
+          "SNOWMASS ZIMA",
+          "AUSSIE GUNS -N- ROSES Huarava 320036107 - LIinited States"
+        ],
+        "why": "Selling ARAPAHO DELGADO'S ILLYAPA and every cria of that pairing takes BISTURI, LV BLACK EYED SUSAN, SILVER ROSE SENTINEL (+2 more) out of the nucleus."
+      },
+      {
+        "parent_name": "CRESCENT MOON'S KEMMAUS",
+        "extinct": [
+          "GREENER PASTURES LAHELA",
+          "WVR'S THE OUTLAW JOSEY WALES",
+          "TESS",
+          "REMINGTON OF REDWOODRIDGE",
+          "ETIENNE OF REDWOOD RIDGE"
+        ],
+        "why": "Selling CRESCENT MOON'S KEMMAUS and every cria of that pairing takes GREENER PASTURES LAHELA, WVR'S THE OUTLAW JOSEY WALES, TESS (+2 more) out of the nucleus."
+      },
+      {
+        "parent_name": "CRYSTAL MOCHACCINO",
+        "extinct": [
+          "ANDEAN MIDNIGHT",
+          "6PERUVIAN ACCOYOGRANDTRIUMPH IMPR9\u00a7",
+          "PALOMA BLANCA",
+          "NZ MAORI MAGIC",
+          "BLACK MARIAH #1264"
+        ],
+        "why": "Selling CRYSTAL MOCHACCINO and every cria of that pairing takes ANDEAN MIDNIGHT, 6PERUVIAN ACCOYOGRANDTRIUMPH IMPR9\u00a7, PALOMA BLANCA (+2 more) out of the nucleus."
+      },
+      {
+        "parent_name": "ESTATES LA PRESTIGE CRIMSON",
+        "extinct": [
+          "BOLIVIAN BLACK THUNDER B969",
+          "VCA ERIKA",
+          "DIAMOND SPARK DE CAQUENA",
+          "MELOSA",
+          "CHISTOCHINA 378"
+        ],
+        "why": "Selling ESTATES LA PRESTIGE CRIMSON and every cria of that pairing takes BOLIVIAN BLACK THUNDER B969, VCA ERIKA, DIAMOND SPARK DE CAQUENA (+2 more) out of the nucleus."
+      },
+      {
+        "parent_name": "G-TRIBE'S ROCKY'S ASH",
+        "extinct": [
+          "SHAZZY ALYST",
+          "MESSIAH ALYST",
+          "EXPRESS' PERUVIAN SPICE",
+          "R&RR ALDER 097L",
+          "AVA DOMITA MARTI 059N"
+        ],
+        "why": "Selling G-TRIBE'S ROCKY'S ASH and every cria of that pairing takes SHAZZY ALYST, MESSIAH ALYST, EXPRESS' PERUVIAN SPICE (+2 more) out of the nucleus."
+      },
+      {
+        "parent_name": "MAMGB NATAN SAPA",
+        "extinct": [
+          "QUEEN CHARLOTTE 187",
+          "SA GREYSTOKE",
+          "KPR MAGDA",
+          "JOHNSON S$112",
+          "TWIZZLER D118 ALOA"
+        ],
+        "why": "Selling MAMGB NATAN SAPA and every cria of that pairing takes QUEEN CHARLOTTE 187, SA GREYSTOKE, KPR MAGDA (+2 more) out of the nucleus."
+      },
+      {
+        "parent_name": "MISS ALOHA MOONSHINE",
+        "extinct": [
+          "MAPLE BROOK BARNABUS Huacavya 840936",
+          "TH HEIDI'S SASHA",
+          "NORTHMARK'S MESSIAH'S PROPHETESS'",
+          "MMR MARCOYO",
+          "ACA CRISPINA"
+        ],
+        "why": "Selling MISS ALOHA MOONSHINE and every cria of that pairing takes MAPLE BROOK BARNABUS Huacavya 840936, TH HEIDI'S SASHA, NORTHMARK'S MESSIAH'S PROPHETESS' (+2 more) out of the nucleus."
+      },
+      {
+        "parent_name": "SNOWMASS IRON MAIDEN",
+        "extinct": [
+          "DISAPPEARING CREEK RINCON'S KALANI'",
+          "PERUVIAN MACUSANI G204",
+          "ENQUELGA BIANCA",
+          "ORE HILL COMANCHE",
+          "PRECIOSE IMPORTAB98"
+        ],
+        "why": "Selling SNOWMASS IRON MAIDEN and every cria of that pairing takes DISAPPEARING CREEK RINCON'S KALANI', PERUVIAN MACUSANI G204, ENQUELGA BIANCA (+2 more) out of the nucleus."
+      },
+      {
+        "parent_name": "CIRCLE CLIFF'S SWEET CAROLINE",
+        "extinct": [
+          "CALIGULA'S ACCOYO POSEIDON",
+          "MILE HIGH PERUVIAN GENESEE",
+          "CHELSEA FARMS' TESS'S FLAME",
+          "CRESCENT MOON'S ESMERALDA"
+        ],
+        "why": "Selling CIRCLE CLIFF'S SWEET CAROLINE and every cria of that pairing takes CALIGULA'S ACCOYO POSEIDON, MILE HIGH PERUVIAN GENESEE, CHELSEA FARMS' TESS'S FLAME (+1 more) out of the nucleus."
+      },
+      {
+        "parent_name": "MARY'S SIQUANI BELLE",
+        "extinct": [
+          "5PERUVIAN CHACHANI 8690",
+          "CPERUVIAN CHILAM 1338 IMPF98",
+          "PPERUVIAN VENGADOR G4568",
+          "PPPERUVIAN COROPUNA 4603"
+        ],
+        "why": "Selling MARY'S SIQUANI BELLE and every cria of that pairing takes 5PERUVIAN CHACHANI 8690, CPERUVIAN CHILAM 1338 IMPF98, PPERUVIAN VENGADOR G4568 (+1 more) out of the nucleus."
+      },
+      {
+        "parent_name": "PARAGON'S ESMERALDA",
+        "extinct": [
+          "HOLLYWOOD",
+          "TABITHA OF AYS",
+          "PPPERUVIAN CHICHA 4975",
+          "5PERUVIAN DONA APARECIDA 8520"
+        ],
+        "why": "Selling PARAGON'S ESMERALDA and every cria of that pairing takes HOLLYWOOD, TABITHA OF AYS, PPPERUVIAN CHICHA 4975 (+1 more) out of the nucleus."
+      },
+      {
+        "parent_name": "VINTAGE CASHMERE'S U-TAUPE-IA",
+        "extinct": [
+          "PPERUVIAN FELIX G4562",
+          "6PERUVIAN SERENETY 6303 IMPR98",
+          "6PERUVIAN BIANA 6323 IMPR98",
+          "CHIQUITA IMPORTAD98"
+        ],
+        "why": "Selling VINTAGE CASHMERE'S U-TAUPE-IA and every cria of that pairing takes PPERUVIAN FELIX G4562, 6PERUVIAN SERENETY 6303 IMPR98, 6PERUVIAN BIANA 6323 IMPR98 (+1 more) out of the nucleus."
+      },
+      {
+        "parent_name": "5C'S CHANTERELLA",
+        "extinct": [
+          "MFI PERUVIAN FABEREGE",
+          "SOFTWEAR",
+          "MHF PIXIE"
+        ],
+        "why": "Selling 5C'S CHANTERELLA and every cria of that pairing takes MFI PERUVIAN FABEREGE, SOFTWEAR, MHF PIXIE out of the nucleus."
+      },
+      {
+        "parent_name": "LIBERTYALPACAS SMOKE SCREEN",
+        "extinct": [
+          "PERUVIAN FAWNA W914",
+          "PPPERUVIAN TRINKET 4657",
+          "W LA SILVERADO"
+        ],
+        "why": "Selling LIBERTYALPACAS SMOKE SCREEN and every cria of that pairing takes PERUVIAN FAWNA W914, PPPERUVIAN TRINKET 4657, W LA SILVERADO out of the nucleus."
+      },
+      {
+        "parent_name": "PHPC ARTILLERY",
+        "extinct": [
+          "6PERUVIAN DONA MAISA 6537 IMPR98",
+          "SCA PERUVIAN DESERT SUN",
+          "MI AMIGOS PERUVIAN LUPITA"
+        ],
+        "why": "Selling PHPC ARTILLERY and every cria of that pairing takes 6PERUVIAN DONA MAISA 6537 IMPR98, SCA PERUVIAN DESERT SUN, MI AMIGOS PERUVIAN LUPITA out of the nucleus."
+      },
+      {
+        "parent_name": "RED GRANITES JAFFA",
+        "extinct": [
+          "SNOWMASS NOVA'S DARK QUEST",
+          "WOLF DEN O'BABY",
+          "PATAGONIA'S CLEO"
+        ],
+        "why": "Selling RED GRANITES JAFFA and every cria of that pairing takes SNOWMASS NOVA'S DARK QUEST, WOLF DEN O'BABY, PATAGONIA'S CLEO out of the nucleus."
+      },
+      {
+        "parent_name": "RGR'S MISS CONTRARY",
+        "extinct": [
+          "SNOWMASS BLACK N' GOLD",
+          "LANARK'S SILVER CHARM",
+          "CARTAGENA - CHAPOCO"
+        ],
+        "why": "Selling RGR'S MISS CONTRARY and every cria of that pairing takes SNOWMASS BLACK N' GOLD, LANARK'S SILVER CHARM, CARTAGENA - CHAPOCO out of the nucleus."
+      },
+      {
+        "parent_name": "SC'S CLARKIA",
+        "extinct": [
+          "SNOWMASS MIDNIGHT SONG",
+          "SNOWMASS QUECHUA'S RISING SON",
+          "SNOWMASS ROYAL LACE"
+        ],
+        "why": "Selling SC'S CLARKIA and every cria of that pairing takes SNOWMASS MIDNIGHT SONG, SNOWMASS QUECHUA'S RISING SON, SNOWMASS ROYAL LACE out of the nucleus."
+      },
+      {
+        "parent_name": "APP WILD PHLOX",
+        "extinct": [
+          "CLASSY TRUFFLES",
+          "MFI PERUVIAN PURISIMA"
+        ],
+        "why": "Selling APP WILD PHLOX and every cria of that pairing takes CLASSY TRUFFLES, MFI PERUVIAN PURISIMA out of the nucleus."
+      },
+      {
+        "parent_name": "CRYSTAL ROYAL GOLD'S MACKINAW",
+        "extinct": [
+          "SNOWMASS QUECHUA'S SHAHTOOSH",
+          "SNOWMASS MIDNIGHT FOX"
+        ],
+        "why": "Selling CRYSTAL ROYAL GOLD'S MACKINAW and every cria of that pairing takes SNOWMASS QUECHUA'S SHAHTOOSH, SNOWMASS MIDNIGHT FOX out of the nucleus."
+      },
+      {
+        "parent_name": "PATAGONIA'S DUSTY",
+        "extinct": [
+          "MARIGOLD 387",
+          "HERMANA 184"
+        ],
+        "why": "Selling PATAGONIA'S DUSTY and every cria of that pairing takes MARIGOLD 387, HERMANA 184 out of the nucleus."
+      },
+      {
+        "parent_name": "RED GRANITES AFTERSHOCK",
+        "extinct": [
+          "5PERUVIAN BLACK ICE 9069",
+          "PPERUVIAN ELOISA B4263"
+        ],
+        "why": "Selling RED GRANITES AFTERSHOCK and every cria of that pairing takes 5PERUVIAN BLACK ICE 9069, PPERUVIAN ELOISA B4263 out of the nucleus."
+      },
+      {
+        "parent_name": "RED GRANITES PRIM & PROPER",
+        "extinct": [
+          "SENORITA ACCOYO CHIQUITA",
+          "CALLA LILLE"
+        ],
+        "why": "Selling RED GRANITES PRIM & PROPER and every cria of that pairing takes SENORITA ACCOYO CHIQUITA, CALLA LILLE out of the nucleus."
+      },
+      {
+        "parent_name": "SNOWMASS ALLURING XX",
+        "extinct": [
+          "SNOWMASS BLACK OUT",
+          "SNOWMASS GOLDEN GIRL"
+        ],
+        "why": "Selling SNOWMASS ALLURING XX and every cria of that pairing takes SNOWMASS BLACK OUT, SNOWMASS GOLDEN GIRL out of the nucleus."
+      },
+      {
+        "parent_name": "SNOWMASS CONOPA XXX",
+        "extinct": [
+          "MACINTOSH S086 ALOA",
+          "PPPERUVIAN PRESTIGE 4999"
+        ],
+        "why": "Selling SNOWMASS CONOPA XXX and every cria of that pairing takes MACINTOSH S086 ALOA, PPPERUVIAN PRESTIGE 4999 out of the nucleus."
+      },
+      {
+        "parent_name": "SNOWMASS SIMPLY SMOKIN",
+        "extinct": [
+          "CASANOVA'S CRESCENDA",
+          "SNOWMASS RAINBOW JOY"
+        ],
+        "why": "Selling SNOWMASS SIMPLY SMOKIN and every cria of that pairing takes CASANOVA'S CRESCENDA, SNOWMASS RAINBOW JOY out of the nucleus."
+      },
+      {
+        "parent_name": "APP OSA PHRENCH BRAID",
+        "extinct": [
+          "CORTINA 121"
+        ],
+        "why": "Selling APP OSA PHRENCH BRAID and every cria of that pairing takes CORTINA 121 out of the nucleus."
+      },
+      {
+        "parent_name": "HEAVEN'S HILL PERUVIAN CELESTIA",
+        "extinct": [
+          "CPERUVIAN CADEE 1192 IMPF98 TC)"
+        ],
+        "why": "Selling HEAVEN'S HILL PERUVIAN CELESTIA and every cria of that pairing takes CPERUVIAN CADEE 1192 IMPF98 TC) out of the nucleus."
+      },
+      {
+        "parent_name": "NOBLE AMARETTO",
+        "extinct": [
+          "SNOWMASS GOLDEN SERENITY"
+        ],
+        "why": "Selling NOBLE AMARETTO and every cria of that pairing takes SNOWMASS GOLDEN SERENITY out of the nucleus."
+      },
+      {
+        "parent_name": "RED GRANITES BRAVEHEART",
+        "extinct": [
+          "CRESCENT MOON'S KRYPTONITE"
+        ],
+        "why": "Selling RED GRANITES BRAVEHEART and every cria of that pairing takes CRESCENT MOON'S KRYPTONITE out of the nucleus."
+      },
+      {
+        "parent_name": "ROYAL DIAMANTE'S JEWEL",
+        "extinct": [
+          "CPERUVIAN CALANDRIA 1204 IMPF98 ey"
+        ],
+        "why": "Selling ROYAL DIAMANTE'S JEWEL and every cria of that pairing takes CPERUVIAN CALANDRIA 1204 IMPF98 ey out of the nucleus."
+      },
+      {
+        "parent_name": "SC'S CHARENTE",
+        "extinct": [
+          "CRESCENT MOON'S STILLETA"
+        ],
+        "why": "Selling SC'S CHARENTE and every cria of that pairing takes CRESCENT MOON'S STILLETA out of the nucleus."
+      },
+      {
+        "parent_name": "SNOWMASS MATRIX",
+        "extinct": [
+          "GARNETT"
+        ],
+        "why": "Selling SNOWMASS MATRIX and every cria of that pairing takes GARNETT out of the nucleus."
+      },
+      {
+        "parent_name": "TCB CORKY",
+        "extinct": [
+          "6PERUVIAN ACCOYO THE LAST DONIMPR98"
+        ],
+        "why": "Selling TCB CORKY and every cria of that pairing takes 6PERUVIAN ACCOYO THE LAST DONIMPR98 out of the nucleus."
+      }
+    ],
+    "sale_catalog": [
+      {
+        "animal_id": "AR:35425663",
+        "name": "SNOWMASS SMOKIN WAVES",
+        "sex": "M",
+        "color": "DRG",
+        "sire_name": "SNOWMASS SMOKIN",
+        "dam_name": "SNOWMASS AMBER WAVES",
+        "f_pct": 6.64,
+        "mk_pct": 2.78,
+        "ne_delta": 1.6,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "SNOWMASS SMOKIN WAVES is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "AR:35489856",
+        "name": "RED GRANITES ALYDAR",
+        "sex": "M",
+        "color": "DRG",
+        "sire_name": "RED GRANITES VAL D LSERE",
+        "dam_name": "RED GRANITES ALLISON",
+        "f_pct": 0.0,
+        "mk_pct": 2.63,
+        "ne_delta": 1.4,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "RED GRANITES ALYDAR is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "NM:RGR JIGSAW",
+        "name": "RGR JIGSAW",
+        "sex": "F",
+        "color": null,
+        "sire_name": "RED GRANITES ALYDAR",
+        "dam_name": "RED GRANITES JENGA",
+        "f_pct": 0.12,
+        "mk_pct": 2.52,
+        "ne_delta": 1.3,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "RGR JIGSAW is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "NM:RGR JUSTIFICATION",
+        "name": "RGR JUSTIFICATION",
+        "sex": "F",
+        "color": null,
+        "sire_name": "RED GRANITES ALYDAR",
+        "dam_name": "RED GRANITES JENGA",
+        "f_pct": 0.12,
+        "mk_pct": 2.52,
+        "ne_delta": 1.3,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "RGR JUSTIFICATION is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "AR:36094530",
+        "name": "WILLOWWIND SL HALO",
+        "sex": "F",
+        "color": "MSG",
+        "sire_name": "SPARTAN'S SILVER-LINING",
+        "dam_name": "BOMBER'S DIAMOND LIL",
+        "f_pct": 0.0,
+        "mk_pct": 2.35,
+        "ne_delta": 1.1,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "WILLOWWIND SL HALO is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "NM:SMOKIN HAUTE",
+        "name": "SMOKIN HAUTE",
+        "sex": "F",
+        "color": null,
+        "sire_name": "SNOWMASS SMOKIN WAVES",
+        "dam_name": "ENCHANTED DARLING",
+        "f_pct": 1.32,
+        "mk_pct": 2.15,
+        "ne_delta": 0.9,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "SMOKIN HAUTE is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "NM:MTAR PHASMA",
+        "name": "MTAR PHASMA",
+        "sex": "F",
+        "color": null,
+        "sire_name": "SNOWMASS MAJESTIC REFLECTION",
+        "dam_name": "RR SARAH VAUGHN",
+        "f_pct": 0.24,
+        "mk_pct": 2.04,
+        "ne_delta": 0.8,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "MTAR PHASMA is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "AR:35185413",
+        "name": "BOMBER'S DIAMOND LIL",
+        "sex": "F",
+        "color": "MSG",
+        "sire_name": "ANNUAL'S BEA-2 BOMBER",
+        "dam_name": "CUPID'S DELILAH C",
+        "f_pct": 0.0,
+        "mk_pct": 2.03,
+        "ne_delta": 0.8,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "BOMBER'S DIAMOND LIL is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "NM:WILLOWWIND ECHO DELTA",
+        "name": "WILLOWWIND ECHO DELTA",
+        "sex": "F",
+        "color": null,
+        "sire_name": "SPARTAN'S SILVER-LINING",
+        "dam_name": "BOMBER'S DIAMOND LIL",
+        "f_pct": 0.0,
+        "mk_pct": 2.01,
+        "ne_delta": 0.8,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "WILLOWWIND ECHO DELTA is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "AR:35298564",
+        "name": "APP PHORCE PHACTOR",
+        "sex": "M",
+        "color": "BB",
+        "sire_name": "SNOWMASS MIDNIGHT DIAMANTE",
+        "dam_name": "APP PERUVIAN MAX PHACTOR",
+        "f_pct": 0.05,
+        "mk_pct": 1.77,
+        "ne_delta": 0.6,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "APP PHORCE PHACTOR is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "AR:36020188",
+        "name": "SNOWMASS MAJESTIC REFLECTION",
+        "sex": "M",
+        "color": "DSG",
+        "sire_name": "SNOWMASS MAJESTIC PARAMOUNT",
+        "dam_name": "SNOWMASS VELVET REFLECTION",
+        "f_pct": 1.22,
+        "mk_pct": 1.76,
+        "ne_delta": 0.5,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "SNOWMASS MAJESTIC REFLECTION is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "NM:RR WONDER WOMAN",
+        "name": "RR WONDER WOMAN",
+        "sex": "F",
+        "color": null,
+        "sire_name": "RR ARTURO",
+        "dam_name": "RR SARAH VAUGHN",
+        "f_pct": 8.98,
+        "mk_pct": 1.74,
+        "ne_delta": 0.5,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "RR WONDER WOMAN is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "AR:35485872",
+        "name": "RED GRANITES JENGA",
+        "sex": "F",
+        "color": "DRG DB",
+        "sire_name": "SNOWMASS RESERVED",
+        "dam_name": "ULIO HEMBRA JUAKA",
+        "f_pct": 0.0,
+        "mk_pct": 1.73,
+        "ne_delta": 0.5,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "RED GRANITES JENGA is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "AR:35117575",
+        "name": "RR SARAH VAUGHN",
+        "sex": "F",
+        "color": "DSG",
+        "sire_name": "RR LEGATO GRIGIO",
+        "dam_name": "RR ROSE INCAN D'ESSENCE",
+        "f_pct": 6.25,
+        "mk_pct": 1.61,
+        "ne_delta": 0.4,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "RR SARAH VAUGHN is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "NM:RR PALOMA PICASSO",
+        "name": "RR PALOMA PICASSO",
+        "sex": "F",
+        "color": null,
+        "sire_name": "RR ARTURO",
+        "dam_name": "RR ETTA JAMES",
+        "f_pct": 8.98,
+        "mk_pct": 1.49,
+        "ne_delta": 0.3,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "RR PALOMA PICASSO is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "NM:WILLOWWIND THE SHAMAN",
+        "name": "WILLOWWIND THE SHAMAN",
+        "sex": "M",
+        "color": null,
+        "sire_name": "SSAFL MICHELANGELO'S PERUVIAN CUPID",
+        "dam_name": "EMERALD FARM'S INGA CLOUD ey",
+        "f_pct": 0.0,
+        "mk_pct": 1.34,
+        "ne_delta": 0.1,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "WILLOWWIND THE SHAMAN is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "AR:32705416",
+        "name": "SPARTAN'S SILVER-LINING",
+        "sex": "M",
+        "color": "DRG MSG",
+        "sire_name": "CRYSTAL SPARTAN",
+        "dam_name": "QUARRY RIDGE MARIMBA",
+        "f_pct": 0.0,
+        "mk_pct": 1.31,
+        "ne_delta": 0.1,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "SPARTAN'S SILVER-LINING is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "AR:30838215",
+        "name": "SSAFL MICHELANGELO'S PERUVIAN CUPID",
+        "sex": "M",
+        "color": "MSG DSG",
+        "sire_name": "EL NINO'S ACCOYO MICHELANGELO",
+        "dam_name": "6891 PERUVIAN SAVANAH",
+        "f_pct": 0.0,
+        "mk_pct": 0.97,
+        "ne_delta": -0.2,
+        "hold_for_cria": false,
+        "cover_cria": [],
+        "why": "SSAFL MICHELANGELO'S PERUVIAN CUPID is not a last or pair-locked carrier at the 3.1% threshold. Highest MK animals on this list are the ones whose exit helps Ne."
+      },
+      {
+        "animal_id": "NM:RED GRANITES JEZEBELL",
+        "name": "RED GRANITES JEZEBELL",
+        "sex": "F",
+        "color": null,
+        "sire_name": "RED GRANITES ALYDAR",
+        "dam_name": "RED GRANITES JENGA",
+        "f_pct": 0.12,
+        "mk_pct": 2.52,
+        "ne_delta": 1.3,
+        "hold_for_cria": true,
+        "cover_cria": [
+          "RED GRANITES JEZEBELL \u00d7 MAMGB NATAN SAPA"
+        ],
+        "why": "RED GRANITES JEZEBELL is LET GO genetically, but is a parent of a covering cria (RED GRANITES JEZEBELL \u00d7 MAMGB NATAN SAPA). Wait until that cria is on the ground."
+      },
+      {
+        "animal_id": "AR:814613",
+        "name": "PATAGONIA'S NERUDA",
+        "sex": "M",
+        "color": "MRG",
+        "sire_name": "SHACKLETON 562",
+        "dam_name": "KODIAK 345",
+        "f_pct": 0.0,
+        "mk_pct": 0.43,
+        "ne_delta": -0.7,
+        "hold_for_cria": true,
+        "cover_cria": [
+          "CRYSTAL MOCHACCINO \u00d7 PATAGONIA'S NERUDA",
+          "APP WILD PHLOX \u00d7 PATAGONIA'S NERUDA",
+          "APP OSA PHRENCH BRAID \u00d7 PATAGONIA'S NERUDA"
+        ],
+        "why": "PATAGONIA'S NERUDA is LET GO genetically, but is a parent of a covering cria (CRYSTAL MOCHACCINO \u00d7 PATAGONIA'S NERUDA, APP WILD PHLOX \u00d7 PATAGONIA'S NERUDA). Wait until that cria is on the ground."
+      }
+    ]
   },
   "heatmap": {
     "dams": [

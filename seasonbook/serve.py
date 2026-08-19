@@ -8,7 +8,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from .explain import explain_pair
-from .export import gate_csv_text, plan_csv_text
+from .export import gate_csv_text, plan_csv_text, wean_csv_text
 from .pipeline import DEFAULT_OUT, Snapshot, snapshot_dict
 
 DESK = Path(__file__).resolve().parent / "static" / "desk.html"
@@ -59,13 +59,26 @@ def serve(snap: Snapshot, host: str = "127.0.0.1", port: int = 8765) -> None:
             if path == "/gate.csv":
                 self._send(200, gate_csv_text(snap).encode("utf-8"), "text/csv")
                 return
-            if path in {"/cards.pdf", "/wall.pdf", "/lastblood.pdf", "/board.pdf", "/gate.pdf"}:
+            if path == "/wean.csv":
+                self._send(200, wean_csv_text(snap).encode("utf-8"), "text/csv")
+                return
+            if path in {
+                "/cards.pdf",
+                "/wall.pdf",
+                "/lastblood.pdf",
+                "/board.pdf",
+                "/gate.pdf",
+                "/wean.pdf",
+                "/catalog.pdf",
+            }:
                 from .book import (
                     write_board_pdf,
                     write_cards_pdf,
+                    write_catalog_pdf,
                     write_gate_pdf,
                     write_last_blood_pdf,
                     write_wall,
+                    write_wean_pdf,
                 )
                 from .pipeline import DEFAULT_OUT
 
@@ -75,6 +88,8 @@ def serve(snap: Snapshot, host: str = "127.0.0.1", port: int = 8765) -> None:
                     "/lastblood.pdf": write_last_blood_pdf,
                     "/board.pdf": write_board_pdf,
                     "/gate.pdf": write_gate_pdf,
+                    "/wean.pdf": write_wean_pdf,
+                    "/catalog.pdf": write_catalog_pdf,
                 }[path]
                 pdf_path = writer(snap, DEFAULT_OUT)
                 self._send(200, pdf_path.read_bytes(), "application/pdf")
@@ -103,7 +118,7 @@ def serve(snap: Snapshot, host: str = "127.0.0.1", port: int = 8765) -> None:
 
     httpd = ThreadingHTTPServer((host, port), Handler)
     print(f"Season Book desk  http://{host}:{port}/")
-    print("Keys 1–0 G  Briefing · Atlas · Heatmap · Plan · Lab · Audit · Why · Horizon · Last Blood · Erosion · Gate")
+    print("Keys 1–0 G W  Briefing · Atlas · Heatmap · Plan · Lab · Audit · Why · Horizon · Last Blood · Erosion · Gate · Wean")
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:

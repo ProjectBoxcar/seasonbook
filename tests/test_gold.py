@@ -192,6 +192,42 @@ class RealHerdGold(unittest.TestCase):
         self.assertTrue(pdf_path.read_bytes().startswith(b"%PDF"))
         self.assertGreater(pdf_path.stat().st_size, 1000)
 
+    def test_weaning_cover_backs_every_last_founder(self):
+        w = self.snap.wean
+        self.assertEqual(w.n_cria, 48)
+        self.assertGreater(w.n_cover, 0)
+        self.assertLess(w.n_cover, 48)
+        self.assertEqual(w.n_uncovered, 0)
+        self.assertEqual(w.n_release, 45)
+        self.assertTrue(all(r.may_sell_after_weaning for r in w.releases))
+        self.assertGreater(w.n_this_fall, 0)
+        self.assertEqual(w.n_this_fall + w.n_hold_for_cria, 20)
+        corky = next((r for r in w.releases if "CORKY" in r.name.upper()), None)
+        self.assertIsNotNone(corky)
+        self.assertTrue(corky.keep_cria or corky.cria_names)
+        disaster = next((d for d in w.disaster if "CORKY" in d.parent_name.upper()), None)
+        self.assertIsNotNone(disaster)
+        self.assertTrue(any("LAST DON" in n.upper() for n in disaster.extinct))
+
+    def test_wean_pdf_and_catalog(self):
+        import tempfile
+
+        from seasonbook.book import write_catalog_pdf, write_wean_pdf
+        from seasonbook.export import wean_rows, write_wean_csv
+
+        rows = wean_rows(self.snap)
+        self.assertEqual(len(rows), 48)
+        self.assertTrue(any(r["must_stay"] == "Y" for r in rows))
+        tmp = Path(tempfile.mkdtemp())
+        csv_path = write_wean_csv(self.snap, tmp)
+        self.assertIn("must_stay", csv_path.read_text(encoding="utf-8").splitlines()[0])
+        ledger = write_wean_pdf(self.snap, tmp)
+        catalog = write_catalog_pdf(self.snap, tmp)
+        self.assertTrue(ledger.read_bytes().startswith(b"%PDF"))
+        self.assertTrue(catalog.read_bytes().startswith(b"%PDF"))
+        self.assertGreater(ledger.stat().st_size, 1000)
+        self.assertGreater(catalog.stat().st_size, 1000)
+
 
 if __name__ == "__main__":
     unittest.main()

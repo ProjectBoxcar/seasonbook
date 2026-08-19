@@ -38,6 +38,7 @@ python -m seasonbook salvage
 python -m seasonbook erode
 python -m seasonbook gate
 python -m seasonbook gate "MATRIX"
+python -m seasonbook wean
 python -m seasonbook cards
 python -m seasonbook tonight
 python -m seasonbook csv
@@ -47,9 +48,9 @@ python -m seasonbook book
 python -m seasonbook serve
 ```
 
-Desk: `http://127.0.0.1:8765/` — keys **1–0** and **G**
+Desk: `http://127.0.0.1:8765/` — keys **1–0**, **G**, **W**
 
-Briefing · Atlas · Heatmap · Plan · Mate lab · Audit · Why / cover · Three seasons · Last Blood · Erosion · Keep / Let Go
+Briefing · Atlas · Heatmap · Plan · Mate lab · Audit · Why / cover · Three seasons · Last Blood · Erosion · Keep / Let Go · Wean
 
 Printables land in `data/output/`:
 
@@ -62,6 +63,9 @@ Printables land in `data/output/`:
 - `SeasonBoard.pdf` (one page per year, rescue rows gold)
 - `KeepLetGo.pdf` (Keep / Let Go, pair-locks, after the cria)
 - `TheGate.csv` (one row per registered animal)
+- `WeaningLedger.pdf` (covering cria that must stay)
+- `WeaningLedger.csv`
+- `SaleCatalog.pdf` (LET GO buyer cards)
 - `nucleus.db` (`seed-am` — AM-shaped SQLite of the 74, not the demo herd)
 - `snapshot.json`
 
@@ -79,6 +83,14 @@ Last Blood says who is irreplaceable. **The Gate** answers the sale question:
 Cria founder share is the mid-parent value (½ dam + ½ sire). Cria kinship is Malécot: θ(cria, X) = ½(θ(sire, X) + θ(dam, X)). Crias are not treated as instant breeders.
 
 `python -m seasonbook gate MATRIX` prints the leave impact: founders that go extinct, who becomes the new last carrier, and the Ne delta.
+
+## Weaning Ledger
+
+The Gate is not a sale ticket by itself. If you sell Corky *and* the cria of Sweet Caroline × Corky, The Last Don is gone.
+
+Greedy set-cover picks the smallest set of year-1 cria that still carry every last founder at ≥ 3.1%. Keep those cria. Then every KEEP UNTIL WEANING parent may list. Cria that cover no last founder are sellable weanlings.
+
+`python -m seasonbook wean` prints the covering set, the parent-release list, the disaster rows (parent AND cria both leave), and writes `WeaningLedger.pdf` plus a LET GO `SaleCatalog.pdf`.
 
 Certificates are read from `../AlpacaManager/docs/cert_lineage`. Override with `--certs`.
 
@@ -200,6 +212,7 @@ Prefix: `/api/seasonbook`. Same session auth as `/api/hereditas`.
 | `GET` | `/salvage` | — | Last Blood: irreplaceable animals, last founders, sitting out |
 | `GET` | `/erode` | — | Five-year rotation vs barn habit |
 | `GET` | `/gate` | `?animal=` optional | Keep / Let Go, pair-locks, after-cria, suggested sale |
+| `GET` | `/wean` | — | Covering cria, parent release, disaster, LET GO catalog |
 | `GET` | `/pair` | `?dam_id=&sire_id=` | BLOCK / CONFIRM / PROCEED for an owned pair |
 | `POST` | `/book` | — | Writes the five PDFs; returns their paths or a zip |
 | `GET` | `/wall.pdf` | — | `DoNotBook.pdf` (barn wall) |

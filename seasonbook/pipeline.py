@@ -11,6 +11,7 @@ from .census import Census, build_census
 from .erode import Erosion, erode
 from .gate import TheGate, the_gate
 from .parse import HerdGraph, ingest_dir
+from .wean import WeaningLedger, weaning_ledger
 from .plan import (
     Audit,
     SeasonPlan,
@@ -49,6 +50,7 @@ class Snapshot:
     last_blood: LastBlood
     erosion: Erosion
     gate: TheGate
+    wean: WeaningLedger
 
     def briefing(self) -> dict:
         c = self.census
@@ -88,6 +90,10 @@ class Snapshot:
             "pair_locks": len(self.gate.pair_locks),
             "last_founders_after": self.gate.after.n_last_founders_after,
             "rescued_founders": len(self.gate.after.rescued_founders),
+            "wean_cover": self.wean.n_cover,
+            "wean_sellable": self.wean.n_sellable_cria,
+            "wean_release": self.wean.n_release,
+            "wean_uncovered": self.wean.n_uncovered,
         }
 
 
@@ -123,6 +129,7 @@ def build_from_herd(
     blood = last_blood(herd, engine, plan, pairs=pairs)
     erosion = erode(pairs, herd, engine, capacity=capacity, years=5)
     gate = the_gate(herd, engine, plan)
+    wean = weaning_ledger(herd, engine, plan, gate)
     return Snapshot(
         built=date.today().isoformat(),
         cert_dir=source_label,
@@ -140,6 +147,7 @@ def build_from_herd(
         last_blood=blood,
         erosion=erosion,
         gate=gate,
+        wean=wean,
     )
 
 
@@ -225,6 +233,7 @@ def snapshot_dict(snap: Snapshot) -> dict:
         "last_blood": snap.last_blood.as_dict(),
         "erosion": snap.erosion.as_dict(),
         "gate": snap.gate.as_dict(),
+        "wean": snap.wean.as_dict(),
         "heatmap": _heatmap(snap),
         "animals": [
             {

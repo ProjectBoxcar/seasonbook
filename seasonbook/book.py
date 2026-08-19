@@ -759,6 +759,157 @@ def write_gate_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
     return path
 
 
+def write_wean_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
+    """Barn wall: which cria must stay if last-carriers leave."""
+    out_dir = Path(out_dir) if out_dir else DEFAULT_OUT
+    w = snap.wean
+    pdf = _Pdf("Weaning Ledger")
+    pdf.new_page()
+    y = _header(
+        pdf,
+        "Weaning Ledger  ·  keep these cria",
+        "The covering set — then last-carriers may leave",
+        f"{w.n_cover} cria must stay of {w.n_cria}  ·  "
+        f"{w.n_release} parents may list after weaning  ·  "
+        f"{w.n_sellable_cria} sellable weanlings  ·  {snap.built}",
+    )
+    pdf.text(36, y, 9, w.summary[:110], 0.35, 0.30, 0.22)
+    y -= 18
+    pdf.text(36, y, 11, "Must stay", 0.55, 0.16, 0.12)
+    y -= 16
+    for c in w.cover:
+        if y < 52:
+            pdf.new_page()
+            y = _header(pdf, "Weaning Ledger", "Must stay (continued)", "")
+        pdf.text(36, y, 9, c.name[:44], 0.45, 0.12, 0.10)
+        pdf.text(360, y, 8, f"{c.n_covers} founders  {c.uniqueness_pct:.1f}%")
+        y -= 11
+        pdf.text(48, y, 8, ", ".join(c.covers[:4])[:90], 0.30, 0.26, 0.20)
+        y -= 13
+
+    y -= 8
+    pdf.text(36, y, 11, "Sellable weanlings (no last founder at 3.1%)", 0.18, 0.42, 0.28)
+    y -= 16
+    sellable = [c for c in w.stay if c.sellable]
+    if not sellable:
+        pdf.text(36, y, 9, "(none)")
+        y -= 14
+    for c in sellable:
+        if y < 48:
+            pdf.new_page()
+            y = _header(pdf, "Weaning Ledger", "Sellable weanlings (continued)", "")
+        pdf.text(36, y, 8, c.name[:50])
+        pdf.text(420, y, 8, f"F={c.f_pct:.2f}%")
+        y -= 11
+
+    pdf.new_page()
+    y = _header(
+        pdf,
+        "Weaning Ledger  ·  parent release",
+        "After these cria are on the ground, the parent may leave",
+        f"{w.n_release} of {len(w.releases)} KEEP UNTIL WEANING may list  ·  "
+        f"{w.n_uncovered} last founders with no cria backup",
+    )
+    for r in w.releases:
+        if y < 56:
+            pdf.new_page()
+            y = _header(pdf, "Weaning Ledger", "Parent release (continued)", "")
+        flag = "MAY LIST" if r.may_sell_after_weaning else "HOLD"
+        pdf.text(36, y, 9, r.name[:32])
+        pdf.text(280, y, 8, r.sex or "?")
+        pdf.text(300, y, 8, flag, 0.18, 0.42, 0.28 if r.may_sell_after_weaning else 0.55)
+        keep = ", ".join(r.keep_cria[:2])[:40]
+        pdf.text(380, y, 8, keep, 0.30, 0.26, 0.20)
+        y -= 12
+
+    if w.uncovered:
+        y -= 8
+        pdf.text(36, y, 11, "No cria backup — KEEP", 0.55, 0.16, 0.12)
+        y -= 16
+        for name in w.uncovered[:40]:
+            if y < 48:
+                pdf.new_page()
+                y = _header(pdf, "Weaning Ledger", "Uncovered (continued)", "")
+            pdf.text(36, y, 8, name[:60])
+            y -= 11
+
+    pdf.new_page()
+    y = _header(
+        pdf,
+        "Weaning Ledger  ·  disaster",
+        "Selling the parent AND every cria of that pairing",
+        f"{len(w.disaster)} last-carriers whose blood dies if the cria leave too",
+    )
+    pdf.text(
+        36,
+        y,
+        9,
+        "The Gate is not a sale ticket by itself. Keep the covering cria.",
+        0.35,
+        0.30,
+        0.22,
+    )
+    y -= 18
+    for d in w.disaster:
+        if y < 52:
+            pdf.new_page()
+            y = _header(pdf, "Weaning Ledger", "Disaster (continued)", "")
+        pdf.text(36, y, 9, d.parent_name[:34], 0.55, 0.16, 0.12)
+        pdf.text(280, y, 8, ", ".join(d.extinct[:4])[:50], 0.30, 0.26, 0.20)
+        y -= 12
+
+    path = out_dir / "WeaningLedger.pdf"
+    pdf.save(path)
+    return path
+
+
+def write_catalog_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
+    """Buyer cards for LET GO animals — one animal per card, 6 to a page."""
+    out_dir = Path(out_dir) if out_dir else DEFAULT_OUT
+    pdf = _Pdf("Sale catalog")
+    slots = [
+        (36, 540),
+        (318, 540),
+        (36, 300),
+        (318, 300),
+        (36, 60),
+        (318, 60),
+    ]
+    w, h = 258, 228
+    items = list(snap.wean.sale_catalog)
+    if not items:
+        pdf.new_page()
+        _header(pdf, "Sale catalog", "No LET GO animals", "")
+    for i, s in enumerate(items):
+        if i % 6 == 0:
+            pdf.new_page()
+            pdf.text(36, 776, 8, f"LET GO catalog  ·  {snap.built}", 0.45, 0.38, 0.22)
+        x, y = slots[i % 6]
+        if s.hold_for_cria:
+            pdf.box(x, y, 6, h, 0.72, 0.42, 0.12)
+            tag = "HOLD — covering cria"
+        else:
+            pdf.box(x, y, 6, h, 0.18, 0.42, 0.28)
+            tag = "LET GO this fall"
+        pdf.box(x + 6, y, w - 6, h, 0.98, 0.96, 0.90)
+        pdf.text(x + 16, y + h - 22, 8, tag, 0.55, 0.32, 0.10 if s.hold_for_cria else 0.18)
+        pdf.text(x + 16, y + h - 42, 12, s.name[:26], 0.18, 0.14, 0.10)
+        pdf.text(x + 16, y + h - 60, 8, f"{s.sex or '?'}   {s.color or ''}", 0.35, 0.30, 0.22)
+        pdf.text(x + 16, y + h - 84, 8, "SIRE", 0.45, 0.38, 0.22)
+        pdf.text(x + 16, y + h - 100, 10, (s.sire_name or "—")[:28], 0.18, 0.14, 0.10)
+        pdf.text(x + 16, y + h - 118, 8, "DAM", 0.45, 0.38, 0.22)
+        pdf.text(x + 16, y + h - 134, 10, (s.dam_name or "—")[:28], 0.18, 0.14, 0.10)
+        pdf.text(x + 16, y + 78, 12, f"F {s.f_pct:.2f}%", 0.18, 0.14, 0.10)
+        pdf.text(x + 110, y + 78, 12, f"MK {s.mk_pct:.2f}%", 0.18, 0.14, 0.10)
+        delta = f"Ne {s.ne_delta:+.1f} if they leave"
+        pdf.text(x + 16, y + 56, 8, delta, 0.18, 0.42, 0.28)
+        pdf.text(x + 16, y + 36, 8, "Not last or pair-locked at 3.1%.", 0.30, 0.26, 0.20)
+        pdf.text(x + 16, y + 16, 8, f"card {i + 1} / {len(items)}", 0.45, 0.38, 0.22)
+    path = out_dir / "SaleCatalog.pdf"
+    pdf.save(path)
+    return path
+
+
 def write_all_pdfs(snap: Snapshot, out_dir: Path | None = None) -> list[Path]:
     return [
         write_season_book(snap, out_dir),
@@ -769,4 +920,6 @@ def write_all_pdfs(snap: Snapshot, out_dir: Path | None = None) -> list[Path]:
         write_cards_pdf(snap, out_dir),
         write_board_pdf(snap, out_dir),
         write_gate_pdf(snap, out_dir),
+        write_wean_pdf(snap, out_dir),
+        write_catalog_pdf(snap, out_dir),
     ]

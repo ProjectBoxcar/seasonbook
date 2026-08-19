@@ -79,6 +79,7 @@ const VIEWS = [
   ["9", "blood", "Last Blood"],
   ["0", "erode", "Erosion"],
   ["g", "gate", "Keep / Let Go"],
+  ["w", "wean", "Wean"],
 ];
 let DATA = null;
 let view = "briefing";
@@ -126,6 +127,7 @@ function render(){
     blood: viewBlood,
     erode: viewErode,
     gate: viewGate,
+    wean: viewWean,
   })[view];
   $("main").innerHTML = fn();
   if (view === "lab") bindLab();
@@ -148,6 +150,7 @@ function viewBriefing(){
       <div class="stat"><b>${b.rotation_saves ?? "—"}</b><span>Founders only rotation keeps</span></div>
       <div class="stat"><b>${b.let_go ?? "—"}</b><span>LET GO this fall · ${b.keep ?? 0} KEEP</span></div>
       <div class="stat"><b>${b.last_founders_after ?? "—"}</b><span>Last founders after the cria crop</span></div>
+      <div class="stat"><b>${b.wean_cover ?? "—"}</b><span>Cria that must stay · ${b.wean_sellable ?? 0} sellable</span></div>
     </div>
     <p class="note">F of a cria is the Malécot coancestry of its parents — the same science as Hereditas.
     A low F on a thin pedigree is a floor, not an outcross. Color here is AOA phenotype, not genotype.
@@ -437,6 +440,69 @@ function viewGate(){
       <td>${esc(r.founder_name)}</td>
       <td>${esc(r.carrier_name||"")}${r.is_cria?" (cria)":""}</td>
       <td>${pct(r.share_pct)}</td>
+    </tr>`).join("")}
+    </table>`;
+}
+
+function viewWean(){
+  const w = DATA.wean || {cover:[], stay:[], releases:[], disaster:[], sale_catalog:[], uncovered:[]};
+  return `
+    <p class="note">${esc(w.summary||"")}
+    <a href="/wean.pdf" style="color:var(--gold)">Weaning ledger</a>
+    · <a href="/wean.csv" style="color:var(--gold)">CSV</a>
+    · <a href="/catalog.pdf" style="color:var(--gold)">sale catalog</a></p>
+    <div class="grid">
+      <div class="stat"><b>${w.n_cover??0}</b><span>Cria that must stay</span></div>
+      <div class="stat"><b>${w.n_sellable_cria??0}</b><span>Sellable weanlings</span></div>
+      <div class="stat"><b>${w.n_release??0}</b><span>Parents who may list after weaning</span></div>
+      <div class="stat"><b>${w.n_uncovered??0}</b><span>Last founders with no cria backup</span></div>
+    </div>
+    <h2>Must stay</h2>
+    <table><tr><th>Cria</th><th>Founders covered</th><th>Unique</th><th>Covers</th><th>Why</th></tr>
+    ${(w.cover||[]).map(c => `<tr>
+      <td>${esc(c.name)}</td>
+      <td class="KEEP">${c.n_covers}</td>
+      <td>${pct(c.uniqueness_pct)}</td>
+      <td>${esc((c.covers||[]).slice(0,4).join(", "))}</td>
+      <td>${esc(c.why)}</td>
+    </tr>`).join("")}
+    </table>
+    <h2>Sellable weanlings</h2>
+    <table><tr><th>Cria</th><th>F</th><th>Why</th></tr>
+    ${(w.stay||[]).filter(c => c.sellable).map(c => `<tr>
+      <td>${esc(c.name)}</td>
+      <td>${pct(c.f_pct)}</td>
+      <td>${esc(c.why)}</td>
+    </tr>`).join("")}
+    </table>
+    <h2>Parent release — after the covering cria is on the ground</h2>
+    <table><tr><th>Animal</th><th>Sex</th><th>After weaning</th><th>Keep this cria</th></tr>
+    ${(w.releases||[]).map(r => `<tr>
+      <td>${esc(r.name)}</td>
+      <td>${r.sex||"—"}</td>
+      <td class="${r.may_sell_after_weaning?'LET_GO':'KEEP'}">${r.may_sell_after_weaning?"may list":"hold"}</td>
+      <td>${esc((r.keep_cria||[]).slice(0,2).join("; "))}</td>
+    </tr>`).join("")}
+    </table>
+    <h2>Disaster — parent AND their cria both leave</h2>
+    ${(w.disaster||[]).length ? `
+    <table><tr><th>Parent</th><th>Extinct founders</th></tr>
+    ${w.disaster.map(d => `<tr>
+      <td class="KEEP">${esc(d.parent_name)}</td>
+      <td>${esc((d.extinct||[]).slice(0,6).join(", "))}</td>
+    </tr>`).join("")}
+    </table>` : `<p class="note">No disaster rows.</p>`}
+    <h2>LET GO catalog</h2>
+    <p class="note">${w.n_this_fall??0} can list this fall. ${w.n_hold_for_cria??0} wait — they are parents of a covering cria.</p>
+    <table><tr><th>Animal</th><th>Sex</th><th>MK</th><th>F</th><th>Ne if sold</th><th>This fall</th><th>Why</th></tr>
+    ${(w.sale_catalog||[]).map(s => `<tr>
+      <td class="${s.hold_for_cria?'KEEP_UNTIL_WEANING':'LET_GO'}">${esc(s.name)}</td>
+      <td>${s.sex||"—"}</td>
+      <td>${pct(s.mk_pct)}</td>
+      <td>${pct(s.f_pct)}</td>
+      <td>${s.ne_delta>0?"+"+s.ne_delta:s.ne_delta}</td>
+      <td>${s.hold_for_cria?"hold for cria":"list"}</td>
+      <td>${esc(s.why)}</td>
     </tr>`).join("")}
     </table>`;
 }

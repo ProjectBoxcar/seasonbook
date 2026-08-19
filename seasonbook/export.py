@@ -119,6 +119,56 @@ def write_gate_csv(snap: Snapshot, out_dir: Path | None = None) -> Path:
     return path
 
 
+_WEAN_FIELDS = [
+    "cria",
+    "dam",
+    "sire",
+    "f_pct",
+    "must_stay",
+    "sellable",
+    "n_covers",
+    "covers",
+    "uniqueness_pct",
+    "why",
+]
+
+
+def wean_rows(snap: Snapshot) -> list[dict]:
+    rows: list[dict] = []
+    for c in snap.wean.stay:
+        rows.append(
+            {
+                "cria": c.name,
+                "dam": c.dam_name,
+                "sire": c.sire_name,
+                "f_pct": f"{c.f_pct:.2f}",
+                "must_stay": "Y" if c.must_stay else "",
+                "sellable": "Y" if c.sellable else "",
+                "n_covers": str(c.n_covers),
+                "covers": "; ".join(c.covers),
+                "uniqueness_pct": f"{c.uniqueness_pct:.2f}",
+                "why": c.why,
+            }
+        )
+    return rows
+
+
+def wean_csv_text(snap: Snapshot) -> str:
+    buf = io.StringIO()
+    writer = csv.DictWriter(buf, fieldnames=_WEAN_FIELDS, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(wean_rows(snap))
+    return buf.getvalue()
+
+
+def write_wean_csv(snap: Snapshot, out_dir: Path | None = None) -> Path:
+    out_dir = Path(out_dir) if out_dir else DEFAULT_OUT
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / "WeaningLedger.csv"
+    path.write_text(wean_csv_text(snap), encoding="utf-8", newline="\n")
+    return path
+
+
 def tonight_lines(snap: Snapshot) -> list[str]:
     b = snap.briefing()
     plan = snap.plan
@@ -137,6 +187,13 @@ def tonight_lines(snap: Snapshot) -> list[str]:
     ]
     if g.suggested_sale.names:
         lines.append("  suggested sale  " + ", ".join(g.suggested_sale.names))
+    w = snap.wean
+    lines.append(
+        f"  wean  keep {w.n_cover} cria  ·  {w.n_release} parents may list  ·  "
+        f"{w.n_sellable_cria} sellable weanlings"
+    )
+    for c in w.cover[:6]:
+        lines.append(f"    stay  {c.name}  ({c.n_covers} last founders)")
     for a in rescued:
         lines.append(f"  R  {a.dam_name}  ×  {a.sire_name}  F={a.f_pct:.2f}%")
         lines.append(f"      {a.reason}")
