@@ -9,6 +9,7 @@ from pathlib import Path
 
 from .census import Census, build_census
 from .erode import Erosion, erode
+from .gate import TheGate, the_gate
 from .parse import HerdGraph, ingest_dir
 from .plan import (
     Audit,
@@ -47,6 +48,7 @@ class Snapshot:
     trajectory: list
     last_blood: LastBlood
     erosion: Erosion
+    gate: TheGate
 
     def briefing(self) -> dict:
         c = self.census
@@ -79,6 +81,13 @@ class Snapshot:
             "rescued": sum(1 for a in self.plan.assignments if a.reason.startswith("rescue:")),
             "habit_lost_founders": len(self.erosion.lost_to_habit),
             "rotation_saves": len(self.erosion.saved_by_rotation),
+            "keep": self.gate.n_keep,
+            "keep_until": self.gate.n_keep_until,
+            "wait": self.gate.n_wait,
+            "let_go": self.gate.n_let_go,
+            "pair_locks": len(self.gate.pair_locks),
+            "last_founders_after": self.gate.after.n_last_founders_after,
+            "rescued_founders": len(self.gate.after.rescued_founders),
         }
 
 
@@ -113,6 +122,7 @@ def build_from_herd(
     trajectory = projected_cria_f(rotation)
     blood = last_blood(herd, engine, plan, pairs=pairs)
     erosion = erode(pairs, herd, engine, capacity=capacity, years=5)
+    gate = the_gate(herd, engine, plan)
     return Snapshot(
         built=date.today().isoformat(),
         cert_dir=source_label,
@@ -129,6 +139,7 @@ def build_from_herd(
         trajectory=trajectory,
         last_blood=blood,
         erosion=erosion,
+        gate=gate,
     )
 
 
@@ -213,6 +224,7 @@ def snapshot_dict(snap: Snapshot) -> dict:
         "bottlenecks": snap.bottlenecks,
         "last_blood": snap.last_blood.as_dict(),
         "erosion": snap.erosion.as_dict(),
+        "gate": snap.gate.as_dict(),
         "heatmap": _heatmap(snap),
         "animals": [
             {

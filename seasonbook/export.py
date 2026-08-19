@@ -63,17 +63,80 @@ def write_plan_csv(snap: Snapshot, out_dir: Path | None = None) -> Path:
     return path
 
 
+_GATE_FIELDS = [
+    "animal",
+    "sex",
+    "verdict",
+    "mk_pct",
+    "uniqueness_pct",
+    "booked",
+    "booked_as",
+    "last_of_now",
+    "last_of_after",
+    "duplicated_by_cria",
+    "extinct_if_sold",
+    "ne_delta_if_sold",
+    "why",
+]
+
+
+def gate_rows(snap: Snapshot) -> list[dict]:
+    rows: list[dict] = []
+    for c in snap.gate.cards:
+        rows.append(
+            {
+                "animal": c.name,
+                "sex": c.sex or "",
+                "verdict": c.verdict,
+                "mk_pct": f"{c.mk_pct:.2f}",
+                "uniqueness_pct": f"{c.uniqueness_pct:.2f}",
+                "booked": "Y" if c.in_year1_plan else "",
+                "booked_as": c.booked_as,
+                "last_of_now": "; ".join(c.last_of_now),
+                "last_of_after": "; ".join(c.last_of_after),
+                "duplicated_by_cria": "; ".join(c.duplicated_by_cria),
+                "extinct_if_sold": "; ".join(c.extinct_if_sold),
+                "ne_delta_if_sold": f"{c.ne_delta_if_sold:+.1f}",
+                "why": c.why,
+            }
+        )
+    return rows
+
+
+def gate_csv_text(snap: Snapshot) -> str:
+    buf = io.StringIO()
+    writer = csv.DictWriter(buf, fieldnames=_GATE_FIELDS, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(gate_rows(snap))
+    return buf.getvalue()
+
+
+def write_gate_csv(snap: Snapshot, out_dir: Path | None = None) -> Path:
+    out_dir = Path(out_dir) if out_dir else DEFAULT_OUT
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / "TheGate.csv"
+    path.write_text(gate_csv_text(snap), encoding="utf-8", newline="\n")
+    return path
+
+
 def tonight_lines(snap: Snapshot) -> list[str]:
     b = snap.briefing()
     plan = snap.plan
     rescued = [a for a in plan.assignments if a.reason.startswith("rescue:")]
+    g = snap.gate
     lines = [
         f"TONIGHT  ·  year 1  ·  {len(plan.assignments)} bookings  ·  "
         f"mean F {plan.mean_f*100:.2f}%",
         f"  nucleus  {b['registered']} registered  ·  {b['dams']} dams × {b['sires']} sires",
         f"  close kin  {b['blocks']} BLOCK  ·  last blood  {b['irreplaceable']} irreplaceable",
         f"  rescue into year 1  {len(rescued)}",
+        f"  the gate  {g.n_keep} KEEP  ·  {g.n_keep_until} KEEP UNTIL WEANING  ·  "
+        f"{g.n_wait} WAIT  ·  {g.n_let_go} LET GO",
+        f"  pair-locks  {len(g.pair_locks)}  ·  after cria last founders "
+        f"{g.after.n_last_founders_now} → {g.after.n_last_founders_after}",
     ]
+    if g.suggested_sale.names:
+        lines.append("  suggested sale  " + ", ".join(g.suggested_sale.names))
     for a in rescued:
         lines.append(f"  R  {a.dam_name}  ×  {a.sire_name}  F={a.f_pct:.2f}%")
         lines.append(f"      {a.reason}")

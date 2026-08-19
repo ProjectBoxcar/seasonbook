@@ -27,4 +27,4 @@ __all__ = [
     "wright_paths",
 ]
 
-__version__ = "2.1.0"
+__version__ = "2.2.0"

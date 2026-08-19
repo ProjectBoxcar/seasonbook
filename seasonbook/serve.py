@@ -8,7 +8,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from .explain import explain_pair
-from .export import plan_csv_text
+from .export import gate_csv_text, plan_csv_text
 from .pipeline import DEFAULT_OUT, Snapshot, snapshot_dict
 
 DESK = Path(__file__).resolve().parent / "static" / "desk.html"
@@ -56,8 +56,17 @@ def serve(snap: Snapshot, host: str = "127.0.0.1", port: int = 8765) -> None:
             if path == "/plan.csv":
                 self._send(200, plan_csv_text(snap).encode("utf-8"), "text/csv")
                 return
-            if path in {"/cards.pdf", "/wall.pdf", "/lastblood.pdf", "/board.pdf"}:
-                from .book import write_board_pdf, write_cards_pdf, write_last_blood_pdf, write_wall
+            if path == "/gate.csv":
+                self._send(200, gate_csv_text(snap).encode("utf-8"), "text/csv")
+                return
+            if path in {"/cards.pdf", "/wall.pdf", "/lastblood.pdf", "/board.pdf", "/gate.pdf"}:
+                from .book import (
+                    write_board_pdf,
+                    write_cards_pdf,
+                    write_gate_pdf,
+                    write_last_blood_pdf,
+                    write_wall,
+                )
                 from .pipeline import DEFAULT_OUT
 
                 writer = {
@@ -65,6 +74,7 @@ def serve(snap: Snapshot, host: str = "127.0.0.1", port: int = 8765) -> None:
                     "/wall.pdf": write_wall,
                     "/lastblood.pdf": write_last_blood_pdf,
                     "/board.pdf": write_board_pdf,
+                    "/gate.pdf": write_gate_pdf,
                 }[path]
                 pdf_path = writer(snap, DEFAULT_OUT)
                 self._send(200, pdf_path.read_bytes(), "application/pdf")
@@ -93,7 +103,7 @@ def serve(snap: Snapshot, host: str = "127.0.0.1", port: int = 8765) -> None:
 
     httpd = ThreadingHTTPServer((host, port), Handler)
     print(f"Season Book desk  http://{host}:{port}/")
-    print("Keys 1–0  Briefing · Atlas · Heatmap · Plan · Lab · Audit · Why · Horizon · Last Blood · Erosion")
+    print("Keys 1–0 G  Briefing · Atlas · Heatmap · Plan · Lab · Audit · Why · Horizon · Last Blood · Erosion · Gate")
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:

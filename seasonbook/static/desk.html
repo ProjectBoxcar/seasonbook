@@ -42,6 +42,10 @@
   .BLOCK { color: var(--block); }
   .CONFIRM { color: var(--confirm); }
   .PROCEED { color: var(--proceed); }
+  .KEEP { color: var(--block); }
+  .KEEP_UNTIL_WEANING { color: var(--confirm); }
+  .WAIT { color: var(--gold); }
+  .LET_GO { color: var(--proceed); }
   .note { color: var(--muted); max-width: 72ch; }
   #heatmap { overflow: auto; max-height: 72vh; border: 1px solid var(--line); }
   #heatmap table { font-size: 10px; }
@@ -74,6 +78,7 @@ const VIEWS = [
   ["8", "horizon", "Three seasons"],
   ["9", "blood", "Last Blood"],
   ["0", "erode", "Erosion"],
+  ["g", "gate", "Keep / Let Go"],
 ];
 let DATA = null;
 let view = "briefing";
@@ -103,7 +108,8 @@ function renderNav(){
 
 document.addEventListener("keydown", e => {
   if (e.target.matches("input,select,textarea")) return;
-  const hit = VIEWS.find(([k]) => k === e.key);
+  const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+  const hit = VIEWS.find(([k]) => k === key);
   if (hit){ view = hit[1]; renderNav(); render(); }
 });
 
@@ -119,6 +125,7 @@ function render(){
     horizon: viewHorizon,
     blood: viewBlood,
     erode: viewErode,
+    gate: viewGate,
   })[view];
   $("main").innerHTML = fn();
   if (view === "lab") bindLab();
@@ -139,6 +146,8 @@ function viewBriefing(){
       <div class="stat"><b>${b.rescued ?? 0}</b><span>Rescue bookings pulled into year 1</span></div>
       <div class="stat"><b>${b.irreplaceable ?? "—"}</b><span>Irreplaceable · ${b.sitting_out ?? 0} still sitting out</span></div>
       <div class="stat"><b>${b.rotation_saves ?? "—"}</b><span>Founders only rotation keeps</span></div>
+      <div class="stat"><b>${b.let_go ?? "—"}</b><span>LET GO this fall · ${b.keep ?? 0} KEEP</span></div>
+      <div class="stat"><b>${b.last_founders_after ?? "—"}</b><span>Last founders after the cria crop</span></div>
     </div>
     <p class="note">F of a cria is the Malécot coancestry of its parents — the same science as Hereditas.
     A low F on a thin pedigree is a floor, not an outcross. Color here is AOA phenotype, not genotype.
@@ -361,6 +370,75 @@ function viewErode(){
       <td class="PROCEED">${pct(r.rotation_share_pct)}</td>
       <td class="BLOCK">${pct(r.habit_share_pct)}</td></tr>`).join("")}
     </table>` : `<p class="note">None at the 3.1% threshold. Habit still concentrates the top blood — see mean F.</p>`}`;
+}
+
+function viewGate(){
+  const g = DATA.gate || {cards:[], pair_locks:[], after:{}, suggested_sale:{names:[]}};
+  const a = g.after || {};
+  const sale = g.suggested_sale || {names:[], why:""};
+  const by = {KEEP:[], KEEP_UNTIL_WEANING:[], WAIT:[], LET_GO:[]};
+  (g.cards||[]).forEach(c => (by[c.verdict]||by.LET_GO).push(c));
+  const rows = (verdict) => (by[verdict]||[]).map(c => `<tr>
+      <td>${esc(c.name)}</td><td>${c.sex||"—"}</td>
+      <td class="${c.verdict}">${c.verdict.replaceAll("_"," ")}</td>
+      <td>${pct(c.mk_pct)}</td>
+      <td>${c.in_year1_plan?"booked":""}</td>
+      <td>${esc((c.last_of_after||c.last_of_now||c.rare_of_now||[]).slice(0,4).join(", "))}</td>
+      <td>${esc(c.why)}</td>
+    </tr>`).join("");
+  return `
+    <p class="note">${esc(g.summary||"")}
+    <a href="/gate.pdf" style="color:var(--gold)">Keep / Let Go PDF</a>
+    · <a href="/gate.csv" style="color:var(--gold)">CSV</a></p>
+    <div class="grid">
+      <div class="stat"><b>${g.n_keep??0}</b><span>KEEP — still last after the cria</span></div>
+      <div class="stat"><b>${g.n_keep_until??0}</b><span>KEEP UNTIL WEANING</span></div>
+      <div class="stat"><b>${g.n_wait??0}</b><span>WAIT — one of two carriers</span></div>
+      <div class="stat"><b>${g.n_let_go??0}</b><span>LET GO</span></div>
+      <div class="stat"><b>${a.n_last_founders_now??"—"} → ${a.n_last_founders_after??"—"}</b><span>Last founders after ${a.n_cria??0} cria</span></div>
+      <div class="stat"><b>${a.ne_now??"—"} → ${a.ne_after??"—"}</b><span>Ne of the nucleus</span></div>
+    </div>
+    <h2>Suggested sale (top LET GO by mean kinship)</h2>
+    <p class="note">${esc(sale.why||"")} ${esc((sale.names||[]).join(", "))}</p>
+    <h2>KEEP</h2>
+    <table><tr><th>Animal</th><th>Sex</th><th>Verdict</th><th>MK</th><th>Year 1</th><th>Carries</th><th>Why</th></tr>
+    ${rows("KEEP")}</table>
+    <h2>KEEP UNTIL WEANING</h2>
+    <table><tr><th>Animal</th><th>Sex</th><th>Verdict</th><th>MK</th><th>Year 1</th><th>Carries</th><th>Why</th></tr>
+    ${rows("KEEP_UNTIL_WEANING")}</table>
+    <h2>Pair-locks — do not sell both</h2>
+    ${(g.pair_locks||[]).length ? `
+    <table><tr><th>Founder</th><th>Carrier A</th><th>Share</th><th>Carrier B</th><th>Share</th></tr>
+    ${g.pair_locks.map(p => `<tr>
+      <td>${esc(p.founder_name)}</td>
+      <td>${esc(p.a_name)}</td><td>${pct(p.a_share_pct)}</td>
+      <td>${esc(p.b_name)}</td><td>${pct(p.b_share_pct)}</td>
+    </tr>`).join("")}
+    </table>` : `<p class="note">No two-carrier founders at the 3.1% threshold.</p>`}
+    <h2>WAIT</h2>
+    <table><tr><th>Animal</th><th>Sex</th><th>Verdict</th><th>MK</th><th>Year 1</th><th>Carries</th><th>Why</th></tr>
+    ${rows("WAIT")}</table>
+    <h2>LET GO</h2>
+    <table><tr><th>Animal</th><th>Sex</th><th>Verdict</th><th>MK</th><th>Year 1</th><th>Carries</th><th>Why</th></tr>
+    ${rows("LET_GO")}</table>
+    <h2>After the cria — founders the crop duplicates</h2>
+    ${(a.rescued_founders||[]).length ? `
+    <table><tr><th>Founder</th><th>Was last in</th><th>Carriers after</th><th>Cria</th></tr>
+    ${a.rescued_founders.map(r => `<tr>
+      <td>${esc(r.founder_name)}</td>
+      <td>${esc(r.carrier_now)}</td>
+      <td>${r.n_carriers_after}</td>
+      <td>${esc((r.cria_names||[]).slice(0,2).join("; "))}</td>
+    </tr>`).join("")}
+    </table>` : `<p class="note">No last founder is duplicated by the year-1 crop at ≥ 3.1%.</p>`}
+    <h2>Still last after the cria</h2>
+    <table><tr><th>Founder</th><th>Carrier</th><th>Share</th></tr>
+    ${(a.still_last||[]).map(r => `<tr>
+      <td>${esc(r.founder_name)}</td>
+      <td>${esc(r.carrier_name||"")}${r.is_cria?" (cria)":""}</td>
+      <td>${pct(r.share_pct)}</td>
+    </tr>`).join("")}
+    </table>`;
 }
 
 boot().catch(err => { $("main").innerHTML = `<p class="note">${esc(err)}</p>`; });

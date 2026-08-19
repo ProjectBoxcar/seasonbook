@@ -565,6 +565,200 @@ def write_cards_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
     return path
 
 
+def write_gate_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
+    """Barn wall: Keep / Let Go, pair-locks, and the cria crop."""
+    out_dir = Path(out_dir) if out_dir else DEFAULT_OUT
+    g = snap.gate
+    pdf = _Pdf("Keep / Let Go")
+    pdf.new_page()
+    y = _header(
+        pdf,
+        "The Gate  ·  Keep / Let Go",
+        "Who can leave the nucleus this fall",
+        f"{g.n_keep} KEEP  ·  {g.n_keep_until} KEEP UNTIL WEANING  ·  "
+        f"{g.n_wait} WAIT  ·  {g.n_let_go} LET GO  ·  built {snap.built}",
+    )
+    pdf.text(
+        36,
+        y,
+        9,
+        "KEEP = still last after the cria. KEEP UNTIL WEANING = last today, cria duplicates it.",
+        0.35,
+        0.30,
+        0.22,
+    )
+    y -= 12
+    pdf.text(
+        36,
+        y,
+        9,
+        "WAIT = one of two carriers (do not sell both). LET GO = not last, not pair-locked.",
+        0.35,
+        0.30,
+        0.22,
+    )
+    y -= 18
+
+    by = {}
+    for c in g.cards:
+        by.setdefault(c.verdict, []).append(c)
+
+    def section(title, items, r, gv, b):
+        nonlocal y
+        y -= 6
+        pdf.text(36, y, 11, title, r, gv, b)
+        y -= 16
+        if not items:
+            pdf.text(36, y, 9, "(none)", 0.35, 0.30, 0.22)
+            y -= 14
+            return
+        for c in items:
+            if y < 48:
+                pdf.new_page()
+                y = _header(pdf, "The Gate", title + " (continued)", "")
+            pdf.text(36, y, 9, c.name[:34], r, gv, b)
+            pdf.text(260, y, 8, c.sex or "?")
+            pdf.text(280, y, 8, f"MK {c.mk_pct:.2f}%")
+            flag = "BOOKED" if c.in_year1_plan else ""
+            pdf.text(360, y, 8, flag, 0.18, 0.42, 0.28)
+            carried = ", ".join((c.last_of_after or c.last_of_now or c.rare_of_now)[:3])[:40]
+            pdf.text(420, y, 8, carried, 0.30, 0.26, 0.20)
+            y -= 11
+
+    section("KEEP  — still last after the cria crop", by.get("KEEP", []), 0.55, 0.16, 0.12)
+    section(
+        "KEEP UNTIL WEANING  — last today; a cria carries it at >= 3.1%",
+        by.get("KEEP_UNTIL_WEANING", []),
+        0.55,
+        0.32,
+        0.10,
+    )
+
+    pdf.new_page()
+    y = _header(
+        pdf,
+        "The Gate  ·  pair-locks",
+        "Do not sell both",
+        f"{len(g.pair_locks)} founders with exactly two living carriers",
+    )
+    pdf.text(
+        36,
+        y,
+        9,
+        "Selling one makes the other irreplaceable. Selling both takes the founder out.",
+        0.35,
+        0.30,
+        0.22,
+    )
+    y -= 18
+    for p in g.pair_locks:
+        if y < 52:
+            pdf.new_page()
+            y = _header(pdf, "The Gate", "Pair-locks (continued)", "")
+        pdf.text(36, y, 9, p.founder_name[:34])
+        pdf.text(260, y, 8, p.a_name[:18])
+        pdf.text(380, y, 8, f"{p.a_share_pct:.1f}%")
+        pdf.text(430, y, 8, p.b_name[:18])
+        pdf.text(550, y, 8, f"{p.b_share_pct:.1f}%")
+        y -= 11
+
+    y -= 10
+    pdf.text(36, y, 11, f"WAIT  ({g.n_wait})  — the pair-locked animals", 0.55, 0.42, 0.12)
+    y -= 16
+    for c in by.get("WAIT", []):
+        if y < 48:
+            pdf.new_page()
+            y = _header(pdf, "The Gate", "WAIT (continued)", "")
+        pdf.text(36, y, 8, c.name[:34])
+        pdf.text(260, y, 8, c.sex or "?")
+        pdf.text(280, y, 8, f"MK {c.mk_pct:.2f}%")
+        pdf.text(360, y, 8, ", ".join(c.rare_of_now[:3])[:42], 0.30, 0.26, 0.20)
+        y -= 11
+
+    pdf.new_page()
+    y = _header(
+        pdf,
+        "The Gate  ·  LET GO",
+        "Highest mean kinship first — their exit helps Ne",
+        g.suggested_sale.why[:120],
+    )
+    pdf.text(36, y, 9, "Suggested sale: " + ", ".join(g.suggested_sale.names)[:90], 0.18, 0.42, 0.28)
+    y -= 16
+    pdf.text(36, y, 8, "ANIMAL")
+    pdf.text(260, y, 8, "SEX")
+    pdf.text(290, y, 8, "MK")
+    pdf.text(350, y, 8, "Ne IF SOLD")
+    y -= 4
+    pdf.rule(36, y, 540, 0.4)
+    y -= 14
+    for c in sorted(by.get("LET_GO", []), key=lambda x: (-x.mk, x.name)):
+        if y < 48:
+            pdf.new_page()
+            y = _header(pdf, "The Gate", "LET GO (continued)", "")
+        pdf.text(36, y, 9, c.name[:34])
+        pdf.text(260, y, 8, c.sex or "?")
+        pdf.text(290, y, 8, f"{c.mk_pct:.2f}%")
+        pdf.text(350, y, 8, f"{c.ne_delta_if_sold:+.1f}")
+        y -= 11
+
+    pdf.new_page()
+    a = g.after
+    y = _header(
+        pdf,
+        "The Gate  ·  after the cria",
+        "What the year-1 crop actually duplicates",
+        a.summary[:120],
+    )
+    pdf.text(36, y, 9, "YEAR-1 CRIA")
+    pdf.text(160, y, 9, "LAST FOUNDERS")
+    pdf.text(320, y, 9, "IRREPLACEABLE")
+    pdf.text(470, y, 9, "Ne")
+    y -= 4
+    pdf.rule(36, y, 540, 0.4)
+    y -= 16
+    pdf.text(36, y, 11, "now")
+    pdf.text(160, y, 11, str(a.n_last_founders_now))
+    pdf.text(320, y, 11, str(a.n_irreplaceable_now))
+    pdf.text(470, y, 11, f"{a.ne_now:.1f}")
+    y -= 16
+    pdf.text(36, y, 11, f"after {a.n_cria} cria", 0.18, 0.42, 0.28)
+    pdf.text(160, y, 11, str(a.n_last_founders_after), 0.18, 0.42, 0.28)
+    pdf.text(320, y, 11, str(a.n_irreplaceable_after), 0.18, 0.42, 0.28)
+    pdf.text(470, y, 11, f"{a.ne_after:.1f}", 0.18, 0.42, 0.28)
+    y -= 22
+    pdf.text(36, y, 11, "Last founders the cria crop duplicates", 0.18, 0.14, 0.10)
+    y -= 16
+    if not a.rescued_founders:
+        pdf.text(36, y, 9, "None at the 3.1% threshold.")
+        y -= 14
+    for r in a.rescued_founders[:40]:
+        if y < 48:
+            pdf.new_page()
+            y = _header(pdf, "The Gate", "Duplicated founders (continued)", "")
+        pdf.text(36, y, 8, r.founder_name[:30])
+        pdf.text(260, y, 8, r.carrier_now[:20], 0.30, 0.26, 0.20)
+        cria = ", ".join(r.cria_names[:1])[:36]
+        pdf.text(400, y, 8, cria, 0.18, 0.42, 0.28)
+        y -= 11
+
+    y -= 10
+    pdf.text(36, y, 11, "Still last after the cria (KEEP)", 0.55, 0.16, 0.12)
+    y -= 16
+    for row in a.still_last[:36]:
+        if y < 48:
+            pdf.new_page()
+            y = _header(pdf, "The Gate", "Still last (continued)", "")
+        tag = "cria" if row.get("is_cria") else row.get("carrier_name", "")[:20]
+        pdf.text(36, y, 8, str(row.get("founder_name", ""))[:30])
+        pdf.text(260, y, 8, tag)
+        pdf.text(420, y, 8, f"{row.get('share_pct', 0):.1f}%")
+        y -= 11
+
+    path = out_dir / "KeepLetGo.pdf"
+    pdf.save(path)
+    return path
+
+
 def write_all_pdfs(snap: Snapshot, out_dir: Path | None = None) -> list[Path]:
     return [
         write_season_book(snap, out_dir),
@@ -574,4 +768,5 @@ def write_all_pdfs(snap: Snapshot, out_dir: Path | None = None) -> list[Path]:
         write_last_blood_pdf(snap, out_dir),
         write_cards_pdf(snap, out_dir),
         write_board_pdf(snap, out_dir),
+        write_gate_pdf(snap, out_dir),
     ]

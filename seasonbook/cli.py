@@ -1,4 +1,4 @@
-"""python -m seasonbook {analyze|plan|audit|explain|why|cover|kinship|horizon|salvage|erode|book|serve}"""
+"""python -m seasonbook {analyze|plan|audit|explain|why|cover|kinship|horizon|salvage|erode|gate|book|serve}"""
 
 from __future__ import annotations
 
@@ -7,8 +7,9 @@ import json
 import sys
 from pathlib import Path
 
-from .book import write_all_pdfs, write_board_pdf, write_cards_pdf
-from .export import tonight_lines, write_plan_csv
+from .book import write_all_pdfs, write_board_pdf, write_cards_pdf, write_gate_pdf
+from .export import tonight_lines, write_gate_csv, write_plan_csv
+from .gate import KEEP, KEEP_UNTIL_WEANING, LET_GO, WAIT, explain_leave
 from .explain import explain_animal, explain_pair
 from .pipeline import DEFAULT_CERT_DIR, DEFAULT_OUT, build, write_snapshot
 from .serve import serve
@@ -33,6 +34,17 @@ def cmd_analyze(args) -> int:
         f"  last blood       {b['irreplaceable']} irreplaceable  ·  "
         f"{b['last_founders']} last founders  ·  {b['sitting_out']} sitting out  ·  "
         f"{b.get('rescued', 0)} rescued into year 1"
+    )
+    print(
+        f"  the gate         {b.get('keep', 0)} KEEP  ·  "
+        f"{b.get('keep_until', 0)} KEEP UNTIL WEANING  ·  "
+        f"{b.get('wait', 0)} WAIT  ·  {b.get('let_go', 0)} LET GO  ·  "
+        f"{b.get('pair_locks', 0)} pair-locks"
+    )
+    print(
+        f"  after cria       last founders {b['last_founders']} → "
+        f"{b.get('last_founders_after', '—')}  ·  "
+        f"{b.get('rescued_founders', 0)} duplicated by the crop"
     )
     print()
     print("Hottest registered (own F)")
@@ -205,14 +217,98 @@ def cmd_erode(args) -> int:
     return 0
 
 
+def _print_gate_card(c) -> None:
+    print(f"  {c.verdict:20s}  {c.sex or '?'}  {c.name:32s}  MK {c.mk_pct:5.2f}%")
+    print(f"      {c.why}")
+
+
+def cmd_gate(args) -> int:
+    snap = _snap(args)
+    g = snap.gate
+    if args.animal:
+        hit = explain_leave(g, args.animal)
+        if hit is None:
+            print(f"no registered animal matching {args.animal!r}")
+            return 2
+        print(f"{hit.name}  {hit.sex or '?'}  MK {hit.mk_pct:.2f}%")
+        print(hit.why)
+        print(f"  Ne {hit.ne_before:.1f} → {hit.ne_after:.1f}  (Δ {hit.ne_delta:+.1f})")
+        if hit.extinct_founders:
+            print("  extinct:", ", ".join(hit.extinct_founders[:12]))
+        if hit.new_last:
+            print("  new last carriers:")
+            for row in hit.new_last[:12]:
+                print(f"    {row['founder_name']}  →  {row['remaining_name']}")
+        if hit.new_rare:
+            print("  newly rare (two left):")
+            for row in hit.new_rare[:8]:
+                print(f"    {row['founder_name']}  →  {', '.join(row['remaining'])}")
+        return 0
+
+    print(g.summary)
+    print()
+    by = {KEEP: [], KEEP_UNTIL_WEANING: [], WAIT: [], LET_GO: []}
+    for c in g.cards:
+        by[c.verdict].append(c)
+
+    print(f"KEEP  ({g.n_keep})  — still last after the cria crop")
+    for c in by[KEEP]:
+        _print_gate_card(c)
+    print(f"\nKEEP UNTIL WEANING  ({g.n_keep_until})  — last today; cria duplicates the blood")
+    for c in by[KEEP_UNTIL_WEANING]:
+        _print_gate_card(c)
+    print(f"\nWAIT  ({g.n_wait})  — one of two living carriers")
+    for c in by[WAIT]:
+        _print_gate_card(c)
+
+    print(f"\nPAIR LOCKS  ({len(g.pair_locks)})  — do not sell both")
+    for p in g.pair_locks[:24]:
+        print(f"  {p.founder_name:32s}  {p.a_name}  +  {p.b_name}")
+        print(f"      {p.why}")
+
+    print(f"\nLET GO  ({g.n_let_go})  — highest MK first")
+    for c in sorted(by[LET_GO], key=lambda x: (-x.mk, x.name)):
+        _print_gate_card(c)
+
+    print("\nSUGGESTED SALE  (top LET GO by MK)")
+    s = g.suggested_sale
+    print(f"  {s.why}")
+    if s.names:
+        print("  " + ", ".join(s.names))
+
+    print("\nAFTER THE CRIA")
+    a = g.after
+    print(f"  {a.summary}")
+    print(
+        f"  last founders {a.n_last_founders_now} → {a.n_last_founders_after}  ·  "
+        f"irreplaceable {a.n_irreplaceable_now} → {a.n_irreplaceable_after}  ·  "
+        f"Ne {a.ne_now:.1f} → {a.ne_after:.1f}"
+    )
+    if a.rescued_founders:
+        print(f"  duplicated by cria ({len(a.rescued_founders)}):")
+        for r in a.rescued_founders[:16]:
+            cria = ", ".join(r.cria_names[:2]) or "(share from another pairing)"
+            print(f"    {r.founder_name:32s}  was {r.carrier_now}  ·  {cria}")
+
+    csv_path = write_gate_csv(snap, args.out)
+    pdf_path = write_gate_pdf(snap, args.out)
+    print(f"  csv    {csv_path}")
+    print(f"  pdf    {pdf_path}")
+    return 0
+
+
 def cmd_tonight(args) -> int:
     snap = _snap(args)
     for line in tonight_lines(snap):
         print(line)
     csv_path = write_plan_csv(snap, args.out)
     board = write_board_pdf(snap, args.out)
+    gate_csv = write_gate_csv(snap, args.out)
+    gate_pdf = write_gate_pdf(snap, args.out)
     print(f"  csv    {csv_path}")
     print(f"  board  {board}")
+    print(f"  gate   {gate_csv}")
+    print(f"  keep   {gate_pdf}")
     return 0
 
 
@@ -273,6 +369,7 @@ def cmd_book(args) -> int:
     write_snapshot(snap, args.out)
     paths = write_all_pdfs(snap, args.out)
     paths.append(write_plan_csv(snap, args.out))
+    paths.append(write_gate_csv(snap, args.out))
     for p in paths:
         print("wrote", p)
     return 0
@@ -331,6 +428,10 @@ def main(argv: list[str] | None = None) -> int:
 
     p = sub.add_parser("erode", help="five-year rotation vs barn habit")
     p.set_defaults(func=cmd_erode)
+
+    p = sub.add_parser("gate", help="Keep / Let Go — who can leave, who cannot")
+    p.add_argument("animal", nargs="?", default="", help="if they leave: one animal")
+    p.set_defaults(func=cmd_gate)
 
     p = sub.add_parser("tonight", help="year-1 barn briefing + csv + board")
     p.set_defaults(func=cmd_tonight)

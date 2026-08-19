@@ -2,7 +2,7 @@
 
 Wright / Malécot genetics on the **74 real AOA certificates** in AlpacaManager. Standalone package — it does not modify AlpacaManager or Hereditas.
 
-The farm can see *what* to book. This desk shows *why*, *which Wright path pushes the number*, *which living animal is the last carrier of a founder*, and *what the next generation loses if you keep using the famous stallions*.
+The farm can see *what* to book. This desk shows *why*, *which Wright path pushes the number*, *which living animal is the last carrier of a founder*, *what the next generation loses if you keep using the famous stallions*, and *who can actually leave the nucleus this fall*.
 
 ## What it is
 
@@ -36,6 +36,8 @@ python -m seasonbook kinship
 python -m seasonbook horizon
 python -m seasonbook salvage
 python -m seasonbook erode
+python -m seasonbook gate
+python -m seasonbook gate "MATRIX"
 python -m seasonbook cards
 python -m seasonbook tonight
 python -m seasonbook csv
@@ -45,9 +47,9 @@ python -m seasonbook book
 python -m seasonbook serve
 ```
 
-Desk: `http://127.0.0.1:8765/` — keys **1–0**
+Desk: `http://127.0.0.1:8765/` — keys **1–0** and **G**
 
-Briefing · Atlas · Heatmap · Plan · Mate lab · Audit · Why / cover · Three seasons · Last Blood · Erosion
+Briefing · Atlas · Heatmap · Plan · Mate lab · Audit · Why / cover · Three seasons · Last Blood · Erosion · Keep / Let Go
 
 Printables land in `data/output/`:
 
@@ -58,8 +60,25 @@ Printables land in `data/output/`:
 - `LastBlood.pdf` (last carriers + 5-year habit cost)
 - `BarnCards.pdf` (clipboard: one booking per card)
 - `SeasonBoard.pdf` (one page per year, rescue rows gold)
+- `KeepLetGo.pdf` (Keep / Let Go, pair-locks, after the cria)
+- `TheGate.csv` (one row per registered animal)
 - `nucleus.db` (`seed-am` — AM-shaped SQLite of the 74, not the demo herd)
 - `snapshot.json`
+
+## The Gate — Keep / Let Go
+
+Last Blood says who is irreplaceable. **The Gate** answers the sale question:
+
+| Verdict | Meaning |
+|---|---|
+| KEEP | Still the last living carrier *after* the year-1 cria crop. Do not sell. |
+| KEEP UNTIL WEANING | Last today. A booked cria is expected to carry that founder at ≥ 3.1%. Keep until the cria is on the ground. |
+| WAIT | One of two living carriers. Do not sell both — that is a **pair-lock**. |
+| LET GO | Not last, not pair-locked. Ranked by mean kinship: the hottest help Ne when they leave. |
+
+Cria founder share is the mid-parent value (½ dam + ½ sire). Cria kinship is Malécot: θ(cria, X) = ½(θ(sire, X) + θ(dam, X)). Crias are not treated as instant breeders.
+
+`python -m seasonbook gate MATRIX` prints the leave impact: founders that go extinct, who becomes the new last carrier, and the Ne delta.
 
 Certificates are read from `../AlpacaManager/docs/cert_lineage`. Override with `--certs`.
 
@@ -180,10 +199,12 @@ Prefix: `/api/seasonbook`. Same session auth as `/api/hereditas`.
 | `GET` | `/plan` | — | Year-1 assignments (capacity default 4) |
 | `GET` | `/salvage` | — | Last Blood: irreplaceable animals, last founders, sitting out |
 | `GET` | `/erode` | — | Five-year rotation vs barn habit |
+| `GET` | `/gate` | `?animal=` optional | Keep / Let Go, pair-locks, after-cria, suggested sale |
 | `GET` | `/pair` | `?dam_id=&sire_id=` | BLOCK / CONFIRM / PROCEED for an owned pair |
 | `POST` | `/book` | — | Writes the five PDFs; returns their paths or a zip |
 | `GET` | `/wall.pdf` | — | `DoNotBook.pdf` (barn wall) |
 | `GET` | `/lastblood.pdf` | — | Last Blood printable |
+| `GET` | `/gate.pdf` | — | Keep / Let Go printable |
 
 Call `sync` once after login and again after a certificate import. Cache the
 `Snapshot` on the process (it is cheap to rebuild: ~1 s on 74 certificates).
@@ -238,6 +259,7 @@ on Season Book animal cards and on Hereditas completeness objects.
 | Why is Matrix legal on 48/48 and not in the plan? | Season Book `/cover` |
 | Who owns this herd’s genome? What is Ne? | Season Book `/census` |
 | Same dams, different sires, years 2 and 3 | Season Book `/horizon` |
+| Who can leave this fall? Who is pair-locked? | Season Book `/gate` |
 | Paper on the barn wall | Season Book `/wall.pdf` |
 
 ### Implementation order

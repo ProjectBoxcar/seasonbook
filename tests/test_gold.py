@@ -137,6 +137,61 @@ class RealHerdGold(unittest.TestCase):
             sitting = [c.name for c in blood.sitting_out if c.sex == "M"]
             self.assertEqual(sitting, [], msg=f"year {plan.year} still sitting: {sitting}")
 
+    def test_gate_covers_every_registered_animal(self):
+        from seasonbook.gate import KEEP, KEEP_UNTIL_WEANING, LET_GO, WAIT
+
+        g = self.snap.gate
+        self.assertEqual(
+            g.n_keep + g.n_keep_until + g.n_wait + g.n_let_go,
+            self.snap.census.n_registered,
+        )
+        self.assertEqual(len(g.cards), 74)
+        verdicts = {KEEP, KEEP_UNTIL_WEANING, WAIT, LET_GO}
+        self.assertTrue(all(c.verdict in verdicts for c in g.cards))
+        self.assertGreater(g.n_keep + g.n_keep_until, 0)
+        self.assertGreater(g.n_let_go, 0)
+        self.assertTrue(g.pair_locks)
+
+    def test_gate_sale_is_only_let_go(self):
+        from seasonbook.gate import LET_GO
+
+        g = self.snap.gate
+        let_go = {c.name for c in g.cards if c.verdict == LET_GO}
+        last = {c.name for c in g.cards if c.last_of_now}
+        for name in g.suggested_sale.names:
+            self.assertIn(name, let_go)
+            self.assertNotIn(name, last)
+        self.assertFalse(g.suggested_sale.extinct)
+
+    def test_after_cria_duplicates_some_last_founders(self):
+        g = self.snap.gate
+        self.assertEqual(g.after.n_cria, 48)
+        self.assertLess(g.after.n_last_founders_after, g.after.n_last_founders_now)
+        self.assertEqual(g.after.n_last_founders_after, 0)
+        self.assertEqual(g.n_keep, 0)
+        self.assertEqual(g.n_keep_until, 45)
+        self.assertGreater(len(g.after.rescued_founders), 0)
+        matrix = next(c for c in g.cards if "MATRIX" in c.name.upper())
+        self.assertTrue(matrix.in_year1_plan)
+        self.assertTrue(matrix.last_of_now)
+        self.assertIn(matrix.verdict, {"KEEP", "KEEP_UNTIL_WEANING"})
+
+    def test_gate_pdf_and_csv(self):
+        import tempfile
+
+        from seasonbook.book import write_gate_pdf
+        from seasonbook.export import gate_rows, write_gate_csv
+
+        rows = gate_rows(self.snap)
+        self.assertEqual(len(rows), 74)
+        self.assertTrue(any(r["verdict"] == "LET_GO" for r in rows))
+        tmp = Path(tempfile.mkdtemp())
+        csv_path = write_gate_csv(self.snap, tmp)
+        self.assertIn("verdict", csv_path.read_text(encoding="utf-8").splitlines()[0])
+        pdf_path = write_gate_pdf(self.snap, tmp)
+        self.assertTrue(pdf_path.read_bytes().startswith(b"%PDF"))
+        self.assertGreater(pdf_path.stat().st_size, 1000)
+
 
 if __name__ == "__main__":
     unittest.main()
