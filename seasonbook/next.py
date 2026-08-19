@@ -7,10 +7,14 @@ The year-2/3 horizon books the same 48 dams. Selling the 45 KEEP UNTIL
 WEANING animals after weaning retires that dam band. That is a choice,
 not a bug:
 
-  KEEP_DAM_BAND  keep the 48 year-1 dams. Sell surplus sires the
-                 later years do not need. Horizon of 48 bookings lives.
-  SHRINK_NUCLEUS execute The Gate. Covering cria stay. WAIT stay.
-                 Year 2 is whatever females remain.
+  KEEP_DAM_BAND       keep the 48 year-1 dams. Sell surplus sires the
+                      later years do not need. Horizon of 48 bookings lives.
+  SHRINK_NUCLEUS      execute The Gate. Covering cria stay. WAIT stay.
+                      Year 2 is whatever females remain.
+  FINISH_THEN_SHRINK  run years 1–3 as printed. Then sell the SHRINK list.
+                      The eight collision sires work first; they leave after
+                      year 3. This is the path that does not throw away the
+                      board.
 
 Crias are not treated as instant breeders. They join as living carriers
 only. Years 2–3 are scored on the adults still registered.
@@ -32,6 +36,7 @@ from .wright import WrightEngine
 
 PATH_BAND = "KEEP_DAM_BAND"
 PATH_SHRINK = "SHRINK_NUCLEUS"
+PATH_FINISH = "FINISH_THEN_SHRINK"
 
 
 @dataclass
@@ -56,6 +61,7 @@ class SaleSlot:
     window: str
     path_band: bool
     path_shrink: bool
+    path_finish: bool
     why: str
 
     def as_dict(self) -> dict:
@@ -78,6 +84,7 @@ class Projected:
     n_year2: int
     year2_mean_f_pct: float
     year2_unassigned: list[str]
+    year2_plan: list[dict]
     kept: list[str]
     sold: list[str]
     summary: str
@@ -92,22 +99,40 @@ class Projected:
 
 
 @dataclass
+class CoreAnimal:
+    animal_id: str
+    name: str
+    sex: str | None
+    mk_pct: float
+    why: str
+
+    def as_dict(self) -> dict:
+        return asdict(self)
+
+
+@dataclass
 class NextNucleus:
     collisions: list[Collision]
     calendar: list[SaleSlot]
+    core: list[CoreAnimal]
     band: Projected
     shrink: Projected
+    finish: Projected
     n_collisions: int
+    n_core: int
     summary: str
 
     def as_dict(self) -> dict:
         return {
             "n_collisions": self.n_collisions,
+            "n_core": self.n_core,
             "summary": self.summary,
             "collisions": [c.as_dict() for c in self.collisions],
+            "core": [c.as_dict() for c in self.core],
             "calendar": [s.as_dict() for s in self.calendar],
             "band": self.band.as_dict(),
             "shrink": self.shrink.as_dict(),
+            "finish": self.finish.as_dict(),
         }
 
 
@@ -159,6 +184,7 @@ def _project_herd(
     year2_n = 0
     year2_f = 0.0
     unassigned: list[str] = []
+    year2_plan: list[dict] = []
     if dams and sires:
         live_pairs = [
             p
@@ -170,6 +196,16 @@ def _project_herd(
             year2_n = len(y2.assignments)
             year2_f = y2.mean_f * 100.0
             unassigned = list(y2.unassigned)
+            year2_plan = [
+                {
+                    "dam_name": a.dam_name,
+                    "sire_name": a.sire_name,
+                    "f_pct": a.f_pct,
+                    "verdict": a.verdict,
+                    "reason": a.reason,
+                }
+                for a in y2.assignments
+            ]
     kept_names = sorted(
         h.animals[i].name for i in h.registered_ids if i in h.animals and not i.startswith("CRIA:")
     )
@@ -194,6 +230,7 @@ def _project_herd(
         n_year2=year2_n,
         year2_mean_f_pct=year2_f,
         year2_unassigned=unassigned,
+        year2_plan=year2_plan,
         kept=kept_names,
         sold=sold_names,
         summary=summary,
@@ -265,7 +302,8 @@ def next_nucleus(
                     window="HOLD",
                     path_band=False,
                     path_shrink=False,
-                    why=f"{card.name} is pair-locked. Neither path sells them.",
+                    path_finish=False,
+                    why=f"{card.name} is pair-locked. All three paths keep them. They are the residual nucleus.",
                 )
             )
             continue
@@ -281,9 +319,11 @@ def next_nucleus(
                         window="AFTER_WEANING",
                         path_band=False,
                         path_shrink=True,
+                        path_finish=True,
                         why=(
                             f"{card.name} is LET GO but years 2–3 still book them. "
-                            "KEEP DAM BAND holds them. SHRINK sells after year-1 covering."
+                            "KEEP DAM BAND holds them. SHRINK sells after year-1 covering. "
+                            "FINISH THEN SHRINK lets them work years 2–3, then lists them."
                         ),
                     )
                 )
@@ -297,6 +337,7 @@ def next_nucleus(
                         window="AFTER_COVERING",
                         path_band=True,
                         path_shrink=True,
+                        path_finish=True,
                         why=(
                             f"{card.name} is LET GO and not needed in years 2–3. "
                             "Sell after the last year-1 covering."
@@ -318,11 +359,13 @@ def next_nucleus(
                         window="AFTER_WEANING",
                         path_band=False,
                         path_shrink=True,
+                        path_finish=True,
                         why=(
                             f"{card.name} is a year-1 dam"
                             + (" and a covering-cria dam" if covering_dam else "")
                             + ". KEEP DAM BAND keeps the dam band. "
-                            "SHRINK sells after the cria is on the ground."
+                            "SHRINK sells after the cria is on the ground. "
+                            "FINISH THEN SHRINK keeps her for years 2–3, then lists her."
                         ),
                     )
                 )
@@ -336,7 +379,8 @@ def next_nucleus(
                         window="THIS_FALL",
                         path_band=True,
                         path_shrink=True,
-                        why=f"{card.name} is LET GO, not a year-1 dam. Both paths list this fall.",
+                        path_finish=True,
+                        why=f"{card.name} is LET GO, not a year-1 dam. All sale paths list this fall.",
                     )
                 )
             continue
@@ -352,9 +396,11 @@ def next_nucleus(
                         window="AFTER_WEANING",
                         path_band=False,
                         path_shrink=True,
+                        path_finish=True,
                         why=(
                             f"{card.name} is last-blood today. Covering cria stay. "
-                            "KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+                            "KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. "
+                            "FINISH THEN SHRINK keeps her through year 3, then lists her."
                         ),
                     )
                 )
@@ -368,6 +414,7 @@ def next_nucleus(
                         window="AFTER_WEANING",
                         path_band=not needed_later,
                         path_shrink=True,
+                        path_finish=True,
                         why=(
                             f"{card.name} is last-blood today. Covering cria stay. "
                             + (
@@ -389,7 +436,8 @@ def next_nucleus(
                 window="HOLD",
                 path_band=False,
                 path_shrink=False,
-                why=f"{card.name} stays in both paths ({card.verdict}).",
+                path_finish=False,
+                why=f"{card.name} stays on all three paths ({card.verdict}).",
             )
         )
     calendar.sort(key=lambda s: (s.window, s.name))
@@ -446,22 +494,83 @@ def next_nucleus(
         sorted(s.name for s in shrink_sold),
     )
 
+    core: list[CoreAnimal] = []
+    for card in gate.cards:
+        if card.verdict != WAIT:
+            continue
+        core.append(
+            CoreAnimal(
+                animal_id=card.animal_id,
+                name=card.name,
+                sex=card.sex,
+                mk_pct=card.mk_pct,
+                why=card.why,
+            )
+        )
+    core.sort(key=lambda c: (c.sex or "Z", c.name))
+
+    # Path C: run years 1–3 as the printed horizon (same year-2 plan as
+    # KEEP DAM BAND), then sell the SHRINK list. Living nucleus after
+    # that sale is the shrink nucleus; year-2 bookings stay 48.
+    y2_horizon = []
+    y2_f_horizon = 0.0
+    if len(rotation) > 1:
+        y2_horizon = [
+            {
+                "dam_name": a.dam_name,
+                "sire_name": a.sire_name,
+                "f_pct": a.f_pct,
+                "verdict": a.verdict,
+                "reason": a.reason,
+            }
+            for a in rotation[1].assignments
+        ]
+        y2_f_horizon = rotation[1].mean_f * 100.0
+    finish = Projected(
+        path=PATH_FINISH,
+        n=shrink.n,
+        n_dams=shrink.n_dams,
+        n_sires=shrink.n_sires,
+        n_unsexed=shrink.n_unsexed,
+        n_cria=shrink.n_cria,
+        ne=shrink.ne,
+        fge=shrink.fge,
+        mean_f_pct=shrink.mean_f_pct,
+        n_last_founders=shrink.n_last_founders,
+        n_irreplaceable=shrink.n_irreplaceable,
+        n_year2=len(y2_horizon) or band.n_year2,
+        year2_mean_f_pct=y2_f_horizon or band.year2_mean_f_pct,
+        year2_unassigned=[],
+        year2_plan=y2_horizon or list(band.year2_plan),
+        kept=list(shrink.kept),
+        sold=list(shrink.sold),
+        summary=(
+            f"{PATH_FINISH}: years 1–3 keep {band.n_year2} year-2 bookings "
+            f"(mean F {y2_f_horizon or band.year2_mean_f_pct:.2f}%). "
+            f"After year 3, sell the SHRINK list → {shrink.n} living, "
+            f"{shrink.n_dams} dams × {shrink.n_sires} sires, Ne {shrink.ne:.1f}."
+        ),
+    )
+
     n_this_fall = sum(1 for s in calendar if s.window == "THIS_FALL")
     n_cover = sum(1 for s in calendar if s.window == "AFTER_COVERING")
     summary = (
         f"{len(collisions)} horizon collisions (LET GO sires still booked in years 2–3). "
-        f"{n_this_fall} list this fall on both paths. "
+        f"{len(core)} pair-locked animals are the residual nucleus. "
+        f"{n_this_fall} list this fall on all sale paths. "
         f"{n_cover} sires list after the last covering. "
-        f"KEEP DAM BAND → {band.n} living, year-2 bookings {band.n_year2}, "
-        f"Ne {band.ne:.1f}. "
-        f"SHRINK → {shrink.n} living, year-2 bookings {shrink.n_year2}, "
-        f"Ne {shrink.ne:.1f}."
+        f"KEEP DAM BAND → {band.n} living, year-2 bookings {band.n_year2}. "
+        f"SHRINK → {shrink.n} living, year-2 bookings {shrink.n_year2}. "
+        f"FINISH THEN SHRINK → year-2 bookings {finish.n_year2}, then the shrink sale."
     )
     return NextNucleus(
         collisions=collisions,
         calendar=calendar,
+        core=core,
         band=band,
         shrink=shrink,
+        finish=finish,
         n_collisions=len(collisions),
+        n_core=len(core),
         summary=summary,
     )

@@ -73,8 +73,17 @@ class NextToy(unittest.TestCase):
         self.assertTrue(nxt.summary)
         self.assertTrue(nxt.band.summary)
         self.assertTrue(nxt.shrink.summary)
+        self.assertTrue(nxt.finish.summary)
         self.assertGreater(nxt.band.n, 0)
         self.assertGreater(nxt.shrink.n, 0)
+
+    def test_core_is_the_wait_animals(self):
+        _, _, _, gate, _, nxt = self._booked()
+        wait = {c.name for c in gate.cards if c.verdict == WAIT}
+        self.assertEqual({c.name for c in nxt.core}, wait)
+        for slot in nxt.calendar:
+            if slot.name in wait:
+                self.assertFalse(slot.path_finish)
 
 
 if __name__ == "__main__":

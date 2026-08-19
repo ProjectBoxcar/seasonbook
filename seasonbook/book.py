@@ -938,6 +938,13 @@ def write_next_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
     y -= 12
     pdf.text(36, y, 9, f"Ne {s.ne:.1f}  ·  last founders {s.n_last_founders}  ·  year-2 bookings {s.n_year2}  F={s.year2_mean_f_pct:.2f}%")
     y -= 18
+    f = n.finish
+    pdf.text(36, y, 11, "FINISH THEN SHRINK", 0.18, 0.32, 0.55)
+    y -= 14
+    pdf.text(36, y, 9, f"Years 1-3: {f.n_year2} year-2 bookings  F={f.year2_mean_f_pct:.2f}%")
+    y -= 12
+    pdf.text(36, y, 9, f"After year 3: {f.n} living  ·  {f.n_dams} dams x {f.n_sires} sires  ·  Ne {f.ne:.1f}")
+    y -= 18
     pdf.text(36, y, 11, f"Horizon collisions  ({n.n_collisions})", 0.55, 0.32, 0.10)
     y -= 16
     if not n.collisions:
@@ -954,14 +961,50 @@ def write_next_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
     pdf.new_page()
     y = _header(
         pdf,
+        "Next Nucleus  ·  shrink year 2",
+        "The residual bookings if you execute The Gate now",
+        f"{len(s.year2_plan)} bookings  ·  mean F {s.year2_mean_f_pct:.2f}%  ·  {n.n_core} pair-locked core",
+    )
+    pdf.text(36, y, 9, "These are the only legal adult pairings left after SHRINK.", 0.35, 0.30, 0.22)
+    y -= 16
+    pdf.text(36, y, 8, "DAM")
+    pdf.text(280, y, 8, "SIRE")
+    pdf.text(480, y, 8, "F")
+    y -= 4
+    pdf.rule(36, y, 540, 0.4)
+    y -= 14
+    for a in s.year2_plan:
+        if y < 48:
+            pdf.new_page()
+            y = _header(pdf, "Next Nucleus", "Shrink year 2 (continued)", "")
+        pdf.text(36, y, 9, a["dam_name"][:34])
+        pdf.text(280, y, 9, a["sire_name"][:32])
+        pdf.text(480, y, 9, f"{a['f_pct']:.2f}%")
+        y -= 12
+    y -= 10
+    pdf.text(36, y, 11, f"Core  ({n.n_core})  — do not sell", 0.18, 0.14, 0.10)
+    y -= 16
+    for c in n.core:
+        if y < 48:
+            pdf.new_page()
+            y = _header(pdf, "Next Nucleus", "Core (continued)", "")
+        pdf.text(36, y, 9, c.name[:34])
+        pdf.text(280, y, 8, c.sex or "?")
+        pdf.text(310, y, 8, f"MK {c.mk_pct:.2f}%")
+        y -= 12
+
+    pdf.new_page()
+    y = _header(
+        pdf,
         "Next Nucleus  ·  sale calendar",
         "When each animal may leave, on which path",
         f"{len(n.calendar)} registered  ·  built {snap.built}",
     )
     pdf.text(36, y, 8, "ANIMAL")
-    pdf.text(250, y, 8, "WINDOW")
-    pdf.text(360, y, 8, "BAND")
-    pdf.text(430, y, 8, "SHRINK")
+    pdf.text(220, y, 8, "WINDOW")
+    pdf.text(330, y, 8, "BAND")
+    pdf.text(390, y, 8, "SHRINK")
+    pdf.text(470, y, 8, "FINISH")
     y -= 4
     pdf.rule(36, y, 540, 0.4)
     y -= 14
@@ -969,10 +1012,11 @@ def write_next_pdf(snap: Snapshot, out_dir: Path | None = None) -> Path:
         if y < 48:
             pdf.new_page()
             y = _header(pdf, "Next Nucleus", "Calendar (continued)", "")
-        pdf.text(36, y, 8, slot.name[:34])
-        pdf.text(250, y, 8, slot.window)
-        pdf.text(360, y, 8, "sell" if slot.path_band else "keep", 0.18, 0.42, 0.28 if slot.path_band else 0.35)
-        pdf.text(430, y, 8, "sell" if slot.path_shrink else "keep", 0.55, 0.16, 0.12 if slot.path_shrink else 0.35)
+        pdf.text(36, y, 8, slot.name[:28])
+        pdf.text(220, y, 8, slot.window)
+        pdf.text(330, y, 8, "sell" if slot.path_band else "keep", 0.18, 0.42, 0.28 if slot.path_band else 0.35)
+        pdf.text(390, y, 8, "sell" if slot.path_shrink else "keep", 0.55, 0.16, 0.12 if slot.path_shrink else 0.35)
+        pdf.text(470, y, 8, "sell" if slot.path_finish else "keep", 0.18, 0.32, 0.55 if slot.path_finish else 0.35)
         y -= 11
 
     path = out_dir / "NextNucleus.pdf"

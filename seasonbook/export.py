@@ -196,7 +196,8 @@ def tonight_lines(snap: Snapshot) -> list[str]:
     lines.append(
         f"  next  {nxt.n_collisions} collisions  ·  "
         f"band {nxt.band.n} living Y2={nxt.band.n_year2}  ·  "
-        f"shrink {nxt.shrink.n} living Y2={nxt.shrink.n_year2}"
+        f"shrink {nxt.shrink.n} living Y2={nxt.shrink.n_year2}  ·  "
+        f"finish Y2={nxt.finish.n_year2} then shrink  ·  core {nxt.n_core}"
     )
     for c in w.cover[:6]:
         lines.append(f"    stay  {c.name}  ({c.n_covers} last founders)")

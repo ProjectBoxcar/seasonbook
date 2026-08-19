@@ -101,6 +101,8 @@ class Snapshot:
             "next_band_year2": self.nxt.band.n_year2,
             "next_shrink_n": self.nxt.shrink.n,
             "next_shrink_year2": self.nxt.shrink.n_year2,
+            "next_core": self.nxt.n_core,
+            "next_finish_year2": self.nxt.finish.n_year2,
         }
 
 

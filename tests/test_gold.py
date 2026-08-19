@@ -234,11 +234,19 @@ class RealHerdGold(unittest.TestCase):
         self.assertGreater(n.band.n, n.shrink.n)
         self.assertGreaterEqual(n.band.n_year2, n.shrink.n_year2)
         wait = {c.name for c in self.snap.gate.cards if c.verdict == "WAIT"}
+        self.assertEqual(n.n_core, 9)
+        self.assertEqual({c.name for c in n.core}, wait)
         for slot in n.calendar:
             if slot.name in wait:
                 self.assertFalse(slot.path_band)
                 self.assertFalse(slot.path_shrink)
+                self.assertFalse(slot.path_finish)
         self.assertTrue(n.summary)
+        self.assertEqual(len(n.shrink.year2_plan), n.shrink.n_year2)
+        self.assertTrue(all(r["verdict"] != "BLOCK" for r in n.shrink.year2_plan))
+        self.assertEqual(n.finish.n, n.shrink.n)
+        self.assertEqual(n.finish.n_year2, 48)
+        self.assertGreaterEqual(n.band.n_year2, 40)
 
     def test_next_pdf(self):
         import tempfile

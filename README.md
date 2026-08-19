@@ -102,6 +102,7 @@ The three-season rotation books the same 48 dams. Selling the 45 KEEP UNTIL WEAN
 |---|---|---|
 | KEEP DAM BAND | The 48 year-1 dams + WAIT + covering cria | LET GO sires years 2–3 do not need |
 | SHRINK NUCLEUS | WAIT + covering cria | LET GO + KEEP UNTIL WEANING after the windows |
+| FINISH THEN SHRINK | Run years 1–3 as printed | The SHRINK list, after year 3 |
 
 Horizon collisions are LET GO sires still booked in years 2–3. KEEP DAM BAND holds them. SHRINK sells after the last year-1 covering and accepts a smaller year-2.
 

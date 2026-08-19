@@ -50,7 +50,9 @@
     "next_band_n": 119,
     "next_band_year2": 48,
     "next_shrink_n": 54,
-    "next_shrink_year2": 5
+    "next_shrink_year2": 5,
+    "next_core": 9,
+    "next_finish_year2": 48
   },
   "cards": [
     {
@@ -1930,48 +1932,8 @@
       "still_segregating": true
     },
     {
-      "id": "NM:GARNETT",
-      "name": "GARNETT",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
       "id": "AR:803117",
       "name": "SNOWMASS MAREE LOVE",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:139293",
-      "name": "PPPERUVIAN CAHUIDE A6020",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:146102",
-      "name": "BUENO'S MARGARITA ToT",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:186817",
-      "name": "LITTLE MISS JENNIFER DKO1",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:822604",
-      "name": "SNOWMASS QUECHUA",
       "contribution": 0.0,
       "presence": 32,
       "presence_pct": 43.2,
@@ -2002,24 +1964,40 @@
       "still_segregating": true
     },
     {
-      "id": "AR:139099",
-      "name": "PPPERUVIAN PRESTIGE 4999",
+      "id": "AR:139293",
+      "name": "PPPERUVIAN CAHUIDE A6020",
       "contribution": 0.0,
       "presence": 32,
       "presence_pct": 43.2,
       "still_segregating": true
     },
     {
-      "id": "AR:811840",
-      "name": "SNOWMASS MACANTOSHA s/s)",
+      "id": "NM:GARNETT",
+      "name": "GARNETT",
       "contribution": 0.0,
       "presence": 32,
       "presence_pct": 43.2,
       "still_segregating": true
     },
     {
-      "id": "AR:800680",
-      "name": "5PERUVIAN CHACCU 9063",
+      "id": "AR:822604",
+      "name": "SNOWMASS QUECHUA",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
+      "id": "AR:186817",
+      "name": "LITTLE MISS JENNIFER DKO1",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
+      "id": "AR:146102",
+      "name": "BUENO'S MARGARITA ToT",
       "contribution": 0.0,
       "presence": 32,
       "presence_pct": 43.2,
@@ -2034,16 +2012,8 @@
       "still_segregating": true
     },
     {
-      "id": "AR:840857",
-      "name": "SNOWMASS SIMPLY SCRUMPTIOUS",
-      "contribution": 0.0,
-      "presence": 32,
-      "presence_pct": 43.2,
-      "still_segregating": true
-    },
-    {
-      "id": "AR:803118",
-      "name": "SNOWMASS ACCOYOCUSANI",
+      "id": "AR:139099",
+      "name": "PPPERUVIAN PRESTIGE 4999",
       "contribution": 0.0,
       "presence": 32,
       "presence_pct": 43.2,
@@ -2066,6 +2036,38 @@
       "still_segregating": true
     },
     {
+      "id": "AR:811840",
+      "name": "SNOWMASS MACANTOSHA s/s)",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
+      "id": "AR:840857",
+      "name": "SNOWMASS SIMPLY SCRUMPTIOUS",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
+      "id": "AR:800680",
+      "name": "5PERUVIAN CHACCU 9063",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
+      "id": "AR:803118",
+      "name": "SNOWMASS ACCOYOCUSANI",
+      "contribution": 0.0,
+      "presence": 32,
+      "presence_pct": 43.2,
+      "still_segregating": true
+    },
+    {
       "id": "AR:850345",
       "name": "SNOWMASS MATRIX",
       "contribution": 0.0,
@@ -2082,16 +2084,16 @@
       "still_segregating": true
     },
     {
-      "id": "AR:830258",
-      "name": "SNOWMASS INFINITY",
+      "id": "AR:139111",
+      "name": "PPPERUVIAN CHASTITY 5014",
       "contribution": 0.0,
       "presence": 30,
       "presence_pct": 40.5,
       "still_segregating": true
     },
     {
-      "id": "AR:803097",
-      "name": "SNOWMASS LIBERTY BELL",
+      "id": "AR:830258",
+      "name": "SNOWMASS INFINITY",
       "contribution": 0.0,
       "presence": 30,
       "presence_pct": 40.5,
@@ -25703,7 +25705,8 @@
   },
   "next": {
     "n_collisions": 8,
-    "summary": "8 horizon collisions (LET GO sires still booked in years 2\u20133). 0 list this fall on both paths. 0 sires list after the last covering. KEEP DAM BAND \u2192 119 living, year-2 bookings 48, Ne 36.4. SHRINK \u2192 54 living, year-2 bookings 5, Ne 37.9.",
+    "n_core": 9,
+    "summary": "8 horizon collisions (LET GO sires still booked in years 2\u20133). 9 pair-locked animals are the residual nucleus. 0 list this fall on all sale paths. 0 sires list after the last covering. KEEP DAM BAND \u2192 119 living, year-2 bookings 48. SHRINK \u2192 54 living, year-2 bookings 5. FINISH THEN SHRINK \u2192 year-2 bookings 48, then the shrink sale.",
     "collisions": [
       {
         "sire_id": "AR:814613",
@@ -25787,6 +25790,71 @@
         "why": "APP PHORCE PHACTOR is LET GO, but year 2 still books them 2\u00d7. Selling this fall kills that horizon row."
       }
     ],
+    "core": [
+      {
+        "animal_id": "AR:36115044",
+        "name": "IRISH MEADOWS TAYT",
+        "sex": "F",
+        "mk_pct": 0.78,
+        "why": "IRISH MEADOWS TAYT is one of two living carriers of MICHELANGELO, WINTER LOTUS HST W869. Do not sell both."
+      },
+      {
+        "animal_id": "AR:30863767",
+        "name": "SCA PERUVIAN SILVERBELLE",
+        "sex": "F",
+        "mk_pct": 0.21,
+        "why": "SCA PERUVIAN SILVERBELLE is one of two living carriers of PPPERUVIAN MISTY MAIDEN 5046 TC), CPERUVIAN STIRLING 105 IMPF98, CPERUVIAN DELISSA 1201 IMPF98. Do not sell both."
+      },
+      {
+        "animal_id": "NM:SNOWMASS ENCHANTED TOUCH",
+        "name": "SNOWMASS ENCHANTED TOUCH",
+        "sex": "F",
+        "mk_pct": 1.33,
+        "why": "SNOWMASS ENCHANTED TOUCH is one of two living carriers of PPPERUVIAN CAHUIDE A6020. Do not sell both."
+      },
+      {
+        "animal_id": "NM:THOR FARMS LOOKING GLASS",
+        "name": "THOR FARMS LOOKING GLASS",
+        "sex": "F",
+        "mk_pct": 1.61,
+        "why": "THOR FARMS LOOKING GLASS is one of two living carriers of MICHELANGELO, WINTER LOTUS HST W869. Do not sell both."
+      },
+      {
+        "animal_id": "NM:WILLOWWIND INSPIRATION",
+        "name": "WILLOWWIND INSPIRATION",
+        "sex": "F",
+        "mk_pct": 2.38,
+        "why": "WILLOWWIND INSPIRATION is one of two living carriers of SNOWMASS ROYAL KNIGHT. Do not sell both."
+      },
+      {
+        "animal_id": "AR:35055006",
+        "name": "5C'S CAPTAIN CHAOS",
+        "sex": "M",
+        "mk_pct": 0.86,
+        "why": "5C'S CAPTAIN CHAOS is one of two living carriers of PERUVIAN AMY W803 ,, PPPERUVIAN MARIAH 4604, MIAH (+2 more). Do not sell both."
+      },
+      {
+        "animal_id": "AR:35586548",
+        "name": "CIRCLE CLIFF'S MELVIN",
+        "sex": "M",
+        "mk_pct": 0.57,
+        "why": "CIRCLE CLIFF'S MELVIN is one of two living carriers of SOPHIA DEL SOL, FANDANGO'S FIREBIRD, REDEEMER OF BOLIVIA B8455 IMPK98 (+8 more). Do not sell both."
+      },
+      {
+        "animal_id": "NM:MTAR ORLANDO CLOUD S MCDREAMY",
+        "name": "MTAR ORLANDO CLOUD'S MCDREAMY",
+        "sex": "M",
+        "mk_pct": 0.58,
+        "why": "MTAR ORLANDO CLOUD'S MCDREAMY is one of two living carriers of JERICHO 691, FOLLOWILL KINNIKINIK. Do not sell both."
+      },
+      {
+        "animal_id": "NM:WILLOWWIND SHOGUN",
+        "name": "WILLOWWIND SHOGUN",
+        "sex": "M",
+        "mk_pct": 2.38,
+        "why": "WILLOWWIND SHOGUN is one of two living carriers of SNOWMASS ROYAL KNIGHT. Do not sell both."
+      }
+    ],
     "calendar": [
       {
         "animal_id": "NM:4 SIGHT S HOLIDAY",
@@ -25796,7 +25864,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "4-SIGHT'S HOLIDAY is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "4-SIGHT'S HOLIDAY is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:5C S CHANTERELLA",
@@ -25806,7 +25875,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "5C'S CHANTERELLA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "5C'S CHANTERELLA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:APP OSA PHRENCH BRAID",
@@ -25816,7 +25886,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "APP OSA PHRENCH BRAID is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "APP OSA PHRENCH BRAID is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "AR:35298564",
@@ -25826,7 +25897,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "APP PHORCE PHACTOR is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering."
+        "path_finish": true,
+        "why": "APP PHORCE PHACTOR is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering. FINISH THEN SHRINK lets them work years 2\u20133, then lists them."
       },
       {
         "animal_id": "NM:APP WILD PHLOX",
@@ -25836,7 +25908,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "APP WILD PHLOX is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "APP WILD PHLOX is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:ARAPAHO DELGADO S ILLYAPA",
@@ -25846,6 +25919,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "ARAPAHO DELGADO'S ILLYAPA is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -25856,7 +25930,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "BOMBER'S DIAMOND LIL is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "BOMBER'S DIAMOND LIL is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "NM:CIRCLE CLIFF S SWEET CAROLINE",
@@ -25866,7 +25941,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "CIRCLE CLIFF'S SWEET CAROLINE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "CIRCLE CLIFF'S SWEET CAROLINE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:CRESCENT MOON S KEMMAUS",
@@ -25876,6 +25952,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "CRESCENT MOON'S KEMMAUS is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -25886,7 +25963,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "CRYSTAL MOCHACCINO is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "CRYSTAL MOCHACCINO is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:CRYSTAL ROYAL GOLD S MACKINAW",
@@ -25896,6 +25974,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "CRYSTAL ROYAL GOLD'S MACKINAW is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -25906,7 +25985,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "ESTATES LA PRESTIGE CRIMSON is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "ESTATES LA PRESTIGE CRIMSON is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:G TRIBE S ROCKY S ASH",
@@ -25916,6 +25996,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "G-TRIBE'S ROCKY'S ASH is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -25926,7 +26007,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "HEAVEN'S HILL PERUVIAN CELESTIA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "HEAVEN'S HILL PERUVIAN CELESTIA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:HERITAGE SILVER PROMISE",
@@ -25936,7 +26018,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "HERITAGE SILVER PROMISE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "HERITAGE SILVER PROMISE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:HMAF S AIRGEAD",
@@ -25946,6 +26029,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "HMAF'S AIRGEAD is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -25956,7 +26040,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "HOWLING HILL SING THE BODY ELECTRIC is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "HOWLING HILL SING THE BODY ELECTRIC is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:LIBERTYALPACAS SMOKE SCREEN",
@@ -25966,6 +26051,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "LIBERTYALPACAS SMOKE SCREEN is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -25976,6 +26062,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "MAMGB NATAN SAPA is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -25986,7 +26073,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "MARY'S SIQUANI BELLE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "MARY'S SIQUANI BELLE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:MISS ALOHA MOONSHINE",
@@ -25996,7 +26084,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "MISS ALOHA MOONSHINE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "MISS ALOHA MOONSHINE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:MISS AUTARY",
@@ -26006,7 +26095,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "MISS AUTARY is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "MISS AUTARY is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:MTAR PHASMA",
@@ -26016,7 +26106,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "MTAR PHASMA is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "MTAR PHASMA is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "NM:NOBLE AMARETTO",
@@ -26026,7 +26117,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "NOBLE AMARETTO is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "NOBLE AMARETTO is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:PALLATON S KALIBAUT ALYST",
@@ -26036,6 +26128,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "PALLATON'S KALIBAUT ALYST is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -26046,7 +26139,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "PARAGON'S ESMERALDA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "PARAGON'S ESMERALDA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:PATAGONIA S DUSTY",
@@ -26056,7 +26150,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "PATAGONIA'S DUSTY is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "PATAGONIA'S DUSTY is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "AR:814613",
@@ -26066,7 +26161,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "PATAGONIA'S NERUDA is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering."
+        "path_finish": true,
+        "why": "PATAGONIA'S NERUDA is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering. FINISH THEN SHRINK lets them work years 2\u20133, then lists them."
       },
       {
         "animal_id": "NM:PHPC ARTILLERY",
@@ -26076,6 +26172,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "PHPC ARTILLERY is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -26086,7 +26183,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RED GRANITES AFTERSHOCK is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "RED GRANITES AFTERSHOCK is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "AR:35489856",
@@ -26096,7 +26194,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RED GRANITES ALYDAR is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering."
+        "path_finish": true,
+        "why": "RED GRANITES ALYDAR is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering. FINISH THEN SHRINK lets them work years 2\u20133, then lists them."
       },
       {
         "animal_id": "NM:RED GRANITES BRAVEHEART",
@@ -26106,6 +26205,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "RED GRANITES BRAVEHEART is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -26116,7 +26216,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RED GRANITES JAFFA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "RED GRANITES JAFFA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "AR:35485872",
@@ -26126,7 +26227,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RED GRANITES JENGA is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "RED GRANITES JENGA is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "NM:RED GRANITES JEZEBELL",
@@ -26136,7 +26238,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RED GRANITES JEZEBELL is a year-1 dam and a covering-cria dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "RED GRANITES JEZEBELL is a year-1 dam and a covering-cria dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "NM:RED GRANITES PRIM AND PROPER",
@@ -26146,7 +26249,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RED GRANITES PRIM & PROPER is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "RED GRANITES PRIM & PROPER is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:RGR JIGSAW",
@@ -26156,7 +26260,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RGR JIGSAW is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "RGR JIGSAW is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "NM:RGR JUSTIFICATION",
@@ -26166,7 +26271,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RGR JUSTIFICATION is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "RGR JUSTIFICATION is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "NM:RGR S MISS CONTRARY",
@@ -26176,7 +26282,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RGR'S MISS CONTRARY is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "RGR'S MISS CONTRARY is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:ROYAL DIAMANTE S JEWEL",
@@ -26186,7 +26293,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "ROYAL DIAMANTE'S JEWEL is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "ROYAL DIAMANTE'S JEWEL is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:RR PALOMA PICASSO",
@@ -26196,7 +26304,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RR PALOMA PICASSO is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "RR PALOMA PICASSO is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "AR:35117575",
@@ -26206,7 +26315,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RR SARAH VAUGHN is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "RR SARAH VAUGHN is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "NM:RR WONDER WOMAN",
@@ -26216,7 +26326,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "RR WONDER WOMAN is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "RR WONDER WOMAN is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "NM:SC S CARRINGTON",
@@ -26226,7 +26337,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SC'S CARRINGTON is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "SC'S CARRINGTON is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:SC S CHARENTE",
@@ -26236,7 +26348,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SC'S CHARENTE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "SC'S CHARENTE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:SC S CLARKIA",
@@ -26246,7 +26359,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SC'S CLARKIA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "SC'S CLARKIA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:SC S CRICKIT",
@@ -26256,7 +26370,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SC'S CRICKIT is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "SC'S CRICKIT is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:SMOKIN HAUTE",
@@ -26266,7 +26381,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SMOKIN HAUTE is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "SMOKIN HAUTE is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "NM:SNOWMASS ALLURING XX",
@@ -26276,7 +26392,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SNOWMASS ALLURING XX is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "SNOWMASS ALLURING XX is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "AR:30339231",
@@ -26286,6 +26403,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "SNOWMASS CONOPA XXX is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -26296,7 +26414,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SNOWMASS IRON MAIDEN is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "SNOWMASS IRON MAIDEN is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "AR:36020188",
@@ -26306,7 +26425,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SNOWMASS MAJESTIC REFLECTION is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering."
+        "path_finish": true,
+        "why": "SNOWMASS MAJESTIC REFLECTION is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering. FINISH THEN SHRINK lets them work years 2\u20133, then lists them."
       },
       {
         "animal_id": "AR:850345",
@@ -26316,6 +26436,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "SNOWMASS MATRIX is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -26326,7 +26447,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SNOWMASS MIDNIGHT GAZE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "SNOWMASS MIDNIGHT GAZE is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:SNOWMASS SIMPLY SMOKIN",
@@ -26336,7 +26458,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SNOWMASS SIMPLY SMOKIN is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "SNOWMASS SIMPLY SMOKIN is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "AR:35425663",
@@ -26346,7 +26469,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SNOWMASS SMOKIN WAVES is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering."
+        "path_finish": true,
+        "why": "SNOWMASS SMOKIN WAVES is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering. FINISH THEN SHRINK lets them work years 2\u20133, then lists them."
       },
       {
         "animal_id": "AR:32705416",
@@ -26356,7 +26480,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SPARTAN'S SILVER-LINING is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering."
+        "path_finish": true,
+        "why": "SPARTAN'S SILVER-LINING is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering. FINISH THEN SHRINK lets them work years 2\u20133, then lists them."
       },
       {
         "animal_id": "AR:30838215",
@@ -26366,7 +26491,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "SSAFL MICHELANGELO'S PERUVIAN CUPID is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering."
+        "path_finish": true,
+        "why": "SSAFL MICHELANGELO'S PERUVIAN CUPID is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering. FINISH THEN SHRINK lets them work years 2\u20133, then lists them."
       },
       {
         "animal_id": "NM:SUNNYHILL S ZANG S BALTAZAR",
@@ -26376,6 +26502,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "SUNNYHILL'S ZANG'S BALTAZAR is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -26386,6 +26513,7 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
+        "path_finish": true,
         "why": "TCB CORKY is last-blood today. Covering cria stay. Years 2\u20133 still book them \u2014 KEEP DAM BAND holds."
       },
       {
@@ -26396,7 +26524,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "THAT'LL DO BLACKBEARD'S BOOTY is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "THAT'LL DO BLACKBEARD'S BOOTY is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:VINTAGE CASHMERE S U TAUPE IA",
@@ -26406,7 +26535,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "VINTAGE CASHMERE'S U-TAUPE-IA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning."
+        "path_finish": true,
+        "why": "VINTAGE CASHMERE'S U-TAUPE-IA is last-blood today. Covering cria stay. KEEP DAM BAND keeps her in the 48. SHRINK lists after weaning. FINISH THEN SHRINK keeps her through year 3, then lists her."
       },
       {
         "animal_id": "NM:WILLOWWIND ECHO DELTA",
@@ -26416,7 +26546,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "WILLOWWIND ECHO DELTA is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "WILLOWWIND ECHO DELTA is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "AR:36094530",
@@ -26426,7 +26557,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "WILLOWWIND SL HALO is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground."
+        "path_finish": true,
+        "why": "WILLOWWIND SL HALO is a year-1 dam. KEEP DAM BAND keeps the dam band. SHRINK sells after the cria is on the ground. FINISH THEN SHRINK keeps her for years 2\u20133, then lists her."
       },
       {
         "animal_id": "NM:WILLOWWIND THE SHAMAN",
@@ -26436,7 +26568,8 @@
         "window": "AFTER_WEANING",
         "path_band": false,
         "path_shrink": true,
-        "why": "WILLOWWIND THE SHAMAN is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering."
+        "path_finish": true,
+        "why": "WILLOWWIND THE SHAMAN is LET GO but years 2\u20133 still book them. KEEP DAM BAND holds them. SHRINK sells after year-1 covering. FINISH THEN SHRINK lets them work years 2\u20133, then lists them."
       },
       {
         "animal_id": "AR:35055006",
@@ -26446,7 +26579,8 @@
         "window": "HOLD",
         "path_band": false,
         "path_shrink": false,
-        "why": "5C'S CAPTAIN CHAOS is pair-locked. Neither path sells them."
+        "path_finish": false,
+        "why": "5C'S CAPTAIN CHAOS is pair-locked. All three paths keep them. They are the residual nucleus."
       },
       {
         "animal_id": "AR:35586548",
@@ -26456,7 +26590,8 @@
         "window": "HOLD",
         "path_band": false,
         "path_shrink": false,
-        "why": "CIRCLE CLIFF'S MELVIN is pair-locked. Neither path sells them."
+        "path_finish": false,
+        "why": "CIRCLE CLIFF'S MELVIN is pair-locked. All three paths keep them. They are the residual nucleus."
       },
       {
         "animal_id": "AR:36115044",
@@ -26466,7 +26601,8 @@
         "window": "HOLD",
         "path_band": false,
         "path_shrink": false,
-        "why": "IRISH MEADOWS TAYT is pair-locked. Neither path sells them."
+        "path_finish": false,
+        "why": "IRISH MEADOWS TAYT is pair-locked. All three paths keep them. They are the residual nucleus."
       },
       {
         "animal_id": "NM:MTAR ORLANDO CLOUD S MCDREAMY",
@@ -26476,7 +26612,8 @@
         "window": "HOLD",
         "path_band": false,
         "path_shrink": false,
-        "why": "MTAR ORLANDO CLOUD'S MCDREAMY is pair-locked. Neither path sells them."
+        "path_finish": false,
+        "why": "MTAR ORLANDO CLOUD'S MCDREAMY is pair-locked. All three paths keep them. They are the residual nucleus."
       },
       {
         "animal_id": "AR:30863767",
@@ -26486,7 +26623,8 @@
         "window": "HOLD",
         "path_band": false,
         "path_shrink": false,
-        "why": "SCA PERUVIAN SILVERBELLE is pair-locked. Neither path sells them."
+        "path_finish": false,
+        "why": "SCA PERUVIAN SILVERBELLE is pair-locked. All three paths keep them. They are the residual nucleus."
       },
       {
         "animal_id": "NM:SNOWMASS ENCHANTED TOUCH",
@@ -26496,7 +26634,8 @@
         "window": "HOLD",
         "path_band": false,
         "path_shrink": false,
-        "why": "SNOWMASS ENCHANTED TOUCH is pair-locked. Neither path sells them."
+        "path_finish": false,
+        "why": "SNOWMASS ENCHANTED TOUCH is pair-locked. All three paths keep them. They are the residual nucleus."
       },
       {
         "animal_id": "NM:THOR FARMS LOOKING GLASS",
@@ -26506,7 +26645,8 @@
         "window": "HOLD",
         "path_band": false,
         "path_shrink": false,
-        "why": "THOR FARMS LOOKING GLASS is pair-locked. Neither path sells them."
+        "path_finish": false,
+        "why": "THOR FARMS LOOKING GLASS is pair-locked. All three paths keep them. They are the residual nucleus."
       },
       {
         "animal_id": "NM:WILLOWWIND INSPIRATION",
@@ -26516,7 +26656,8 @@
         "window": "HOLD",
         "path_band": false,
         "path_shrink": false,
-        "why": "WILLOWWIND INSPIRATION is pair-locked. Neither path sells them."
+        "path_finish": false,
+        "why": "WILLOWWIND INSPIRATION is pair-locked. All three paths keep them. They are the residual nucleus."
       },
       {
         "animal_id": "NM:WILLOWWIND SHOGUN",
@@ -26526,7 +26667,8 @@
         "window": "HOLD",
         "path_band": false,
         "path_shrink": false,
-        "why": "WILLOWWIND SHOGUN is pair-locked. Neither path sells them."
+        "path_finish": false,
+        "why": "WILLOWWIND SHOGUN is pair-locked. All three paths keep them. They are the residual nucleus."
       }
     ],
     "band": {
@@ -26544,6 +26686,344 @@
       "n_year2": 48,
       "year2_mean_f_pct": 0.02,
       "year2_unassigned": [],
+      "year2_plan": [
+        {
+          "dam_name": "RR PALOMA PICASSO",
+          "sire_name": "5C'S CAPTAIN CHAOS",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RR WONDER WOMAN",
+          "sire_name": "5C'S CAPTAIN CHAOS",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SC'S CLARKIA",
+          "sire_name": "CIRCLE CLIFF'S MELVIN",
+          "f_pct": 0.08,
+          "verdict": "PROCEED",
+          "reason": "F=0.08% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SCA PERUVIAN SILVERBELLE",
+          "sire_name": "CIRCLE CLIFF'S MELVIN",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "THAT'LL DO BLACKBEARD'S BOOTY",
+          "sire_name": "CIRCLE CLIFF'S MELVIN",
+          "f_pct": 0.08,
+          "verdict": "PROCEED",
+          "reason": "F=0.08% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "VINTAGE CASHMERE'S U-TAUPE-IA",
+          "sire_name": "CIRCLE CLIFF'S MELVIN",
+          "f_pct": 0.05,
+          "verdict": "PROCEED",
+          "reason": "F=0.05% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RED GRANITES JAFFA",
+          "sire_name": "CRESCENT MOON'S KEMMAUS",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RED GRANITES JENGA",
+          "sire_name": "CRESCENT MOON'S KEMMAUS",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RGR'S MISS CONTRARY",
+          "sire_name": "CRESCENT MOON'S KEMMAUS",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "ROYAL DIAMANTE'S JEWEL",
+          "sire_name": "CRESCENT MOON'S KEMMAUS",
+          "f_pct": 0.06,
+          "verdict": "PROCEED",
+          "reason": "F=0.06% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "4-SIGHT'S HOLIDAY",
+          "sire_name": "G-TRIBE'S ROCKY'S ASH",
+          "f_pct": 0.02,
+          "verdict": "PROCEED",
+          "reason": "F=0.02% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "5C'S CHANTERELLA",
+          "sire_name": "G-TRIBE'S ROCKY'S ASH",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "BOMBER'S DIAMOND LIL",
+          "sire_name": "G-TRIBE'S ROCKY'S ASH",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "ESTATES LA PRESTIGE CRIMSON",
+          "sire_name": "G-TRIBE'S ROCKY'S ASH",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SNOWMASS IRON MAIDEN",
+          "sire_name": "HMAF'S AIRGEAD",
+          "f_pct": 0.05,
+          "verdict": "PROCEED",
+          "reason": "F=0.05% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "THOR FARMS LOOKING GLASS",
+          "sire_name": "HMAF'S AIRGEAD",
+          "f_pct": 0.07,
+          "verdict": "PROCEED",
+          "reason": "F=0.07% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "WILLOWWIND ECHO DELTA",
+          "sire_name": "HMAF'S AIRGEAD",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "WILLOWWIND INSPIRATION",
+          "sire_name": "HMAF'S AIRGEAD",
+          "f_pct": 0.1,
+          "verdict": "PROCEED",
+          "reason": "F=0.10% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "MISS AUTARY",
+          "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "NOBLE AMARETTO",
+          "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SNOWMASS ALLURING XX",
+          "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SNOWMASS SIMPLY SMOKIN",
+          "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RED GRANITES JEZEBELL",
+          "sire_name": "MAMGB NATAN SAPA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RGR JIGSAW",
+          "sire_name": "MAMGB NATAN SAPA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RGR JUSTIFICATION",
+          "sire_name": "MAMGB NATAN SAPA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SMOKIN HAUTE",
+          "sire_name": "MAMGB NATAN SAPA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RED GRANITES PRIM & PROPER",
+          "sire_name": "MTAR ORLANDO CLOUD'S MCDREAMY",
+          "f_pct": 0.05,
+          "verdict": "PROCEED",
+          "reason": "F=0.05% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SC'S CHARENTE",
+          "sire_name": "MTAR ORLANDO CLOUD'S MCDREAMY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SNOWMASS ENCHANTED TOUCH",
+          "sire_name": "MTAR ORLANDO CLOUD'S MCDREAMY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SNOWMASS MIDNIGHT GAZE",
+          "sire_name": "MTAR ORLANDO CLOUD'S MCDREAMY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "MARY'S SIQUANI BELLE",
+          "sire_name": "PALLATON'S KALIBAUT ALYST",
+          "f_pct": 0.02,
+          "verdict": "PROCEED",
+          "reason": "F=0.02% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "PARAGON'S ESMERALDA",
+          "sire_name": "PALLATON'S KALIBAUT ALYST",
+          "f_pct": 0.32,
+          "verdict": "PROCEED",
+          "reason": "F=0.32% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "PATAGONIA'S DUSTY",
+          "sire_name": "PALLATON'S KALIBAUT ALYST",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SC'S CARRINGTON",
+          "sire_name": "PALLATON'S KALIBAUT ALYST",
+          "f_pct": 0.05,
+          "verdict": "PROCEED",
+          "reason": "F=0.05% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "APP OSA PHRENCH BRAID",
+          "sire_name": "PATAGONIA'S NERUDA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "APP WILD PHLOX",
+          "sire_name": "PATAGONIA'S NERUDA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "CRYSTAL MOCHACCINO",
+          "sire_name": "PATAGONIA'S NERUDA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "IRISH MEADOWS TAYT",
+          "sire_name": "PATAGONIA'S NERUDA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RR SARAH VAUGHN",
+          "sire_name": "PHPC ARTILLERY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SC'S CRICKIT",
+          "sire_name": "PHPC ARTILLERY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "HEAVEN'S HILL PERUVIAN CELESTIA",
+          "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "HERITAGE SILVER PROMISE",
+          "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "HOWLING HILL SING THE BODY ELECTRIC",
+          "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "MISS ALOHA MOONSHINE",
+          "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "CIRCLE CLIFF'S SWEET CAROLINE",
+          "sire_name": "TCB CORKY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "MTAR PHASMA",
+          "sire_name": "TCB CORKY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RED GRANITES AFTERSHOCK",
+          "sire_name": "TCB CORKY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "WILLOWWIND SL HALO",
+          "sire_name": "TCB CORKY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        }
+      ],
       "kept": [
         "4-SIGHT'S HOLIDAY",
         "5C'S CAPTAIN CHAOS",
@@ -26638,6 +27118,43 @@
       "n_year2": 5,
       "year2_mean_f_pct": 0.07,
       "year2_unassigned": [],
+      "year2_plan": [
+        {
+          "dam_name": "IRISH MEADOWS TAYT",
+          "sire_name": "CIRCLE CLIFF'S MELVIN",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SCA PERUVIAN SILVERBELLE",
+          "sire_name": "CIRCLE CLIFF'S MELVIN",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "THOR FARMS LOOKING GLASS",
+          "sire_name": "CIRCLE CLIFF'S MELVIN",
+          "f_pct": 0.05,
+          "verdict": "PROCEED",
+          "reason": "F=0.05% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "WILLOWWIND INSPIRATION",
+          "sire_name": "CIRCLE CLIFF'S MELVIN",
+          "f_pct": 0.31,
+          "verdict": "PROCEED",
+          "reason": "F=0.31% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SNOWMASS ENCHANTED TOUCH",
+          "sire_name": "MTAR ORLANDO CLOUD'S MCDREAMY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        }
+      ],
       "kept": [
         "5C'S CAPTAIN CHAOS",
         "CIRCLE CLIFF'S MELVIN",
@@ -26717,6 +27234,439 @@
         "WILLOWWIND THE SHAMAN"
       ],
       "summary": "SHRINK_NUCLEUS: 54 living  \u00b7  5 dams \u00d7 4 sires  \u00b7  45 cria  \u00b7  Ne 37.9  \u00b7  last founders 183  \u00b7  year-2 bookings 5"
+    },
+    "finish": {
+      "path": "FINISH_THEN_SHRINK",
+      "n": 54,
+      "n_dams": 5,
+      "n_sires": 4,
+      "n_unsexed": 45,
+      "n_cria": 45,
+      "ne": 37.9,
+      "fge": 22.5,
+      "mean_f_pct": 0.13,
+      "n_last_founders": 183,
+      "n_irreplaceable": 38,
+      "n_year2": 48,
+      "year2_mean_f_pct": 0.2,
+      "year2_unassigned": [],
+      "year2_plan": [
+        {
+          "dam_name": "HEAVEN'S HILL PERUVIAN CELESTIA",
+          "sire_name": "APP PHORCE PHACTOR",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "HOWLING HILL SING THE BODY ELECTRIC",
+          "sire_name": "APP PHORCE PHACTOR",
+          "f_pct": 0.15,
+          "verdict": "PROCEED",
+          "reason": "F=0.15% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "4-SIGHT'S HOLIDAY",
+          "sire_name": "ARAPAHO DELGADO'S ILLYAPA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "rescue: last carrier of AUSSIE GUNS -N- ROSES Huarava 320036107 - LIinited States, BISTURI, LV BLACK EYED SUSAN (+2 more); F=0.00% PROCEED"
+        },
+        {
+          "dam_name": "CIRCLE CLIFF'S SWEET CAROLINE",
+          "sire_name": "CRESCENT MOON'S KEMMAUS",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "rescue: last carrier of ETIENNE OF REDWOOD RIDGE, GREENER PASTURES LAHELA, REMINGTON OF REDWOODRIDGE (+2 more); F=0.00% PROCEED"
+        },
+        {
+          "dam_name": "IRISH MEADOWS TAYT",
+          "sire_name": "CRYSTAL ROYAL GOLD'S MACKINAW",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "rescue: last carrier of SNOWMASS MIDNIGHT FOX, SNOWMASS QUECHUA'S SHAHTOOSH; F=0.00% PROCEED"
+        },
+        {
+          "dam_name": "SC'S CRICKIT",
+          "sire_name": "G-TRIBE'S ROCKY'S ASH",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "VINTAGE CASHMERE'S U-TAUPE-IA",
+          "sire_name": "G-TRIBE'S ROCKY'S ASH",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RR PALOMA PICASSO",
+          "sire_name": "HMAF'S AIRGEAD",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RR WONDER WOMAN",
+          "sire_name": "HMAF'S AIRGEAD",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SCA PERUVIAN SILVERBELLE",
+          "sire_name": "HMAF'S AIRGEAD",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SNOWMASS MIDNIGHT GAZE",
+          "sire_name": "HMAF'S AIRGEAD",
+          "f_pct": 0.07,
+          "verdict": "PROCEED",
+          "reason": "F=0.07% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SNOWMASS ENCHANTED TOUCH",
+          "sire_name": "LIBERTYALPACAS SMOKE SCREEN",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "MISS AUTARY",
+          "sire_name": "MAMGB NATAN SAPA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "NOBLE AMARETTO",
+          "sire_name": "MAMGB NATAN SAPA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RGR'S MISS CONTRARY",
+          "sire_name": "MAMGB NATAN SAPA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "ROYAL DIAMANTE'S JEWEL",
+          "sire_name": "MAMGB NATAN SAPA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "ESTATES LA PRESTIGE CRIMSON",
+          "sire_name": "PALLATON'S KALIBAUT ALYST",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "rescue: last carrier of ACCOYO AMERICA APOCALYPSE, ACCOYO AMERICA MARATHON, MFI PERUVIAN CHAMPAGNE (+5 more); F=0.00% PROCEED"
+        },
+        {
+          "dam_name": "THAT'LL DO BLACKBEARD'S BOOTY",
+          "sire_name": "PATAGONIA'S NERUDA",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "PATAGONIA'S DUSTY",
+          "sire_name": "PHPC ARTILLERY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "rescue: last carrier of 6PERUVIAN DONA MAISA 6537 IMPR98, MI AMIGOS PERUVIAN LUPITA, SCA PERUVIAN DESERT SUN; F=0.00% PROCEED"
+        },
+        {
+          "dam_name": "APP WILD PHLOX",
+          "sire_name": "RED GRANITES ALYDAR",
+          "f_pct": 0.42,
+          "verdict": "PROCEED",
+          "reason": "F=0.42% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "PARAGON'S ESMERALDA",
+          "sire_name": "RED GRANITES ALYDAR",
+          "f_pct": 0.22,
+          "verdict": "PROCEED",
+          "reason": "F=0.22% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RED GRANITES PRIM & PROPER",
+          "sire_name": "RED GRANITES ALYDAR",
+          "f_pct": 0.15,
+          "verdict": "PROCEED",
+          "reason": "F=0.15% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "HERITAGE SILVER PROMISE",
+          "sire_name": "RED GRANITES BRAVEHEART",
+          "f_pct": 0.05,
+          "verdict": "PROCEED",
+          "reason": "rescue: last carrier of CRESCENT MOON'S KRYPTONITE; F=0.05% PROCEED"
+        },
+        {
+          "dam_name": "MTAR PHASMA",
+          "sire_name": "SNOWMASS CONOPA XXX",
+          "f_pct": 2.59,
+          "verdict": "PROCEED",
+          "reason": "rescue: last carrier of MACINTOSH S086 ALOA, PPPERUVIAN PRESTIGE 4999; F=2.59% PROCEED"
+        },
+        {
+          "dam_name": "5C'S CHANTERELLA",
+          "sire_name": "SNOWMASS MAJESTIC REFLECTION",
+          "f_pct": 0.74,
+          "verdict": "PROCEED",
+          "reason": "F=0.74% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "BOMBER'S DIAMOND LIL",
+          "sire_name": "SNOWMASS MAJESTIC REFLECTION",
+          "f_pct": 0.18,
+          "verdict": "PROCEED",
+          "reason": "F=0.18% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "WILLOWWIND SL HALO",
+          "sire_name": "SNOWMASS MAJESTIC REFLECTION",
+          "f_pct": 0.09,
+          "verdict": "PROCEED",
+          "reason": "F=0.09% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "WILLOWWIND ECHO DELTA",
+          "sire_name": "SNOWMASS MATRIX",
+          "f_pct": 0.88,
+          "verdict": "PROCEED",
+          "reason": "rescue: last carrier of GARNETT; F=0.88% PROCEED"
+        },
+        {
+          "dam_name": "MARY'S SIQUANI BELLE",
+          "sire_name": "SNOWMASS SMOKIN WAVES",
+          "f_pct": 0.05,
+          "verdict": "PROCEED",
+          "reason": "F=0.05% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RR SARAH VAUGHN",
+          "sire_name": "SNOWMASS SMOKIN WAVES",
+          "f_pct": 0.49,
+          "verdict": "PROCEED",
+          "reason": "F=0.49% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SC'S CHARENTE",
+          "sire_name": "SNOWMASS SMOKIN WAVES",
+          "f_pct": 0.16,
+          "verdict": "PROCEED",
+          "reason": "F=0.16% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RGR JUSTIFICATION",
+          "sire_name": "SPARTAN'S SILVER-LINING",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SMOKIN HAUTE",
+          "sire_name": "SPARTAN'S SILVER-LINING",
+          "f_pct": 0.4,
+          "verdict": "PROCEED",
+          "reason": "F=0.40% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SNOWMASS ALLURING XX",
+          "sire_name": "SPARTAN'S SILVER-LINING",
+          "f_pct": 0.11,
+          "verdict": "PROCEED",
+          "reason": "F=0.11% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RED GRANITES AFTERSHOCK",
+          "sire_name": "SSAFL MICHELANGELO'S PERUVIAN CUPID",
+          "f_pct": 0.01,
+          "verdict": "PROCEED",
+          "reason": "F=0.01% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RED GRANITES JEZEBELL",
+          "sire_name": "SSAFL MICHELANGELO'S PERUVIAN CUPID",
+          "f_pct": 0.01,
+          "verdict": "PROCEED",
+          "reason": "F=0.01% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RGR JIGSAW",
+          "sire_name": "SSAFL MICHELANGELO'S PERUVIAN CUPID",
+          "f_pct": 0.01,
+          "verdict": "PROCEED",
+          "reason": "F=0.01% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RED GRANITES JENGA",
+          "sire_name": "SUNNYHILL'S ZANG'S BALTAZAR",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "rescue: last carrier of PANAM'S SILVER ANGEL IMPD98 TC), ACCOYO AMERICA ASPEN AC020, FIBRE WORKS DIAMONTE (+4 more); F=0.00% PROCEED"
+        },
+        {
+          "dam_name": "APP OSA PHRENCH BRAID",
+          "sire_name": "TCB CORKY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "CRYSTAL MOCHACCINO",
+          "sire_name": "TCB CORKY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "MISS ALOHA MOONSHINE",
+          "sire_name": "TCB CORKY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "WILLOWWIND INSPIRATION",
+          "sire_name": "TCB CORKY",
+          "f_pct": 0.0,
+          "verdict": "PROCEED",
+          "reason": "F=0.00% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "RED GRANITES JAFFA",
+          "sire_name": "WILLOWWIND SHOGUN",
+          "f_pct": 0.79,
+          "verdict": "PROCEED",
+          "reason": "F=0.79% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SC'S CARRINGTON",
+          "sire_name": "WILLOWWIND SHOGUN",
+          "f_pct": 0.54,
+          "verdict": "PROCEED",
+          "reason": "F=0.54% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SC'S CLARKIA",
+          "sire_name": "WILLOWWIND SHOGUN",
+          "f_pct": 0.45,
+          "verdict": "PROCEED",
+          "reason": "F=0.45% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SNOWMASS IRON MAIDEN",
+          "sire_name": "WILLOWWIND THE SHAMAN",
+          "f_pct": 0.31,
+          "verdict": "PROCEED",
+          "reason": "F=0.31% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "SNOWMASS SIMPLY SMOKIN",
+          "sire_name": "WILLOWWIND THE SHAMAN",
+          "f_pct": 0.7,
+          "verdict": "PROCEED",
+          "reason": "F=0.70% PROCEED; no close common ancestor in the recorded pedigree"
+        },
+        {
+          "dam_name": "THOR FARMS LOOKING GLASS",
+          "sire_name": "WILLOWWIND THE SHAMAN",
+          "f_pct": 0.18,
+          "verdict": "PROCEED",
+          "reason": "F=0.18% PROCEED; no close common ancestor in the recorded pedigree"
+        }
+      ],
+      "kept": [
+        "5C'S CAPTAIN CHAOS",
+        "CIRCLE CLIFF'S MELVIN",
+        "IRISH MEADOWS TAYT",
+        "MTAR ORLANDO CLOUD'S MCDREAMY",
+        "SCA PERUVIAN SILVERBELLE",
+        "SNOWMASS ENCHANTED TOUCH",
+        "THOR FARMS LOOKING GLASS",
+        "WILLOWWIND INSPIRATION",
+        "WILLOWWIND SHOGUN"
+      ],
+      "sold": [
+        "4-SIGHT'S HOLIDAY",
+        "5C'S CHANTERELLA",
+        "APP OSA PHRENCH BRAID",
+        "APP PHORCE PHACTOR",
+        "APP WILD PHLOX",
+        "ARAPAHO DELGADO'S ILLYAPA",
+        "BOMBER'S DIAMOND LIL",
+        "CIRCLE CLIFF'S SWEET CAROLINE",
+        "CRESCENT MOON'S KEMMAUS",
+        "CRYSTAL MOCHACCINO",
+        "CRYSTAL ROYAL GOLD'S MACKINAW",
+        "ESTATES LA PRESTIGE CRIMSON",
+        "G-TRIBE'S ROCKY'S ASH",
+        "HEAVEN'S HILL PERUVIAN CELESTIA",
+        "HERITAGE SILVER PROMISE",
+        "HMAF'S AIRGEAD",
+        "HOWLING HILL SING THE BODY ELECTRIC",
+        "LIBERTYALPACAS SMOKE SCREEN",
+        "MAMGB NATAN SAPA",
+        "MARY'S SIQUANI BELLE",
+        "MISS ALOHA MOONSHINE",
+        "MISS AUTARY",
+        "MTAR PHASMA",
+        "NOBLE AMARETTO",
+        "PALLATON'S KALIBAUT ALYST",
+        "PARAGON'S ESMERALDA",
+        "PATAGONIA'S DUSTY",
+        "PATAGONIA'S NERUDA",
+        "PHPC ARTILLERY",
+        "RED GRANITES AFTERSHOCK",
+        "RED GRANITES ALYDAR",
+        "RED GRANITES BRAVEHEART",
+        "RED GRANITES JAFFA",
+        "RED GRANITES JENGA",
+        "RED GRANITES JEZEBELL",
+        "RED GRANITES PRIM & PROPER",
+        "RGR JIGSAW",
+        "RGR JUSTIFICATION",
+        "RGR'S MISS CONTRARY",
+        "ROYAL DIAMANTE'S JEWEL",
+        "RR PALOMA PICASSO",
+        "RR SARAH VAUGHN",
+        "RR WONDER WOMAN",
+        "SC'S CARRINGTON",
+        "SC'S CHARENTE",
+        "SC'S CLARKIA",
+        "SC'S CRICKIT",
+        "SMOKIN HAUTE",
+        "SNOWMASS ALLURING XX",
+        "SNOWMASS CONOPA XXX",
+        "SNOWMASS IRON MAIDEN",
+        "SNOWMASS MAJESTIC REFLECTION",
+        "SNOWMASS MATRIX",
+        "SNOWMASS MIDNIGHT GAZE",
+        "SNOWMASS SIMPLY SMOKIN",
+        "SNOWMASS SMOKIN WAVES",
+        "SPARTAN'S SILVER-LINING",
+        "SSAFL MICHELANGELO'S PERUVIAN CUPID",
+        "SUNNYHILL'S ZANG'S BALTAZAR",
+        "TCB CORKY",
+        "THAT'LL DO BLACKBEARD'S BOOTY",
+        "VINTAGE CASHMERE'S U-TAUPE-IA",
+        "WILLOWWIND ECHO DELTA",
+        "WILLOWWIND SL HALO",
+        "WILLOWWIND THE SHAMAN"
+      ],
+      "summary": "FINISH_THEN_SHRINK: years 1\u20133 keep 48 year-2 bookings (mean F 0.20%). After year 3, sell the SHRINK list \u2192 54 living, 5 dams \u00d7 4 sires, Ne 37.9."
     }
   },
   "heatmap": {

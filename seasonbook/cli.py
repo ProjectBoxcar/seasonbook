@@ -369,6 +369,15 @@ def cmd_next(args) -> int:
         print("  sell: " + ", ".join(n.band.sold[:12]))
     print("\nSHRINK NUCLEUS")
     print(f"  {n.shrink.summary}")
+    if n.shrink.year2_plan:
+        print(f"  year-2 residual  ({len(n.shrink.year2_plan)} bookings)")
+        for a in n.shrink.year2_plan:
+            print(f"    {a['dam_name']:32s}  ×  {a['sire_name']:28s}  F={a['f_pct']:.2f}%  {a['verdict']}")
+    print("\nFINISH THEN SHRINK")
+    print(f"  {n.finish.summary}")
+    print(f"\nCORE  ({n.n_core})  — pair-locked residual nucleus")
+    for c in n.core:
+        print(f"  {c.sex or '?'}  MK {c.mk_pct:5.2f}%  {c.name}")
     print(f"\nCOLLISIONS  ({n.n_collisions})  — LET GO sires still booked in years 2–3")
     for c in n.collisions:
         print(f"  {c.sire_name:32s}  Y{'/'.join(str(y) for y in c.years)}  {c.n_bookings}×")
@@ -377,7 +386,8 @@ def cmd_next(args) -> int:
     for slot in n.calendar:
         band = "BAND" if slot.path_band else "    "
         shrink = "SHRINK" if slot.path_shrink else "      "
-        print(f"  {slot.window:16s}  {band:5s} {shrink:6s}  {slot.sex or '?'}  {slot.name}")
+        finish = "FINISH" if slot.path_finish else "      "
+        print(f"  {slot.window:16s}  {band:5s} {shrink:6s} {finish:6s}  {slot.sex or '?'}  {slot.name}")
     pdf = write_next_pdf(snap, args.out)
     print(f"  pdf  {pdf}")
     return 0

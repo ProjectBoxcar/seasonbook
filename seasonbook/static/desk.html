@@ -511,9 +511,10 @@ function viewWean(){
 }
 
 function viewNext(){
-  const n = DATA.next || {collisions:[], calendar:[], band:{}, shrink:{}};
+  const n = DATA.next || {collisions:[], calendar:[], core:[], band:{}, shrink:{}, finish:{}};
   const band = n.band || {};
   const shrink = n.shrink || {};
+  const finish = n.finish || {};
   const pathBox = (p, label) => `
     <h2>${label}</h2>
     <p class="note">${esc(p.summary||"")}</p>
@@ -528,6 +529,22 @@ function viewNext(){
     <a href="/next.pdf" style="color:var(--gold)">Next Nucleus PDF</a></p>
     ${pathBox(band, "KEEP DAM BAND")}
     ${pathBox(shrink, "SHRINK NUCLEUS")}
+    ${pathBox(finish, "FINISH THEN SHRINK")}
+    <h2>Shrink year 2 — residual bookings</h2>
+    ${(shrink.year2_plan||[]).length ? `
+    <table><tr><th>Dam</th><th>Sire</th><th>F</th><th>Verdict</th></tr>
+    ${shrink.year2_plan.map(a => `<tr>
+      <td>${esc(a.dam_name)}</td><td>${esc(a.sire_name)}</td>
+      <td>${pct(a.f_pct)}</td><td class="${a.verdict}">${esc(a.verdict)}</td>
+    </tr>`).join("")}
+    </table>` : `<p class="note">No legal adult pairings remain after SHRINK.</p>`}
+    <h2>Core — pair-locked residual nucleus (${n.n_core??0})</h2>
+    <table><tr><th>Animal</th><th>Sex</th><th>MK</th><th>Why</th></tr>
+    ${(n.core||[]).map(c => `<tr>
+      <td>${esc(c.name)}</td><td>${c.sex||"—"}</td>
+      <td>${pct(c.mk_pct)}</td><td>${esc(c.why)}</td>
+    </tr>`).join("")}
+    </table>
     <h2>Horizon collisions — LET GO sires still booked in years 2–3</h2>
     ${(n.collisions||[]).length ? `
     <table><tr><th>Sire</th><th>Years</th><th>Bookings</th><th>Why</th></tr>
@@ -539,13 +556,14 @@ function viewNext(){
     </tr>`).join("")}
     </table>` : `<p class="note">No LET GO sire is booked in years 2–3.</p>`}
     <h2>Sale calendar</h2>
-    <table><tr><th>Animal</th><th>Sex</th><th>Window</th><th>Dam band</th><th>Shrink</th><th>Why</th></tr>
+    <table><tr><th>Animal</th><th>Sex</th><th>Window</th><th>Dam band</th><th>Shrink</th><th>Finish</th><th>Why</th></tr>
     ${(n.calendar||[]).map(s => `<tr>
       <td>${esc(s.name)}</td>
       <td>${s.sex||"—"}</td>
       <td>${esc(s.window)}</td>
       <td class="${s.path_band?'LET_GO':'KEEP'}">${s.path_band?"sell":"keep"}</td>
       <td class="${s.path_shrink?'LET_GO':'KEEP'}">${s.path_shrink?"sell":"keep"}</td>
+      <td class="${s.path_finish?'LET_GO':'KEEP'}">${s.path_finish?"sell":"keep"}</td>
       <td>${esc(s.why)}</td>
     </tr>`).join("")}
     </table>`;
